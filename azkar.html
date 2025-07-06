@@ -5,75 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الأذكار والأدعية الكاملة - موقع نور الهدى</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a5d38;
-            --primary-dark: #0f3a24;
-            --secondary: #c19d0c;
-            --light: #f8f9fa;
-            --dark: #2d2d2d;
-            --gray: #6c757d;
-            --light-gray: #e9ecef;
-            --gold-light: #f9f3e0;
-            --green-light: #e9f5ee;
-            --purple: #6a1b9a;
+            --primary-color: #0a4d1a; /* تغيير اللون الأخضر إلى أخضر غامق */
+            --secondary-color: #1a7d3a;
+            --dark-color: #083612;
+            --light-color: #e6f7eb;
+            --accent-color: #f1c40f;
+            --text-color: #333;
+            --light-text: #555;
+            --white: #fff;
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: #f8f9fa;
-            color: var(--dark);
-            line-height: 1.8;
-            background: linear-gradient(135deg, #f9f9f9 0%, #f5f9f7 100%);
-            position: relative;
-            overflow-x: hidden;
-            min-height: 100vh;
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f9f9f9 0%, #e6f7eb 100%);
         }
         
-        body::before {
+        /* التصميم العام */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin: 30px 0;
+            padding-bottom: 15px;
+            position: relative;
+        }
+        
+        .section-title::after {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
             bottom: 0;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%231a5d3822" d="M20,20 Q40,5 50,30 T80,20 Q95,40 80,50 T95,80 Q80,95 50,80 T20,95 Q5,80 20,50 T5,20 Q20,5 50,20 Z"/></svg>');
-            background-size: 300px;
-            opacity: 0.1;
-            z-index: -1;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+            border-radius: 2px;
         }
         
-        /* Header Styles */
+        /* الهيدر - غير ثابت */
         header {
-            background: linear-gradient(to right, var(--primary-dark), var(--primary));
-            color: white;
-            padding: 1rem;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
+            background: linear-gradient(to right, var(--primary-color), var(--dark-color));
+            color: var(--white);
+            padding: 15px 0;
+            box-shadow: var(--shadow);
+            /* تم إزالة position: sticky لجعل الهيدر غير ثابت */
             z-index: 1000;
-            transform: translateY(0);
-            transition: transform 0.4s ease;
-        }
-        
-        header.hide {
-            transform: translateY(-100%);
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -81,138 +82,63 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            transition: transform 0.3s ease;
-        }
-        
-        .logo:hover {
-            transform: scale(1.03);
+            gap: 15px;
         }
         
         .logo i {
             font-size: 2.5rem;
-            color: var(--secondary);
-            text-shadow: 0 0 10px rgba(193, 157, 12, 0.3);
+            color: var(--accent-color);
             animation: pulse 2s infinite;
         }
         
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
         .logo h1 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            letter-spacing: -0.5px;
-            background: linear-gradient(to right, #f3e37c, #c19d0c);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            letter-spacing: 1px;
         }
         
         nav ul {
             display: flex;
             list-style: none;
+            gap: 25px;
         }
         
-        nav ul li {
-            margin-left: 15px;
-            position: relative;
-        }
-        
-        nav ul li a {
-            color: white;
+        nav a {
+            color: var(--white);
             text-decoration: none;
+            font-size: 1.1rem;
             font-weight: 500;
-            padding: 10px 15px;
-            border-radius: 4px;
+            padding: 8px 15px;
+            border-radius: 5px;
             transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
             position: relative;
-            overflow: hidden;
         }
         
-        nav ul li a::after {
+        nav a::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -5px;
             left: 0;
             width: 0;
-            height: 3px;
-            background: var(--secondary);
+            height: 2px;
+            background-color: var(--accent-color);
             transition: width 0.3s ease;
         }
         
-        nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-        
-        nav ul li a:hover::after {
+        nav a:hover::after {
             width: 100%;
         }
         
-        nav ul li a.active {
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-            padding: 10px;
-        }
-        
-        /* Main Content */
-        .container {
-            max-width: 1300px;
-            margin: 140px auto 40px;
-            padding: 0 20px;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--primary-dark);
-            position: relative;
-            padding-bottom: 20px;
-            font-size: 2.2rem;
-            animation: fadeInDown 1s ease;
-        }
-        
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background-color: var(--secondary);
-            border-radius: 2px;
-        }
-        
-        .intro-text {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.2rem;
-            color: var(--dark);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.9;
+        nav a.active {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            font-weight: 600;
         }
         
         /* بطاقات الأقسام */
@@ -224,7 +150,7 @@
         }
         
         .section-card {
-            background: white;
+            background: var(--white);
             border-radius: 15px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
             overflow: hidden;
@@ -240,16 +166,34 @@
         .section-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            border-color: var(--secondary);
+            border-color: var(--secondary-color);
+        }
+        
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 77, 26, 0.05) 0%, rgba(26, 125, 58, 0.05) 100%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .section-card:hover::before {
+            opacity: 1;
         }
         
         .card-icon {
-            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
             color: var(--white);
             padding: 25px;
             text-align: center;
             font-size: 2.5rem;
             position: relative;
+            z-index: 2;
         }
         
         .card-content {
@@ -257,17 +201,19 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
+            position: relative;
+            z-index: 2;
         }
         
         .card-content h3 {
             font-size: 1.6rem;
-            color: var(--primary-dark);
+            color: var(--primary-color);
             margin-bottom: 15px;
             text-align: center;
         }
         
         .card-content p {
-            color: var(--gray);
+            color: var(--light-text);
             margin-bottom: 20px;
             flex-grow: 1;
             text-align: center;
@@ -276,36 +222,36 @@
         
         .btn {
             display: inline-block;
-            background: var(--secondary);
-            color: var(--dark);
+            background: var(--accent-color);
+            color: var(--dark-color);
             text-align: center;
             padding: 12px 25px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: 2px solid var(--secondary);
+            border: 2px solid var(--accent-color);
             margin-top: 10px;
-            box-shadow: 0 4px 10px rgba(193, 157, 12, 0.3);
+            box-shadow: 0 4px 10px rgba(241, 196, 15, 0.3);
             align-self: center;
         }
         
         .btn:hover {
             background: transparent;
-            color: var(--secondary);
-            border-color: var(--secondary);
+            color: var(--accent-color);
+            border-color: var(--accent-color);
             transform: translateY(-3px);
-            box-shadow: 0 7px 15px rgba(193, 157, 12, 0.4);
+            box-shadow: 0 7px 15px rgba(241, 196, 15, 0.4);
         }
         
         /* أقسام الأذكار - مخفية في البداية */
         .azkar-section {
             background: var(--white);
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--shadow);
             padding: 30px;
             margin: 40px 0;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 2px solid var(--light-color);
             position: relative;
             overflow: hidden;
             display: none; /* إخفاء الأذكار في البداية */
@@ -323,7 +269,7 @@
         
         .azkar-section h3 {
             font-size: 1.8rem;
-            color: var(--primary-dark);
+            color: var(--primary-color);
             margin-bottom: 25px;
             padding-bottom: 15px;
             display: flex;
@@ -342,11 +288,11 @@
             transform: translateX(-50%);
             width: 80%;
             height: 2px;
-            background: linear-gradient(to right, transparent, var(--secondary), transparent);
+            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
         }
         
         .azkar-section h3 i {
-            color: var(--secondary);
+            color: var(--accent-color);
             font-size: 1.5rem;
         }
         
@@ -361,7 +307,7 @@
             border-radius: 12px;
             padding: 25px;
             position: relative;
-            border-left: 5px solid var(--secondary);
+            border-left: 5px solid var(--accent-color);
             transition: all 0.3s ease;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
@@ -375,7 +321,7 @@
         .zekr-text {
             font-size: 1.4rem;
             line-height: 1.9;
-            color: var(--dark);
+            color: var(--dark-color);
             margin-bottom: 20px;
             text-align: center;
             font-weight: 500;
@@ -390,7 +336,7 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 15px;
-            color: var(--gray);
+            color: var(--light-text);
             font-size: 0.95rem;
             padding-top: 15px;
             border-top: 1px dashed rgba(0, 0, 0, 0.1);
@@ -410,8 +356,8 @@
             height: 40px;
             border-radius: 50%;
             border: none;
-            background: var(--secondary);
-            color: var(--dark);
+            background: var(--accent-color);
+            color: var(--dark-color);
             font-size: 1.2rem;
             cursor: pointer;
             display: flex;
@@ -424,7 +370,7 @@
         
         .counter-btn:hover {
             transform: scale(1.1);
-            background: var(--primary);
+            background: var(--primary-color);
             color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -434,7 +380,7 @@
             font-weight: bold;
             min-width: 40px;
             text-align: center;
-            color: var(--primary);
+            color: var(--primary-color);
             background: rgba(10, 77, 26, 0.1);
             border-radius: 50%;
             height: 40px;
@@ -488,7 +434,7 @@
         }
         
         .favorite-btn.favorited {
-            color: var(--secondary);
+            color: var(--accent-color);
         }
         
         .search-box {
@@ -501,7 +447,7 @@
             width: 100%;
             padding: 12px 20px;
             border-radius: 50px;
-            border: 2px solid var(--secondary);
+            border: 2px solid var(--secondary-color);
             font-size: 1.1rem;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
@@ -511,7 +457,7 @@
             right: 5px;
             top: 50%;
             transform: translateY(-50%);
-            background: var(--secondary);
+            background: var(--secondary-color);
             color: white;
             border: none;
             border-radius: 50%;
@@ -530,8 +476,8 @@
         
         .filter-btn {
             background: var(--white);
-            border: 2px solid var(--secondary);
-            color: var(--dark);
+            border: 2px solid var(--secondary-color);
+            color: var(--dark-color);
             padding: 8px 20px;
             border-radius: 30px;
             cursor: pointer;
@@ -540,7 +486,7 @@
         }
         
         .filter-btn.active {
-            background: var(--secondary);
+            background: var(--secondary-color);
             color: white;
         }
         
@@ -566,8 +512,45 @@
         .empty-favorites {
             text-align: center;
             padding: 30px;
-            color: var(--gray);
+            color: var(--light-text);
             font-size: 1.2rem;
+        }
+        
+        /* الفوتر المعدل */
+        footer {
+            background: linear-gradient(to right, var(--primary-color), var(--dark-color));
+            color: var(--white);
+            padding: 40px 0;
+            margin-top: 50px;
+            position: relative;
+            text-align: center;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+        }
+        
+        .footer-message {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 25px 0 0;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+            color: #bbb;
         }
         
         .back-to-top {
@@ -576,8 +559,8 @@
             right: 20px;
             width: 50px;
             height: 50px;
-            background: var(--secondary);
-            color: var(--dark);
+            background: var(--accent-color);
+            color: var(--dark-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -592,134 +575,129 @@
         
         .back-to-top:hover {
             transform: translateY(-5px);
-            background: var(--primary);
+            background: var(--secondary-color);
             color: white;
         }
         
-        /* تنسيقات الفوتر الجديدة */
-        footer {
-            background: linear-gradient(to right, var(--primary), var(--primary-dark));
-            color: var(--white);
-            padding: 50px 0 30px;
-            margin-top: 70px;
-            position: relative;
-            text-align: center;
-            font-size: 1.2rem;
+        /* التجاوب مع الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .zekr-text {
+                font-size: 1.2rem;
+            }
+            
+            .zekr-info {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .footer-message {
+                font-size: 1rem;
+            }
+            
+            .filter-options {
+                gap: 10px;
+            }
         }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--secondary), var(--secondary));
-        }
-        
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .footer-text {
-            margin: 15px 0;
-            line-height: 1.8;
-            font-size: 1.3rem;
-            color: white;
-        }
-        
-        /* التعديلات المطلوبة على النص الذهبي المضيء */
-        .father-name {
-            font-size: 3.5rem;
-            font-weight: bold;
-            margin: 25px 0;
-            color: #FFD700; /* اللون الذهبي الأساسي */
-            text-shadow: 
-                0 0 10px rgba(255, 215, 0, 0.7),
-                0 0 20px rgba(255, 215, 0, 0.5),
-                0 0 30px rgba(255, 215, 0, 0.3),
-                0 0 40px rgba(255, 166, 0, 0.2),
-                0 0 50px rgba(255, 140, 0, 0.1);
-            animation: glow 1.5s ease-in-out infinite alternate, float 4s ease-in-out infinite;
-            font-family: 'Arial', sans-serif;
-            position: relative;
-            display: inline-block;
-            padding: 0 20px;
-            background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 1px;
-            transform-style: preserve-3d;
-            perspective: 500px;
-        }
+/* تنسيقات الفوتر الجديدة */
+footer {
+    background: linear-gradient(to right, var(--primary-color), var(--dark-color));
+    color: var(--white);
+    padding: 50px 0 30px;
+    margin-top: 70px;
+    position: relative;
+    text-align: center;
+    font-size: 1.2rem;
+}
 
-        @keyframes glow {
-            0% {
-                text-shadow: 
-                    0 0 5px rgba(255, 215, 0, 0.5),
-                    0 0 10px rgba(255, 215, 0, 0.4),
-                    0 0 15px rgba(255, 215, 0, 0.3);
-            }
-            100% {
-                text-shadow: 
-                    0 0 15px rgba(255, 215, 0, 0.9),
-                    0 0 25px rgba(255, 215, 0, 0.7),
-                    0 0 35px rgba(255, 215, 0, 0.5),
-                    0 0 45px rgba(255, 166, 0, 0.4),
-                    0 0 55px rgba(255, 140, 0, 0.3);
-            }
-        }
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+}
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotateY(0deg);
-            }
-            50% {
-                transform: translateY(-10px) rotateY(5deg);
-            }
-        }
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-        .father-name::before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: radial-gradient(circle, rgba(255,215,0,0.3) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: -1;
-            animation: pulse 3s infinite ease-in-out;
-            opacity: 0.7;
-        }
+.footer-text {
+    margin: 15px 0;
+    line-height: 1.8;
+    font-size: 1.3rem;
+}
 
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(0.95);
-                opacity: 0.6;
-            }
-            50% {
-                transform: scale(1.05);
-                opacity: 0.9;
-            }
-        }
-        
-        .footer-prayer {
-            margin: 25px 0;
-            line-height: 1.8;
-            font-size: 1.2rem;
-            color: #f0f0f0;
-        }
-        
-        .copyright {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 1rem;
-            color: #bbb;
-        }
+.father-name {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 
+                 0 0 20px rgba(255, 215, 0, 0.5),
+                 0 0 30px rgba(255, 215, 0, 0.3);
+    animation: glow 2s ease-in-out infinite alternate;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-prayer {
+    margin: 25px 0;
+    line-height: 1.8;
+    font-size: 1.2rem;
+    color: #f0f0f0;
+}
+
+.copyright {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1rem;
+    color: #bbb;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.7),
+                     0 0 20px rgba(255, 215, 0, 0.5);
+    }
+    to {
+        text-shadow: 0 0 15px rgba(255, 215, 0, 0.9),
+                     0 0 25px rgba(255, 215, 0, 0.7),
+                     0 0 35px rgba(255, 215, 0, 0.5);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-text {
+        font-size: 1.1rem;
+    }
+    
+    .father-name {
+        font-size: 2rem;
+    }
+    
+    .footer-prayer {
+        font-size: 1rem;
+    }
+}
         
         /* شريط التقدم */
         .progress-container {
@@ -734,75 +712,12 @@
         
         .progress-bar {
             height: 5px;
-            background: linear-gradient(to right, var(--secondary), var(--primary));
+            background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
             width: 0%;
             transition: width 0.2s ease;
         }
         
         /* تحسينات للعرض على الجوال */
-        @media (max-width: 992px) {
-            .section-title {
-                font-size: 1.9rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: row;
-                padding-top: 10px;
-                padding-bottom: 10px;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            nav {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--primary-dark);
-                padding: 20px;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-                transition: clip-path 0.4s ease;
-            }
-            
-            nav.active {
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-            }
-            
-            nav ul {
-                flex-direction: column;
-            }
-            
-            nav ul li {
-                margin: 10px 0;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .container {
-                margin-top: 140px;
-            }
-            
-            .father-name {
-                font-size: 2.2rem;
-                padding: 0 10px;
-            }
-            
-            .zekr-text {
-                font-size: 1.2rem;
-            }
-            
-            .filter-options {
-                gap: 10px;
-            }
-        }
-        
         @media (max-width: 480px) {
             .card-icon {
                 padding: 20px;
@@ -837,26 +752,20 @@
         <div class="progress-bar" id="progressBar"></div>
     </div>
 
-    <!-- Header -->
-    <header id="main-header">
+    <header>
         <div class="header-container">
             <div class="logo">
                 <i class="fas fa-mosque"></i>
                 <h1>نور الهدى</h1>
             </div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
             <nav>
                 <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
-                    <li><a href="quran.html"><i class="fas fa-book-quran"></i> القرآن الكريم</a></li>
-                    <li><a href="hadith.html"><i class="fas fa-book"></i> الأحاديث النبوية</a></li>
-                    <li><a href="azkar.html" class="active"><i class="fas fa-hands-praying"></i> الأذكار والأدعية</a></li>
-                    <li><a href="courses.html"><i class="fas fa-graduation-cap"></i> الدورات الدينية</a></li>
-                    <li><a href="awareness.html"><i class="fas fa-lightbulb"></i> التوعية الدينية</a></li>
-                    <li><a href="daif_hadith.html"><i class="fas fa-exclamation-triangle"></i> أحاديث ضعيفة منتشرة</a></li>
-                    <li><a href="about.html"><i class="fas fa-info-circle"></i> عن الموقع</a></li>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="quran.html">القرآن الكريم</a></li>
+                    <li><a href="hadith.html">الأحاديث النبوية</a></li>
+                    <li><a href="azkar.html" class="active">الأذكار والأدعية</a></li>
+                    <li><a href="awareness.html">التوعية الدينية</a></li>
+                    <li><a href="about.html">عن الموقع</a></li>
                 </ul>
             </nav>
         </div>
@@ -864,7 +773,7 @@
 
     <div class="container">
         <h2 class="section-title">الأذكار والأدعية الكاملة</h2>
-        <p class="intro-text">
+        <p style="text-align: center; margin-bottom: 30px; font-size: 1.2rem; color: var(--light-text); max-width: 800px; margin-left: auto; margin-right: auto;">
             اختر نوع الأذكار أو الأدعية التي ترغب في قراءتها من الأقسام أدناه، جميع الأذكار مأثورة عن رسول الله صلى الله عليه وسلم
         </p>
 
@@ -976,22 +885,28 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-message">
-                <p class="footer-text">هذا الموقع صدقة جارية على روح والدي الحبيب</p>
-                <div class="father-name">سعيد رمضان حنفي</div>
-                <p class="footer-text">أسأل الله أن يتقبله منه، وأن يجعله في ميزان حسناته يوم القيامة، وأن ينفع به المسلمين</p>
-                <p class="footer-prayer">
-                    اللهم اغفر له وارحمه، وعافه واعف عنه، وأكرم نزله، ووسع مدخله، واغسله بالماء والثلج والبرد، ونقه من الذنوب والخطايا كما ينقى الثوب الأبيض من الدنس
-                </p>
-            </div>
-            <div class="copyright">
-                جميع الحقوق محفوظة &copy; 2025 موقع نور الهدى
-            </div>
+
+
+   <footer>
+    <div class="footer-content">
+        <div class="footer-message">
+            <p class="footer-text">هذا الموقع صدقة جارية على روح والدي الحبيب</p>
+            <div class="father-name">سعيد رمضان حنفي</div>
+            <p class="footer-text">أسأل الله أن يتقبله منه، وأن يجعله في ميزان حسناته يوم القيامة، وأن ينفع به المسلمين</p>
+            <p class="footer-prayer">
+                اللهم اغفر له وارحمه، وعافه واعف عنه، وأكرم نزله، ووسع مدخله، واغسله بالماء والثلج والبرد، ونقه من الذنوب والخطايا كما ينقى الثوب الأبيض من الدنس
+            </p>
         </div>
-    </footer>
+        <div class="copyright">
+            جميع الحقوق محفوظة &copy; 2025 موقع نور الهدى
+        </div>
+    </div>
+</footer>
+
+
+
+
+
 
     <script>
         // بيانات الأذكار الكاملة والصحيحة
@@ -1121,7 +1036,7 @@
             evening: [
                 {
                     id: 'e1',
-                    text: "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ<br>اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّmَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ.",
+                    text: "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ<br>اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ.",
                     source: "آية الكرسي - البقرة: 255",
                     count: 1,
                     type: 'quran',
@@ -1153,7 +1068,7 @@
                 },
                 {
                     id: 'e5',
-                    text: "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذِهِ اللَّيْلَةِ وَخَيْرَ mَا بَعْدَهَا، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذِهِ اللَّيْلَةِ وَشَرِّ مَا بَعْدَهَا، رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ.",
+                    text: "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذِهِ اللَّيْلَةِ وَخَيْرَ مَا بَعْدَهَا، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذِهِ اللَّيْلَةِ وَشَرِّ مَا بَعْدَهَا، رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ.",
                     source: "مسلم (2723)",
                     count: 1,
                     type: 'hadith',
@@ -1243,7 +1158,7 @@
             sleep: [
                 {
                     id: 's1',
-                    text: "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ<br>اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ mَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ mِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ.",
+                    text: "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ<br>اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ mِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ.",
                     source: "آية الكرسي - البقرة: 255",
                     count: 1,
                     type: 'quran',
@@ -1365,7 +1280,7 @@
                 },
                 {
                     id: 'd6',
-                    text: "رَبِّ اشْرَحْ لِي صَدْرِي، وَيَسِّرْ لِي أَمْرِي، وَاحْلُلْ عُقْدَةً mِّن لِّسَانِي، يَفْقَهُوا قَوْلِي.",
+                    text: "رَبِّ اشْرَحْ لِي صَدْرِي، وَيَسِّرْ لِي أَمْرِي، وَاحْلُلْ عُقْدَةً مِّن لِّسَانِي، يَفْقَهُوا قَوْلِي.",
                     source: "طه (25-28)",
                     count: 1,
                     type: 'quran',
@@ -1405,7 +1320,7 @@
                 },
                 {
                     id: 'd11',
-                    text: "اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنَ الْخَيْرِ كُلِّهِ عَاجِلِهِ وَآجِلِهِ، mَا عَلِمْتُ مِنْهُ وَمَا لَمْ أَعْلَمْ، وَأَعُوذُ بِكَ مِنَ الشَّرِّ كُلِّهِ عَاجِلِهِ وَآجِلِهِ، مَا عَلِمْتُ مِنْهُ وَمَا لَمْ أَعْلَمْ.",
+                    text: "اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنَ الْخَيْرِ كُلِّهِ عَاجِلِهِ وَآجِلِهِ، مَا عَلِمْتُ مِنْهُ وَمَا لَمْ أَعْلَمْ، وَأَعُوذُ بِكَ مِنَ الشَّرِّ كُلِّهِ عَاجِلِهِ وَآجِلِهِ، مَا عَلِمْتُ مِنْهُ وَمَا لَمْ أَعْلَمْ.",
                     source: "ابن ماجه (3846) وصححه الألباني",
                     count: 1,
                     type: 'hadith',
@@ -1413,7 +1328,7 @@
                 },
                 {
                     id: 'd12',
-                    text: "رَبَّنَا لَا تُؤَاخِذْنَا إِنْ نَسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِنْ قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا mَا لَا طَاقَةَ لَنَا بِهِ ۖ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنْتَ مَوْلَانَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ.",
+                    text: "رَبَّنَا لَا تُؤَاخِذْنَا إِنْ نَسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِنْ قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ ۖ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنْتَ مَوْلَانَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ.",
                     source: "البقرة (286)",
                     count: 1,
                     type: 'quran',
@@ -1730,64 +1645,6 @@
                 if (event.key === 'Enter') {
                     searchAzkar();
                 }
-            });
-            
-            // Navigation Active State
-            const navLinks = document.querySelectorAll('nav ul li a');
-            const currentPage = window.location.pathname.split('/').pop();
-            
-            navLinks.forEach(link => {
-                const linkPage = link.getAttribute('href');
-                if (linkPage === currentPage || (linkPage === 'index.html' && currentPage === '')) {
-                    link.classList.add('active');
-                }
-                
-                link.addEventListener('click', function(e) {
-                    navLinks.forEach(item => item.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Close mobile menu after clicking
-                    if (window.innerWidth <= 768) {
-                        document.querySelector('nav').classList.remove('active');
-                    }
-                });
-            });
-            
-            // Mobile menu functionality
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const nav = document.querySelector('nav');
-            
-            mobileMenuBtn.addEventListener('click', function() {
-                nav.classList.toggle('active');
-            });
-            
-            // Close menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target) && nav.classList.contains('active')) {
-                    nav.classList.remove('active');
-                }
-            });
-            
-            // التحكم في ظهور واختفاء الهيدر عند التمرير
-            let lastScrollTop = 0;
-            const scrollThreshold = 50;
-            let isHeaderVisible = true;
-            const header = document.getElementById('main-header');
-            
-            window.addEventListener('scroll', function() {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                if (scrollTop > lastScrollTop && scrollTop > scrollThreshold && isHeaderVisible) {
-                    // التمرير لأسفل - إخفاء الهيدر
-                    header.classList.add('hide');
-                    isHeaderVisible = false;
-                } else if (scrollTop < lastScrollTop && !isHeaderVisible) {
-                    // التمرير لأعلى - إظهار الهيدر
-                    header.classList.remove('hide');
-                    isHeaderVisible = true;
-                }
-                
-                lastScrollTop = scrollTop;
             });
         });
     </script>
