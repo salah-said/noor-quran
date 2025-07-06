@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدورات الدينية - موقع نور الهدى</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1a5d38;
+            --primary-dark: #0f3a24;
+            --secondary: #c19d0c;
+            --light: #f8f9fa;
+            --dark: #2d2d2d;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --gold-light: #f9f3e0;
+            --green-light: #e9f5ee;
+            --purple: #6a1b9a;
+            --blue: #1a5d9c;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: var(--dark);
+            line-height: 1.8;
+            background: linear-gradient(135deg, #f9f9f9 0%, #f5f9f7 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%231a5d3822" d="M20,20 Q40,5 50,30 T80,20 Q95,40 80,50 T95,80 Q80,95 50,80 T20,95 Q5,80 20,50 T5,20 Q20,5 50,20 Z"/></svg>');
+            background-size: 300px;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        /* Header - Improved Design */
+        header {
+            background: linear-gradient(to right, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 0.8rem 1rem;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.03);
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            text-shadow: 0 0 10px rgba(193, 157, 12, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #f3e37c, #c19d0c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+        
+        nav ul li {
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 12px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        nav ul li a.active {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        /* Main Content */
+        .page-header {
+            padding: 100px 20px;
+            background: linear-gradient(rgba(15, 40, 25, 0.9), rgba(10, 30, 20, 0.85)), url('https://images.unsplash.com/photo-1519652578-4742e0b57574?auto=format&fit=crop&q=80&w=1887') no-repeat center center/cover;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+        
+        .page-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="none" stroke="%23c19d0c22" stroke-width="2" d="M20,20 Q40,5 50,30 T80,20 Q95,40 80,50 T95,80 Q80,95 50,80 T20,95 Q5,80 20,50 T5,20 Q20,5 50,20 Z"/></svg>');
+            background-size: 200px;
+            opacity: 0.4;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            color: #f9e076;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .page-header p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #f0f0f0;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(to right, var(--secondary), #d4af37);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 6px 15px rgba(193, 157, 12, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #d4af37, var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        
+        .btn:hover::before {
+            opacity: 1;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(193, 157, 12, 0.4);
+        }
+        
+        .btn span {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .btn i {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            margin-right: 15px;
+        }
+        
+        .btn-outline:hover {
+            background: linear-gradient(to right, var(--secondary), #d4af37);
+        }
+        
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-dark);
+            position: relative;
+            padding-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-bottom: 60px;
+        }
+        
+        .section-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-icon {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+        
+        .courses-card .card-icon {
+            background: linear-gradient(135deg, var(--purple), #4a148c);
+        }
+        
+        .suspicions-card .card-icon {
+            background: linear-gradient(135deg, var(--blue), #0d3c7a);
+        }
+        
+        .card-content {
+            padding: 30px;
+            position: relative;
+            z-index: 2;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-content h3 {
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+        }
+        
+        .card-content p {
+            margin-bottom: 25px;
+            color: var(--dark);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+        
+        .card-content .btn {
+            margin-top: 20px;
+            align-self: flex-start;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #1a252f, #0d161e);
+            color: white;
+            padding: 70px 0 30px;
+            margin-top: 60px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="none" stroke="%23c19d0c15" stroke-width="1" d="M20,20 Q40,5 50,30 T80,20 Q95,40 80,50 T95,80 Q80,95 50,80 T20,95 Q5,80 20,50 T5,20 Q20,5 50,20 Z"/></svg>');
+            background-size: 200px;
+            opacity: 0.3;
+        }
+        
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 50px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-col h3 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            font-size: 1.6rem;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-col ul li a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--secondary);
+            padding-right: 8px;
+        }
+        
+        .footer-col ul li i {
+            font-size: 1.1rem;
+            width: 25px;
+            text-align: center;
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.1rem;
+            color: var(--light-gray);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+        }
+        
+        .contact-info a {
+            color: var(--light-gray);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-info a:hover {
+            color: var(--secondary);
+        }
+        
+        .contact-info i {
+            color: var(--secondary);
+            width: 25px;
+            text-align: center;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px rgba(243, 227, 124, 0.5); }
+            100% { text-shadow: 0 0 20px rgba(243, 227, 124, 0.8), 0 0 30px rgba(243, 227, 124, 0.6); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            nav ul li a {
+                padding: 10px 12px;
+                font-size: 0.95rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .page-header p {
+                font-size: 1.2rem;
+            }
+            
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+            
+            nav ul li a {
+                padding: 8px 10px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 300px;
+                height: 100vh;
+                background: var(--primary-dark);
+                padding: 80px 20px 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                transition: right 0.4s ease;
+                z-index: 1000;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .page-header h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .page-header {
+                padding: 80px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header {
+                padding: 60px 20px;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .logo h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-mosque"></i>
+                <h1><a href="index.html" style="color: inherit; text-decoration: none;">نور الهدى</a></h1>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="quran.html"><i class="fas fa-book-quran"></i> القرآن الكريم</a></li>
+                    <li><a href="hadith.html"><i class="fas fa-book"></i> الأحاديث النبوية</a></li>
+                    <li><a href="azkar.html"><i class="fas fa-hands-praying"></i> الأذكار والأدعية</a></li>
+                    <li><a href="courses.html" class="active"><i class="fas fa-graduation-cap"></i> الدورات الدينية</a></li>
+                    <li><a href="awareness.html"><i class="fas fa-lightbulb"></i> التوعية الدينية</a></li>
+                    <li><a href="daif_hadith.html"><i class="fas fa-exclamation-triangle"></i> أحاديث ضعيفة منتشرة</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> عن الموقع</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <h1>الدورات الدينية</h1>
+        <p>تعلم أمور دينك بكل يسر وسهولة من خلال دوراتنا الدينية المتخصصة</p>
+    </section>
+
+    <div class="container" id="courses-section">
+        <h2 class="section-title">الدورات المتاحة</h2>
+        <div class="sections-grid">
+            <div class="section-card courses-card">
+                <div class="card-icon">
+                    <i class="fas fa-mosque"></i>
+                </div>
+                <div class="card-content">
+                    <h3>الصلاة خطوة بخطوة</h3>
+                    <p>تعلم كيفية أداء الصلاة بشكل صحيح، خطوة بخطوة، مع شرح للأركان والواجبات والسنن. هذه الدورة مناسبة للمبتدئين وللمسلمين الجدد.</p>
+                    <a href="prayer-course.html" class="btn"><i class="fas fa-play-circle"></i> ابدأ الدورة</a>
+                </div>
+            </div>
+
+            <div class="section-card courses-card">
+                <div class="card-icon">
+                    <i class="fas fa-hand-sparkles"></i>
+                </div>
+                <div class="card-content">
+                    <h3>الوضوء الصحيح</h3>
+                    <p>دورة عملية لتعلم الطريقة الصحيحة للوضوء كما وردت في السنة النبوية المطهرة، مع بيان فروض الوضوء وسننه ومبطلاته.</p>
+                    <a href="wudu-course.html" class="btn"><i class="fas fa-play-circle"></i> ابدأ الدورة</a>
+                </div>
+            </div>
+
+            <div class="section-card courses-card">
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="card-content">
+                    <h3>بر الوالدين</h3>
+                    <p>دورة تتناول فضل بر الوالدين ومكانتهما في الإسلام، مع بيان حقوقهما وكيفية الإحسان إليهما، وذكر قصص واقعية عن بر الوالدين.</p>
+                    <a href="parents-rights.html" class="btn"><i class="fas fa-play-circle"></i> ابدأ الدورة</a>
+                </div>
+            </div>
+
+            <div class="section-card courses-card">
+                <div class="card-icon">
+                    <i class="fas fa-book-heart"></i>
+                </div>
+                <div class="card-content">
+                    <h3>شرح المختصر في العقيدة</h3>
+                    <p>شرح مبسط لأهم مسائل الاعتقاد الإسلامي التي لا يسع المسلم جهلها، مع بيان ما عليه أهل السنة والجماعة.</p>
+                    <a href="aqidah-course.html" class="btn"><i class="fas fa-play-circle"></i> ابدأ الدورة</a>
+                </div>
+            </div>
+            
+            <div class="section-card courses-card">
+                <div class="card-icon">
+                    <i class="fas fa-bookmark"></i>
+                </div>
+                <div class="card-content">
+                    <h3>سيرة النبي محمد ﷺ</h3>
+                    <p>رحلة عبر السيرة النبوية العطرة، تتعرف فيها على أهم أحداث حياة النبي ﷺ ودروسه المستفادة.</p>
+                    <a href="سيرة_النبي_محمد.html" class="btn"><i class="fas fa-play-circle"></i> ابدأ الدورة</a>
+                </div>
+            </div>
+            
+            <div class="section-card suspicions-card">
+                <div class="card-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="card-content">
+                    <h3>قواعد التعامل مع الشبهات الفكرية المعاصرة</h3>
+                    <p>دورة متخصصة في كيفية التعامل مع الشبهات الفكرية المعاصرة، وتقديم الأدلة الشرعية والعقلية للرد عليها، مع تعزيز الثقة في الدين الإسلامي.</p>
+                    <a href="suspicions.html" class="btn"><i class="fas fa-play-circle"></i> ابدأ الدورة</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>عن نور الهدى</h3>
+                <p>موقع نور الهدى هو موقع إسلامي غير ربحي يهدف إلى نشر العلم الشرعي الصحيح من القرآن والسنة النبوية الصحيحة، مع الالتزام بمنهج أهل السنة والجماعة.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="quran.html"><i class="fas fa-book-quran"></i> القرآن الكريم</a></li>
+                    <li><a href="hadith.html"><i class="fas fa-book"></i> الأحاديث النبوية</a></li>
+                    <li><a href="azkar.html"><i class="fas fa-hands-praying"></i> الأذكار والأدعية</a></li>
+                    <li><a href="courses.html"><i class="fas fa-graduation-cap"></i> الدورات الدينية</a></li>
+                    <li><a href="awareness.html"><i class="fas fa-lightbulb"></i> التوعية الدينية</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> عن الموقع</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>للتواصل أو تقديم الشكاوى</h3>
+                <div class="contact-info">
+                    <a href="mailto:01098979522zz@gmail.com">
+                        <i class="fas fa-envelope"></i> 01098979522zz@gmail.com
+                    </a>
+                   <a href="mailto:s.hanafi2629@su.edu.eg">
+                        <i class="fas fa-envelope"></i> s.hanafi2629@su.edu.eg
+                    </a>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>جميع الحقوق محفوظة &copy; 2025 موقع نور الهدى</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation Active State
+        const navLinks = document.querySelectorAll('nav ul li a');
+        const currentPage = window.location.pathname.split('/').pop();
+        
+        navLinks.forEach(link => {
+            const linkPage = link.getAttribute('href');
+            if (linkPage === currentPage) {
+                link.classList.add('active');
+            }
+            
+            link.addEventListener('click', function(e) {
+                navLinks.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Close mobile menu after clicking
+                if (window.innerWidth <= 768) {
+                    document.querySelector('nav').classList.remove('active');
+                }
+            });
+        });
+        
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            nav.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target) && 
+                !mobileMenuBtn.contains(e.target) && 
+                nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            }
+        });
+        
+        // Add animations to elements
+        const animatedElements = document.querySelectorAll('.section-card');
+        
+        function animateOnScroll() {
+            animatedElements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Set initial styles for animation
+        animatedElements.forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'all 0.6s ease';
+        });
+        
+        // Add scroll event listener
+        window.addEventListener('scroll', animateOnScroll);
+        // Trigger once on load
+        window.addEventListener('load', animateOnScroll);
+        
+        // Header scroll effect
+        let lastScrollTop = 0;
+        window.addEventListener("scroll", function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down
+                document.querySelector("header").style.transform = "translateY(-100%)";
+            } else {
+                // Scrolling up
+                document.querySelector("header").style.transform = "translateY(0)";
+            }
+            lastScrollTop = scrollTop;
+        });
+    </script>
+</body>
+</html>

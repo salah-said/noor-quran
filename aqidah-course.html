@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دورة شرح المختصر في العقيدة - الشيخ عثمان الخميس | نور الهدى</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a5d38;
+            --secondary: #c19d0c;
+            --light: #f8f9fa;
+            --dark: #2d2d2d;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f9f7;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .back-btn:hover {
+            background: #0f3a24;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary), #0f3a24);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="none" stroke="%23c19d0c22" stroke-width="2" d="M20,20 Q40,5 50,30 T80,20 Q95,40 80,50 T95,80 Q80,95 50,80 T20,95 Q5,80 20,50 T5,20 Q20,5 50,20 Z"/></svg>');
+            background-size: 150px;
+            opacity: 0.3;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        header p {
+            position: relative;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .sheikh-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            position: relative;
+            background: rgba(0,0,0,0.2);
+            padding: 10px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .sheikh-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--secondary);
+            box-shadow: 0 0 15px rgba(193, 157, 12, 0.5);
+        }
+        
+        .sheikh-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .course-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .course-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .lessons-list {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            max-height: 800px;
+            overflow-y: auto;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .lesson-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .lesson-item:hover {
+            background-color: #f0f7f3;
+        }
+        
+        .lesson-item.active {
+            background: linear-gradient(to right, var(--primary), #0f3a24);
+            color: white;
+        }
+        
+        .lesson-item i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .lesson-item.active i {
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .video-container {
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .lesson-details {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-top: 30px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .lesson-details h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(to right, var(--secondary), #d4af37);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(193, 157, 12, 0.3);
+        }
+        
+        .btn:hover {
+            background: linear-gradient(to right, #d4af37, var(--secondary));
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(193, 157, 12, 0.4);
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0f3a24;
+        }
+        
+        .search-box {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 1;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 93, 56, 0.2);
+        }
+        
+        .lesson-number {
+            background: var(--secondary);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .lesson-item.active .lesson-number {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .progress-container {
+            width: 100%;
+            background: #e0e0e0;
+            border-radius: 5px;
+            margin: 20px 0;
+            height: 8px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 5px;
+            width: 25%;
+            transition: width 0.5s ease;
+        }
+        
+        .progress-text {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .action-btn {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background: #f0f7f3;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .action-btn:hover {
+            background: #e0ecf9;
+        }
+        
+        .action-btn i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- زر الرجوع إلى courses.html -->
+        <a href="courses.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> العودة لقائمة الدورات
+        </a>
+
+        <header>
+            <h1><i class="fas fa-book-open"></i> دورة شرح المختصر في العقيدة</h1>
+            <p>شرح وافي لأصول العقيدة الإسلامية الصحيحة</p>
+            <div class="sheikh-info">
+                <div class="sheikh-avatar">
+                    <img src="https://i.ytimg.com/vi/l09_G7-Z7wA/hqdefault.jpg" alt="الشيخ عثمان الخميس">
+                </div>
+                <div>
+                    <h3>الشيخ عثمان الخميس</h3>
+                    <p>دكتوراه في العقيدة الإسلامية</p>
+                </div>
+            </div>
+        </header>
+        
+        <div class="course-content">
+            <div class="lessons-list">
+                <div class="search-box">
+                    <input type="text" placeholder="ابحث عن درس..." id="searchInput">
+                </div>
+                
+                <div class="lesson-item active" onclick="playVideo('l09_G7-Z7wA', this, 0)">
+                    <div class="lesson-number">1</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 1: مقدمة في علم العقيدة</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('h6OIIV9p9lk', this, 1)">
+                    <div class="lesson-number">2</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 2: أركان الإيمان</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('tqi6aypafps', this, 2)">
+                    <div class="lesson-number">3</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 3: الإيمان بالله تعالى</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('BnSunCLwOh4', this, 3)">
+                    <div class="lesson-number">4</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 4: توحيد الربوبية</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('Jm-5C50FMZg', this, 4)">
+                    <div class="lesson-number">5</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 5: توحيد الألوهية</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('unoOI6O8Ghs', this, 5)">
+                    <div class="lesson-number">6</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 6: توحيد الأسماء والصفات</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('mbcDzgp9frY', this, 6)">
+                    <div class="lesson-number">7</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 7: الإيمان بالملائكة</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('9NUNV1ct4-Q', this, 7)">
+                    <div class="lesson-number">8</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 8: الإيمان بالكتب السماوية</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('wJcAJ8GrQWA', this, 8)">
+                    <div class="lesson-number">9</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 9: الإيمان بالرسل</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('iJGl4tzdZ98', this, 9)">
+                    <div class="lesson-number">10</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 10: خاتم النبيين</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('BsEzWuR0SjE', this, 10)">
+                    <div class="lesson-number">11</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 11: الإيمان باليوم الآخر</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('3pfJW8HzWuo', this, 11)">
+                    <div class="lesson-number">12</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 12: الإيمان بالقدر</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('wdBLjYgSODQ', this, 12)">
+                    <div class="lesson-number">13</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 13: نواقض الإيمان</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('OmQ7cQVQ2Nw', this, 13)">
+                    <div class="lesson-number">14</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 14: البدع والمحدثات</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('xC_04eFAIo4', this, 14)">
+                    <div class="lesson-number">15</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 15: الفرق الضالة</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('kUDuEqgL7_c', this, 15)">
+                    <div class="lesson-number">16</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 16: حقيقة الإيمان</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('41LOI5veohI', this, 16)">
+                    <div class="lesson-number">17</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 17: زيادة الإيمان ونقصانه</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('iVfUSXvuHEw', this, 17)">
+                    <div class="lesson-number">18</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 18: الوسيلة في العقيدة</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('P6dDqUHncbY', this, 18)">
+                    <div class="lesson-number">19</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 19: الشفاعة في الإسلام</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('wvJnmtPOzEk', this, 19)">
+                    <div class="lesson-number">20</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 20: الرؤية في الآخرة</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('tkcwX8dnxLo', this, 20)">
+                    <div class="lesson-number">21</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 21: القضاء والقدر</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('VlzYp83xYCE', this, 21)">
+                    <div class="lesson-number">22</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 22: الإيمان بالغيب</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('ksFQ7XL1rvY', this, 22)">
+                    <div class="lesson-number">23</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 23: الصحابة والخلافة</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('7QjSuoCMZkU', this, 23)">
+                    <div class="lesson-number">24</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 24: أهل السنة والجماعة</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('OHWu5usMaNc', this, 24)">
+                    <div class="lesson-number">25</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 25: التوسل المشروع والممنوع</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('aGqMpXlErFQ', this, 25)">
+                    <div class="lesson-number">26</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 26: الولاء والبراء</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('CBNS0ql4h1A', this, 26)">
+                    <div class="lesson-number">27</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 27: الجهاد في الإسلام</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('7pEuR13rIR0', this, 27)">
+                    <div class="lesson-number">28</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 28: الحكم بغير ما أنزل الله</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('XAnYGWWbfU0', this, 28)">
+                    <div class="lesson-number">29</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 29: التكفير وأحكامه</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('l09_G7-Z7wA', this, 29)">
+                    <div class="lesson-number">30</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 30: خاتمة الدورة</span>
+                </div>
+            </div>
+            
+            <div>
+                <div class="video-container">
+                    <iframe id="videoPlayer" src="https://www.youtube.com/embed/l09_G7-Z7wA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <div class="lesson-details">
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">3% مكتمل (1/30 درس)</div>
+                    
+                    <h3><i class="fas fa-info-circle"></i> عن هذا الدرس</h3>
+                    <p id="lessonDescription">في هذا الدرس يقدم الشيخ عثمان الخميس مقدمة شاملة عن علم العقيدة وأهميته في حياة المسلم، مع بيان مكانة العقيدة الصحيحة في الإسلام وأثرها على سلوك الفرد والمجتمع.</p>
+                    
+                    <h3 style="margin-top: 20px;"><i class="fas fa-book"></i> المواد العلمية</h3>
+                    <ul style="margin-right: 20px; margin-top: 10px; line-height: 2;">
+                        <li><i class="fas fa-file-pdf" style="color: var(--primary);"></i> تحميل كتاب المختصر في العقيدة PDF</li>
+                        <li><i class="fas fa-file-alt" style="color: var(--primary);"></i> ملخص الدرس الأول</li>
+                        <li><i class="fas fa-question-circle" style="color: var(--primary);"></i> أسئلة تقويمية</li>
+                    </ul>
+                    
+                    <div class="actions">
+                        <div class="action-btn" onclick="prevLesson()">
+                            <i class="fas fa-arrow-left"></i>
+                            <div>السابق</div>
+                        </div>
+                        <div class="action-btn" onclick="markAsCompleted()">
+                            <i class="fas fa-check-circle"></i>
+                            <div>تم المشاهدة</div>
+                        </div>
+                        <div class="action-btn" onclick="nextLesson()">
+                            <i class="fas fa-arrow-right"></i>
+                            <div>التالي</div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://drive.google.com/uc?export=download&id=1bX8Ihhev31i2KcHK8rB9hAPAL9ChlX6V" class="btn" download="المختصر في العقيدة - خالد بن علي المشيقح - طريق الإسلام.pdf">
+                        <i class="fas fa-download"></i> تحميل جميع المواد
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // بيانات الدروس (30 درسًا)
+        const lessons = [
+            {id: 'l09_G7-Z7wA', title: 'الدرس 1: مقدمة في علم العقيدة', desc: 'في هذا الدرس يقدم الشيخ عثمان الخميس مقدمة شاملة عن علم العقيدة وأهميته في حياة المسلم، مع بيان مكانة العقيدة الصحيحة في الإسلام وأثرها على سلوك الفرد والمجتمع.'},
+            {id: 'h6OIIV9p9lk', title: 'الدرس 2: أركان الإيمان', desc: 'شرح مفصل لأركان الإيمان الستة كما وردت في حديث جبريل عليه السلام، مع بيان معنى كل ركن وأثره في حياة المسلم.'},
+            {id: 'tqi6aypafps', title: 'الدرس 3: الإيمان بالله تعالى', desc: 'تفصيل لأصول الإيمان بالله تعالى من حيث ربوبيته وألوهيته وأسمائه وصفاته، مع الرد على بعض الشبهات.'},
+            {id: 'BnSunCLwOh4', title: 'الدرس 4: توحيد الربوبية', desc: 'شرح معنى توحيد الربوبية وأدلته من القرآن والسنة، مع بيان الفرق بينه وبين توحيد الألوهية.'},
+            {id: 'Jm-5C50FMZg', title: 'الدرس 5: توحيد الألوهية', desc: 'تفصيل لأهمية توحيد الألوهية وعلامات تحقيقه في حياة المسلم، مع ذكر بعض المخالفات المنتشرة.'},
+            {id: 'unoOI6O8Ghs', title: 'الدرس 6: توحيد الأسماء والصفات', desc: 'بيان منهج أهل السنة والجماعة في أسماء الله وصفاته، مع الرد على الفرق الضالة في هذا الباب.'},
+            {id: 'mbcDzgp9frY', title: 'الدرس 7: الإيمان بالملائكة', desc: 'شرح لأصول الإيمان بالملائكة وصفاتهم وأعمالهم، مع ذكر بعض الملائكة وأسماءهم ووظائفهم.'},
+            {id: '9NUNV1ct4-Q', title: 'الدرس 8: الإيمان بالكتب السماوية', desc: 'بيان أهمية الإيمان بالكتب السماوية المنزلة من عند الله، مع التركيز على القرآن الكريم وخصائصه.'},
+            {id: 'wJcAJ8GrQWA', title: 'الدرس 9: الإيمان بالرسل', desc: 'شرح لأركان الإيمان بالرسل وصفاتهم، مع ذكر بعض الفوائد والعبر من قصصهم.'},
+            {id: 'iJGl4tzdZ98', title: 'الدرس 10: خاتم النبيين', desc: 'بيان مكانة النبي محمد ﷺ وخصائصه، مع الرد على الشبهات حول ختم النبوة.'},
+            {id: 'BsEzWuR0SjE', title: 'الدرس 11: الإيمان باليوم الآخر', desc: 'تفصيل لأحداث يوم القيامة وأهوالها، مع شرح علامات الساعة الصغرى والكبرى.'},
+            {id: '3pfJW8HzWuo', title: 'الدرس 12: الإيمان بالقدر', desc: 'شرح لأركان الإيمان بالقدر الأربعة، مع بيان الفرق بين الجبر والاختيار.'},
+            {id: 'wdBLjYgSODQ', title: 'الدرس 13: نواقض الإيمان', desc: 'بيان أهم نواقض الإيمان التي قد يقع فيها المسلم، مع التحذير من الشرك الأكبر والأصغر.'},
+            {id: 'OmQ7cQVQ2Nw', title: 'الدرس 14: البدع والمحدثات', desc: 'شرح لمفهوم البدعة وأقسامها، مع ذكر أمثلة للبدع المنتشرة في العبادات والمعاملات.'},
+            {id: 'xC_04eFAIo4', title: 'الدرس 15: الفرق الضالة', desc: 'تعريف بأهم الفرق الضالة وأصولها الفكرية، مع بيان منهج أهل السنة في التعامل معها.'},
+            {id: 'kUDuEqgL7_c', title: 'الدرس 16: حقيقة الإيمان', desc: 'شرح لمفهوم الإيمان في اللغة والشرع، وبيان العلاقة بين الإيمان والعمل.'},
+            {id: '41LOI5veohI', title: 'الدرس 17: زيادة الإيمان ونقصانه', desc: 'بيان الأدلة على أن الإيمان يزيد وينقص، وعوامل زيادة الإيمان في حياة المسلم.'},
+            {id: 'iVfUSXvuHEw', title: 'الدرس 18: الوسيلة في العقيدة', desc: 'شرح لمفهوم الوسيلة المشروعة والممنوعة في الإسلام، مع ذكر الأدلة من الكتاب والسنة.'},
+            {id: 'P6dDqUHncbY', title: 'الدرس 19: الشفاعة في الإسلام', desc: 'تفصيل لأنواع الشفاعة يوم القيامة، والفرق بين الشفاعة الشركية والشفاعة المشروعة.'},
+            {id: 'wvJnmtPOzEk', title: 'الدرس 20: الرؤية في الآخرة', desc: 'بيان عقيدة أهل السنة في رؤية المؤمنين لربهم يوم القيامة، مع الرد على المخالفين.'},
+            {id: 'tkcwX8dnxLo', title: 'الدرس 21: القضاء والقدر', desc: 'شرح مفصل لمراتب القضاء والقدر، وبيان موقف المسلم من الأقدار المختلفة.'},
+            {id: 'VlzYp83xYCE', title: 'الدرس 22: الإيمان بالغيب', desc: 'بيان أهمية الإيمان بالغيب كأصل من أصول الإيمان، وذكر بعض مظاهر الغيب التي يؤمن بها المسلم.'},
+            {id: 'ksFQ7XL1rvY', title: 'الدرس 23: الصحابة والخلافة', desc: 'شرح لمنزلة الصحابة رضي الله عنهم، وبيان عقيدة أهل السنة في الخلافة الراشدة.'},
+            {id: '7QjSuoCMZkU', title: 'الدرس 24: أهل السنة والجماعة', desc: 'تعريف بأهل السنة والجماعة وبيان أصولهم في العقيدة والفقه والسلوك.'},
+            {id: 'OHWu5usMaNc', title: 'الدرس 25: التوسل المشروع والممنوع', desc: 'تفصيل لأنواع التوسل، مع بيان المشروع منه والممنوع بدليل الكتاب والسنة.'},
+            {id: 'aGqMpXlErFQ', title: 'الدرس 26: الولاء والبراء', desc: 'شرح لمفهوم الولاء والبراء في الإسلام، وبيان ضوابطه الشرعية.'},
+            {id: 'CBNS0ql4h1A', title: 'الدرس 27: الجهاد في الإسلام', desc: 'بيان مفهوم الجهاد وأحكامه، وذكر ضوابطه الشرعية وأهدافه.'},
+            {id: '7pEuR13rIR0', title: 'الدرس 28: الحكم بغير ما أنزل الله', desc: 'شرح لأحكام الحكم بغير ما أنزل الله، وبيان الفرق بين الكفر الأصغر والأكبر في هذه المسألة.'},
+            {id: 'XAnYGWWbfU0', title: 'الدرس 29: التكفير وأحكامه', desc: 'بيان ضوابط التكفير في الإسلام، والتحذير من التكفير بغير بينة.'},
+            {id: 'l09_G7-Z7wA', title: 'الدرس 30: خاتمة الدورة', desc: 'تلخيص لأهم ما ورد في الدورة، مع توجيهات ونصائح للاستفادة العملية من هذه الدروس.'}
+        ];
+
+        let currentLesson = 0;
+        let completedLessons = JSON.parse(localStorage.getItem('completedLessons')) || [];
+
+        function playVideo(videoId, element, lessonIndex) {
+            // تحديث مشغل الفيديو
+            document.getElementById('videoPlayer').src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+            
+            // تحديث الدرس الحالي
+            currentLesson = lessonIndex;
+            
+            // تحديث الوصف
+            document.getElementById('lessonDescription').textContent = lessons[lessonIndex].desc;
+            
+            // تحديث شريط التقدم
+            updateProgress();
+            
+            // تحديث العنصر النشط
+            const lessonsElements = document.querySelectorAll('.lesson-item');
+            lessonsElements.forEach(lesson => lesson.classList.remove('active'));
+            element.classList.add('active');
+            
+            // التمرير إلى العنصر النشط
+            element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function updateProgress() {
+            const progress = Math.round(((currentLesson + 1) / lessons.length) * 100);
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressText').textContent = 
+                progress + '% مكتمل (' + (currentLesson + 1) + '/' + lessons.length + ' درس)';
+        }
+
+        function prevLesson() {
+            if (currentLesson > 0) {
+                const prevLesson = document.querySelectorAll('.lesson-item')[currentLesson - 1];
+                playVideo(lessons[currentLesson - 1].id, prevLesson, currentLesson - 1);
+            }
+        }
+
+        function nextLesson() {
+            if (currentLesson < lessons.length - 1) {
+                const nextLesson = document.querySelectorAll('.lesson-item')[currentLesson + 1];
+                playVideo(lessons[currentLesson + 1].id, nextLesson, currentLesson + 1);
+            }
+        }
+
+        function markAsCompleted() {
+            if (!completedLessons.includes(currentLesson)) {
+                completedLessons.push(currentLesson);
+                localStorage.setItem('completedLessons', JSON.stringify(completedLessons));
+                alert('تم تسجيل الدرس كمكتمل!');
+            }
+        }
+
+        // البحث في الدروس
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const lessonItems = document.querySelectorAll('.lesson-item');
+            
+            lessonItems.forEach((item, index) => {
+                const lessonTitle = lessons[index].title.toLowerCase();
+                if (lessonTitle.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // تحديث التقدم عند تحميل الصفحة
+        window.addEventListener('load', function() {
+            updateProgress();
+        });
+    </script>
+</body>
+</html>

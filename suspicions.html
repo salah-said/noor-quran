@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قواعد التعامل مع الشبهات الفكرية المعاصرة - نور الهدى</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #16a085;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a3a, #2c3e50);
+            color: var(--light);
+            line-height: 1.7;
+            min-height: 100vh;
+            padding-bottom: 50px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: all 0.4s;
+            box-shadow: 0 4px 15px rgba(22, 160, 133, 0.3);
+            font-weight: 500;
+        }
+        
+        .back-btn:hover {
+            background: #138a72;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(22, 160, 133, 0.4);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50, #1a2a3a);
+            color: white;
+            padding: 35px 25px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(22, 160, 133, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(231, 76, 60, 0.1) 0%, transparent 40%);
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #16a085, #1abc9c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #bdc3c7;
+            line-height: 1.8;
+        }
+        
+        .course-icon {
+            font-size: 3rem;
+            margin: 20px 0;
+            color: var(--secondary);
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .sheikh-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            position: relative;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 15px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 450px;
+            margin: 25px auto 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .sheikh-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--secondary);
+            box-shadow: 0 0 20px rgba(22, 160, 133, 0.5);
+        }
+        
+        .sheikh-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .course-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 900px) {
+            .course-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .lessons-list {
+            background: rgba(30, 40, 50, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            max-height: 750px;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .section-title {
+            background: linear-gradient(to right, var(--secondary), #138a72);
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .search-box {
+            padding: 15px 20px;
+            background: rgba(20, 30, 40, 0.8);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(22, 160, 133, 0.3);
+        }
+        
+        .search-box input::placeholder {
+            color: #95a5a6;
+        }
+        
+        .lessons-container {
+            padding: 10px;
+        }
+        
+        .lesson-item {
+            padding: 18px 20px;
+            margin: 10px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.4s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(40, 50, 60, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .lesson-item:hover {
+            background: rgba(22, 160, 133, 0.15);
+            transform: translateX(5px);
+        }
+        
+        .lesson-item.active {
+            background: linear-gradient(to right, var(--secondary), #138a72);
+            box-shadow: 0 5px 15px rgba(22, 160, 133, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .lesson-item i {
+            color: var(--secondary);
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .lesson-item.active i {
+            color: white;
+            transform: scale(1.2);
+        }
+        
+        .lesson-number {
+            background: var(--secondary);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .lesson-item.active .lesson-number {
+            background: white;
+            color: var(--secondary);
+        }
+        
+        .lesson-title {
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
+        
+        .video-section {
+            background: rgba(30, 40, 50, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .video-container {
+            background: #000;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .lesson-details {
+            padding: 25px;
+        }
+        
+        .progress-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        
+        .progress-title {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .progress-percent {
+            background: var(--secondary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .progress-bar-bg {
+            width: 100%;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--secondary), #1abc9c);
+            border-radius: 10px;
+            width: 8%;
+            transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        .lesson-info {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .info-title {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.3rem;
+        }
+        
+        .lesson-description {
+            line-height: 1.9;
+            color: #ecf0f1;
+            font-size: 1.05rem;
+        }
+        
+        .materials {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .materials-title {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.3rem;
+        }
+        
+        .materials-list {
+            list-style: none;
+        }
+        
+        .material-item {
+            padding: 15px;
+            background: rgba(40, 50, 60, 0.5);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .material-item:hover {
+            background: rgba(22, 160, 133, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .material-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .actions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .action-btn {
+            background: rgba(40, 50, 60, 0.7);
+            border-radius: 12px;
+            padding: 18px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .action-btn:hover {
+            background: rgba(22, 160, 133, 0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .action-icon {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .action-text {
+            font-weight: 500;
+        }
+        
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: linear-gradient(to right, var(--secondary), #138a72);
+            color: white;
+            padding: 18px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.4s;
+            box-shadow: 0 5px 20px rgba(22, 160, 133, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .download-btn:hover {
+            background: linear-gradient(to right, #138a72, var(--secondary));
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(22, 160, 133, 0.5);
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #138a72;
+        }
+        
+        .completed-badge {
+            background: var(--secondary);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: inline-block;
+        }
+        
+        @media (max-width: 600px) {
+            .actions {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .lesson-item {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="courses.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> العودة لقائمة الدورات
+        </a>
+
+        <header>
+            <div class="header-content">
+                <div class="course-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h1>قواعد التعامل مع الشبهات الفكرية المعاصرة</h1>
+                <p>أصول منهجية في الرد على الشبهات العقدية والفكرية في عصرنا الحديث</p>
+                
+                <div class="sheikh-info">
+                    <div class="sheikh-avatar">
+                        <img src="https://i.ytimg.com/vi/FpTf8UTS6Uc/hqdefault.jpg" alt="الشيخ عثمان الخميس">
+                    </div>
+                    <div>
+                        <h3>الشيخ عثمان الخميس</h3>
+                        <p>دكتوراه في العقيدة الإسلامية</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="course-content">
+            <div class="lessons-list">
+                <div class="section-title">
+                    <i class="fas fa-list-ol"></i> قائمة الدروس
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="ابحث عن درس..." id="searchInput">
+                </div>
+                
+                <div class="lessons-container">
+                    <div class="lesson-item active" onclick="playVideo('FpTf8UTS6Uc', this, 0)">
+                        <div class="lesson-number">1</div>
+                        <i class="fas fa-play-circle"></i>
+                        <div>
+                            <div class="lesson-title">الدرس 1: مقدمة في التعامل مع الشبهات</div>
+                            <div class="completed-badge" id="badge-0" style="display: none;">تم المشاهدة</div>
+                        </div>
+                    </div>
+                    
+                    <div class="lesson-item" onclick="playVideo('tVlk_5BHD50', this, 1)">
+                        <div class="lesson-number">2</div>
+                        <i class="fas fa-play-circle"></i>
+                        <div>
+                            <div class="lesson-title">الدرس 2: القاعدة الأولى: التثبت والتحقق</div>
+                            <div class="completed-badge" id="badge-1" style="display: none;">تم المشاهدة</div>
+                        </div>
+                    </div>
+                    
+                    <div class="lesson-item" onclick="playVideo('M3deYx0KR9k', this, 2)">
+                        <div class="lesson-number">3</div>
+                        <i class="fas fa-play-circle"></i>
+                        <div>
+                            <div class="lesson-title">الدرس 3: القاعدة الثانية: فهم الشبهة قبل الرد</div>
+                            <div class="completed-badge" id="badge-2" style="display: none;">تم المشاهدة</div>
+                        </div>
+                    </div>
+                    
+                    <div class="lesson-item" onclick="playVideo('cfRlnvwgB0c', this, 3)">
+                        <div class="lesson-number">4</div>
+                        <i class="fas fa-play-circle"></i>
+                        <div>
+                            <div class="lesson-title">الدرس 4: القاعدة الثالثة: الرجوع للمصادر الأصلية</div>
+                            <div class="completed-badge" id="badge-3" style="display: none;">تم المشاهدة</div>
+                        </div>
+                    </div>
+                    
+                    <div class="lesson-item" onclick="playVideo('tNiM_j1SpN4', this, 4)">
+                        <div class="lesson-number">5</div>
+                        <i class="fas fa-play-circle"></i>
+                        <div>
+                            <div class="lesson-title">الدرس 5: القاعدة الرابعة: التدرج في الرد</div>
+                            <div class="completed-badge" id="badge-4" style="display: none;">تم المشاهدة</div>
+                        </div>
+                    </div>
+                    
+                    <div class="lesson-item" onclick="playVideo('ZaAkzdhSKP0', this, 5)">
+                        <div class="lesson-number">6</div>
+                        <i class="fas fa-play-circle"></i>
+                        <div>
+                            <div class="lesson-title">الدرس 6: القاعدة الخامسة: الرد بالحكمة</div>
+                            <div class="completed-badge" id="badge-5" style="display: none;">تم المشاهدة</div>
+                        </div>
+                    </div>
+                    
+                    <div class="lesson-item" onclick="playVideo('y6k9foGyEhI', this, 6)">
+                        <div class="lesson-number">7</div>
+                        <i class="fas fa-play-circle"></i>
+                        <div>
+                            <div class="lesson-title">الدرس 7: القاعدة السادسة: معرفة المقاصد</div>
+                            <div class="completed-badge" id="badge-6" style="display: none;">تم المشاهدة</div>
+                        </div>
+                    </div>
+                    
+                    <div class="lesson-item" onclick="playVideo('rQ7TWX6QqBQ', this, 7)">
+                        <div class="lesson-number">8</div>
+                        <i class="fas fa-play-circle"></i>
+                        <div>
+                            <div class="lesson-title">الدرس 8: القاعدة السابعة: التمييز بين الشبهة والشبيه</div>
+                            <div class="completed-badge" id="badge-7" style="display: none;">تم المشاهدة</div>
+                        </div>
+                    </div>
+                    
+                    <div class="lesson-item" onclick="playVideo('ebrImmqJxNg', this, 8)">
+                        <div class="lesson-number">9</div>
+                        <i class="fas fa-play-circle"></i>
+                        <div>
+                            <div class="lesson-title">الدرس 9: القاعدة الثامنة: الرد على مستوى السائل</div>
+                            <div class="completed-badge" id="badge-8" style="display: none;">تم المشاهدة</div>
+                        </div>
+                    </div>
+                    
+                    <div class="lesson-item" onclick="playVideo('oZkzr72ISdY', this, 9)">
+                        <div class="lesson-number">10</div>
+                        <i class="fas fa-play-circle"></i>
+                        <div>
+                            <div class="lesson-title">الدرس 10: القاعدة التاسعة: عدم التسرع في الحكم</div>
+                            <div class="completed-badge" id="badge-9" style="display: none;">تم المشاهدة</div>
+                        </div>
+                    </div>
+                    
+                    <div class="lesson-item" onclick="playVideo('cfRlnvwgB0c', this, 10)">
+                        <div class="lesson-number">11</div>
+                        <i class="fas fa-play-circle"></i>
+                        <div>
+                            <div class="lesson-title">الدرس 11: القاعدة العاشرة: التكامل في الرد</div>
+                            <div class="completed-badge" id="badge-10" style="display: none;">تم المشاهدة</div>
+                        </div>
+                    </div>
+                    
+                    <div class="lesson-item" onclick="playVideo('toGSbMumRt4', this, 11)">
+                        <div class="lesson-number">12</div>
+                        <i class="fas fa-play-circle"></i>
+                        <div>
+                            <div class="lesson-title">الدرس 12: القاعدة الحادية عشر: الرد بالبديل</div>
+                            <div class="completed-badge" id="badge-11" style="display: none;">تم المشاهدة</div>
+                        </div>
+                    </div>
+                    
+                    <div class="lesson-item" onclick="playVideo('2mPLlHuOfU4', this, 12)">
+                        <div class="lesson-number">13</div>
+                        <i class="fas fa-play-circle"></i>
+                        <div>
+                            <div class="lesson-title">الدرس 13: خاتمة وتطبيقات عملية</div>
+                            <div class="completed-badge" id="badge-12" style="display: none;">تم المشاهدة</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="video-section">
+                <div class="video-container">
+                    <iframe id="videoPlayer" src="https://www.youtube.com/embed/FpTf8UTS6Uc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <div class="lesson-details">
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <div class="progress-title">
+                                <i class="fas fa-tasks"></i> تقدمك في الدورة
+                            </div>
+                            <div class="progress-percent" id="progressPercent">8%</div>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="lesson-info">
+                        <h3 class="info-title">
+                            <i class="fas fa-info-circle"></i> عن هذا الدرس
+                        </h3>
+                        <p id="lessonDescription" class="lesson-description">
+                            في هذا الدرس يقدم الشيخ عثمان الخميس مقدمة شاملة عن أهمية تعلم قواعد التعامل مع الشبهات الفكرية المعاصرة، وبيان خطورة الشبهات على عقيدة المسلم، ومنهجية التعامل الصحيح معها في ظل التحديات الفكرية المعاصرة.
+                        </p>
+                    </div>
+                    
+                    <div class="materials">
+                        <h3 class="materials-title">
+                            <i class="fas fa-book"></i> المواد العلمية
+                        </h3>
+                        <ul class="materials-list">
+                            <li class="material-item">
+                                <div class="material-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div>دليل قواعد التعامل مع الشبهات (PDF)</div>
+                            </li>
+                            <li class="material-item">
+                                <div class="material-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div>ملخص الدرس الأول</div>
+                            </li>
+                            <li class="material-item">
+                                <div class="material-icon">
+                                    <i class="fas fa-question-circle"></i>
+                                </div>
+                                <div>أسئلة تقويمية للدرس</div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="actions">
+                        <div class="action-btn" onclick="prevLesson()">
+                            <div class="action-icon">
+                                <i class="fas fa-arrow-left"></i>
+                            </div>
+                            <div class="action-text">السابق</div>
+                        </div>
+                        <div class="action-btn" onclick="markAsCompleted()">
+                            <div class="action-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="action-text">تم المشاهدة</div>
+                        </div>
+                        <div class="action-btn" onclick="nextLesson()">
+                            <div class="action-icon">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                            <div class="action-text">التالي</div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="download-btn">
+                        <i class="fas fa-download"></i>
+                        تحميل جميع المواد العلمية
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // بيانات الدروس (13 درسًا)
+        const lessons = [
+            {id: 'FpTf8UTS6Uc', title: 'الدرس 1: مقدمة في التعامل مع الشبهات', desc: 'في هذا الدرس يقدم الشيخ عثمان الخميس مقدمة شاملة عن أهمية تعلم قواعد التعامل مع الشبهات الفكرية المعاصرة، وبيان خطورة الشبهات على عقيدة المسلم، ومنهجية التعامل الصحيح معها في ظل التحديات الفكرية المعاصرة.'},
+            {id: 'tVlk_5BHD50', title: 'الدرس 2: القاعدة الأولى: التثبت والتحقق', desc: 'شرح القاعدة الأولى في التعامل مع الشبهات وهي التثبت والتحقق من صحة النقل والمعلومة قبل الرد عليها أو تداولها، مع أمثلة تطبيقية من السنة النبوية.'},
+            {id: 'M3deYx0KR9k', title: 'الدرس 3: القاعدة الثانية: فهم الشبهة قبل الرد', desc: 'بيان أهمية فهم الشبهة فهمًا دقيقًا قبل الشروع في الرد عليها، وكيفية تحليل الشبهة إلى عناصرها الأساسية، والتمييز بين أصل الشبهة وتفريعاتها.'},
+            {id: 'cfRlnvwgB0c', title: 'الدرس 4: القاعدة الثالثة: الرجوع للمصادر الأصلية', desc: 'شرح أهمية الرجوع إلى المصادر الأصلية عند الرد على الشبهات، والتحذير من الاعتماد على المصادر الثانوية أو المشوهة، مع بيان كيفية التحقق من المصادر.'},
+            {id: 'tNiM_j1SpN4', title: 'الدرس 5: القاعدة الرابعة: التدرج في الرد', desc: 'بيان منهج التدرج في الرد على الشبهات، وكيفية بناء الرد من الأساسيات إلى التفاصيل، مع مراعاة مستوى المستمع وقدرته الفكرية.'},
+            {id: 'ZaAkzdhSKP0', title: 'الدرس 6: القاعدة الخامسة: الرد بالحكمة', desc: 'شرح كيفية الرد على الشبهات بالحكمة والموعظة الحسنة، مع بيان آداب الحوار والمناظرة في الإسلام، وأهمية الرفق في الرد.'},
+            {id: 'y6k9foGyEhI', title: 'الدرس 7: القاعدة السادسة: معرفة المقاصد', desc: 'تفصيل لأهمية معرفة مقاصد السائل أو صاحب الشبهة، وكيفية تحديد النية الحقيقية من وراء طرح الشبهة، وبيان الفرق بين الجاهل والملحد.'},
+            {id: 'rQ7TWX6QqBQ', title: 'الدرس 8: القاعدة السابعة: التمييز بين الشبهة والشبيه', desc: 'بيان الفرق بين الشبهة الحقيقية والشبيه بالشبهة، وكيفية التعامل مع كل منهما، مع أمثلة تطبيقية من الواقع المعاصر.'},
+            {id: 'ebrImmqJxNg', title: 'الدرس 9: القاعدة الثامنة: الرد على مستوى السائل', desc: 'شرح كيفية تقديم الرد المناسب لمستوى السائل الفكري والعلمي، وضبط مستوى الرد حسب الحاجة، مع مراعاة الفروق الفردية بين الناس.'},
+            {id: 'oZkzr72ISdY', title: 'الدرس 10: القاعدة التاسعة: عدم التسرع في الحكم', desc: 'بيان خطر التسرع في الحكم على الشبهات أو أصحابها، وأهمية التأني والتريث في إصدار الأحكام، مع التأكيد على أهمية العدل في الحكم.'},
+            {id: 'cfRlnvwgB0c', title: 'الدرس 11: القاعدة العاشرة: التكامل في الرد', desc: 'شرح أهمية التكامل في الرد على الشبهات، بحيث يشمل الرد الجوانب العقدية والفقهية واللغوية والتاريخية، ليكون الرد شاملاً ومقنعًا.'},
+            {id: 'toGSbMumRt4', title: 'الدرس 12: القاعدة الحادية عشر: الرد بالبديل', desc: 'بيان أهمية تقديم البديل الإسلامي الصحيح عند الرد على الشبهات، وعدم الاكتفاء بالنقد فقط، مع تقديم الحلول الشرعية للمشكلات المطروحة.'},
+            {id: '2mPLlHuOfU4', title: 'الدرس 13: خاتمة وتطبيقات عملية', desc: 'تلخيص لأهم قواعد التعامل مع الشبهات الفكرية المعاصرة، مع تقديم تطبيقات عملية على بعض الشبهات الشائعة في عصرنا الحالي، ونصائح للاستمرار في التعلم.'}
+        ];
+
+        let currentLesson = 0;
+        let completedLessons = JSON.parse(localStorage.getItem('completedLessons')) || [];
+
+        function playVideo(videoId, element, lessonIndex) {
+            // تحديث مشغل الفيديو
+            document.getElementById('videoPlayer').src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+            
+            // تحديث الدرس الحالي
+            currentLesson = lessonIndex;
+            
+            // تحديث الوصف
+            document.getElementById('lessonDescription').textContent = lessons[lessonIndex].desc;
+            
+            // تحديث شريط التقدم
+            updateProgress();
+            
+            // تحديث العنصر النشط
+            const lessonsElements = document.querySelectorAll('.lesson-item');
+            lessonsElements.forEach(lesson => lesson.classList.remove('active'));
+            element.classList.add('active');
+            
+            // التمرير إلى العنصر النشط
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // إظهار شارة الإكمال إن كانت موجودة
+            updateBadges();
+        }
+
+        function updateProgress() {
+            const progress = Math.round(((currentLesson + 1) / lessons.length) * 100);
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressPercent').textContent = progress + '%';
+            
+            // إظهار شارة الإكمال للدروس المكتملة
+            updateBadges();
+        }
+
+        function prevLesson() {
+            if (currentLesson > 0) {
+                const prevLesson = document.querySelectorAll('.lesson-item')[currentLesson - 1];
+                playVideo(lessons[currentLesson - 1].id, prevLesson, currentLesson - 1);
+            } else {
+                alert("هذا هو أول درس في الدورة");
+            }
+        }
+
+        function nextLesson() {
+            if (currentLesson < lessons.length - 1) {
+                const nextLesson = document.querySelectorAll('.lesson-item')[currentLesson + 1];
+                playVideo(lessons[currentLesson + 1].id, nextLesson, currentLesson + 1);
+            } else {
+                alert("هذا هو آخر درس في الدورة");
+            }
+        }
+
+        function markAsCompleted() {
+            if (!completedLessons.includes(currentLesson)) {
+                completedLessons.push(currentLesson);
+                localStorage.setItem('completedLessons', JSON.stringify(completedLessons));
+                
+                // عرض رسالة تأكيد
+                const badge = document.getElementById(`badge-${currentLesson}`);
+                badge.style.display = 'block';
+                badge.style.animation = 'fadeIn 0.5s';
+                
+                // تحديث التقدم
+                updateProgress();
+                
+                // رسالة تأكيد
+                alert('تم تسجيل الدرس كمكتمل بنجاح!');
+            } else {
+                alert('لقد أكملت هذا الدرس مسبقاً');
+            }
+        }
+
+        function updateBadges() {
+            for (let i = 0; i < lessons.length; i++) {
+                const badge = document.getElementById(`badge-${i}`);
+                if (completedLessons.includes(i)) {
+                    badge.style.display = 'block';
+                } else {
+                    badge.style.display = 'none';
+                }
+            }
+        }
+
+        // البحث في الدروس
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const lessonItems = document.querySelectorAll('.lesson-item');
+            
+            lessonItems.forEach((item, index) => {
+                const lessonTitle = lessons[index].title.toLowerCase();
+                if (lessonTitle.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // تحديث التقدم عند تحميل الصفحة
+        window.addEventListener('load', function() {
+            updateProgress();
+            // إظهار شارة الإكمال للدروس المكتملة
+            updateBadges();
+        });
+        
+        // إضافة تأثيرات للواجهة
+        document.querySelectorAll('.action-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

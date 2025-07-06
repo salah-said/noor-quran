@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سيرة النبي محمد ﷺ - نور الهدى</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8e44ad;
+            --secondary: #f39c12;
+            --light: #f8f9fa;
+            --dark: #2d2d2d;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f5fc;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .back-btn:hover {
+            background: #6c3483;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary), #6c3483);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="none" stroke="%23f39c1222" stroke-width="2" d="M20,20 Q40,5 50,30 T80,20 Q95,40 80,50 T95,80 Q80,95 50,80 T20,95 Q5,80 20,50 T5,20 Q20,5 50,20 Z"/></svg>');
+            background-size: 150px;
+            opacity: 0.3;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .prophet-name {
+            font-family: 'Traditional Arabic', serif;
+            color: var(--secondary);
+            display: block;
+            font-size: 2.5rem;
+            margin: 10px 0;
+        }
+        
+        header p {
+            position: relative;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .sheikh-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            position: relative;
+            background: rgba(0,0,0,0.2);
+            padding: 10px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .sheikh-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--secondary);
+            box-shadow: 0 0 15px rgba(243, 156, 18, 0.5);
+        }
+        
+        .sheikh-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .course-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .course-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .lessons-list {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            max-height: 800px;
+            overflow-y: auto;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .lesson-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .lesson-item:hover {
+            background-color: #f5eef8;
+        }
+        
+        .lesson-item.active {
+            background: linear-gradient(to right, var(--primary), #6c3483);
+            color: white;
+        }
+        
+        .lesson-item i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .lesson-item.active i {
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .video-container {
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .lesson-details {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-top: 30px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .lesson-details h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(to right, var(--secondary), #e67e22);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3);
+        }
+        
+        .btn:hover {
+            background: linear-gradient(to right, #e67e22, var(--secondary));
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(243, 156, 18, 0.4);
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6c3483;
+        }
+        
+        .search-box {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 1;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.2);
+        }
+        
+        .lesson-number {
+            background: var(--secondary);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .lesson-item.active .lesson-number {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .progress-container {
+            width: 100%;
+            background: #e0e0e0;
+            border-radius: 5px;
+            margin: 20px 0;
+            height: 8px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 5px;
+            width: 10%;
+            transition: width 0.5s ease;
+        }
+        
+        .progress-text {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .action-btn {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background: #f5eef8;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .action-btn:hover {
+            background: #e0d2e7;
+        }
+        
+        .action-btn i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .prophet-icon {
+            display: inline-block;
+            margin-left: 10px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .bismillah {
+            font-family: 'Traditional Arabic', serif;
+            font-size: 1.8rem;
+            color: var(--secondary);
+            text-align: center;
+            margin: 10px 0;
+            padding: 5px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- زر الرجوع إلى courses.html -->
+        <a href="courses.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> العودة لقائمة الدورات
+        </a>
+
+        <header>
+            <h1><i class="fas fa-mosque"></i> دورة سيرة النبي محمد ﷺ</h1>
+            <span class="prophet-name">محمد رسول الله</span>
+            <div class="bismillah">بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ</div>
+            <p>دراسة شاملة لحياة أشرف الخلق سيدنا محمد صلى الله عليه وسلم</p>
+            <div class="sheikh-info">
+                <div class="sheikh-avatar">
+                    <img src="https://i.ytimg.com/vi/z9VlkgVyLhg/hqdefault.jpg" alt="الشيخ عثمان الخميس">
+                </div>
+                <div>
+                    <h3>الشيخ عثمان الخميس</h3>
+                    <p>متخصص في السيرة النبوية</p>
+                </div>
+            </div>
+        </header>
+        
+        <div class="course-content">
+            <div class="lessons-list">
+                <div class="search-box">
+                    <input type="text" placeholder="ابحث عن درس..." id="searchInput">
+                </div>
+                
+                <div class="lesson-item active" onclick="playVideo('z9VlkgVyLhg', this, 0)">
+                    <div class="lesson-number">1</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 1: مقدمة في السيرة النبوية</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('Cut8UA4dSS4', this, 1)">
+                    <div class="lesson-number">2</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 2: نسب النبي ﷺ ومولده</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('7CbP4SczIpE', this, 2)">
+                    <div class="lesson-number">3</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 3: طفولة النبي ﷺ ونشأته</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('s5ZPujmYhUE', this, 3)">
+                    <div class="lesson-number">4</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 4: زواجه ﷺ من خديجة رضي الله عنها</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('yIyclP26LTQ', this, 4)">
+                    <div class="lesson-number">5</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 5: بداية الوحي ونزول القرآن</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('gSGlBpgyRyc', this, 5)">
+                    <div class="lesson-number">6</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 6: الدعوة السرية والجهرية</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('EwrusMLCBLA', this, 6)">
+                    <div class="lesson-number">7</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 7: الهجرة إلى الحبشة</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('LPz1b6x6rts', this, 7)">
+                    <div class="lesson-number">8</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 8: الإسراء والمعراج</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('ExL16_g5-qQ', this, 8)">
+                    <div class="lesson-number">9</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 9: الهجرة إلى المدينة المنورة</span>
+                </div>
+                
+                <div class="lesson-item" onclick="playVideo('fqRI2h4am9E', this, 9)">
+                    <div class="lesson-number">10</div>
+                    <i class="fas fa-play-circle"></i>
+                    <span>الدرس 10: غزوات النبي ﷺ</span>
+                </div>
+            </div>
+            
+            <div>
+                <div class="video-container">
+                    <iframe id="videoPlayer" src="https://www.youtube.com/embed/z9VlkgVyLhg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <div class="lesson-details">
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">10% مكتمل (1/10 درس)</div>
+                    
+                    <h3><i class="fas fa-info-circle"></i> عن هذا الدرس</h3>
+                    <p id="lessonDescription">في هذا الدرس يقدم الشيخ عثمان الخميس مقدمة شاملة عن أهمية دراسة السيرة النبوية، وبيان مكانة النبي محمد ﷺ في الإسلام، وكيف أن سيرته تمثل النموذج الأمثل للمسلم في جميع جوانب الحياة.</p>
+                    
+                    <h3 style="margin-top: 20px;"><i class="fas fa-book"></i> المواد العلمية</h3>
+                    <ul style="margin-right: 20px; margin-top: 10px; line-height: 2;">
+                        <li><i class="fas fa-file-pdf" style="color: var(--primary);"></i> تحميل كتاب الرحيق المختوم PDF</li>
+                        <li><i class="fas fa-file-alt" style="color: var(--primary);"></i> خط زمني للسيرة النبوية</li>
+                        <li><i class="fas fa-question-circle" style="color: var(--primary);"></i> أسئلة تقويمية</li>
+                    </ul>
+                    
+                    <div class="actions">
+                        <div class="action-btn" onclick="prevLesson()">
+                            <i class="fas fa-arrow-left"></i>
+                            <div>السابق</div>
+                        </div>
+                        <div class="action-btn" onclick="markAsCompleted()">
+                            <i class="fas fa-check-circle"></i>
+                            <div>تم المشاهدة</div>
+                        </div>
+                        <div class="action-btn" onclick="nextLesson()">
+                            <i class="fas fa-arrow-right"></i>
+                            <div>التالي</div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://drive.google.com/uc?export=download&id=13x03pJKu71gewi-XRJ7iY4tioufM9U0T" class="btn" download="سيرة النبي محمد ﷺ - ملخص الدورة.pdf">
+                        <i class="fas fa-download"></i> تحميل جميع المواد
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // بيانات الدروس (10 دروس)
+        const lessons = [
+            {id: 'z9VlkgVyLhg', title: 'الدرس 1: مقدمة في السيرة النبوية', desc: 'في هذا الدرس يقدم الشيخ عثمان الخميس مقدمة شاملة عن أهمية دراسة السيرة النبوية، وبيان مكانة النبي محمد ﷺ في الإسلام، وكيف أن سيرته تمثل النموذج الأمثل للمسلم في جميع جوانب الحياة.'},
+            {id: 'Cut8UA4dSS4', title: 'الدرس 2: نسب النبي ﷺ ومولده', desc: 'شرح مفصل لنسب النبي محمد ﷺ الطاهر، وظروف مولده، وبيان دلائل النبوة في ولادته ونشأته.'},
+            {id: '7CbP4SczIpE', title: 'الدرس 3: طفولة النبي ﷺ ونشأته', desc: 'تفصيل لمرحلة طفولة النبي ﷺ، وكيف نشأ يتيمًا وكفله جده وعمه، ورعاية الله له في صغره.'},
+            {id: 's5ZPujmYhUE', title: 'الدرس 4: زواجه ﷺ من خديجة رضي الله عنها', desc: 'قصة زواج النبي ﷺ من السيدة خديجة بنت خويلد رضي الله عنها، ودورها في حياته قبل البعثة.'},
+            {id: 'yIyclP26LTQ', title: 'الدرس 5: بداية الوحي ونزول القرآن', desc: 'شرح مفصّل لأحداث بداية الوحي في غار حراء، وكيفية نزول أول آيات القرآن الكريم على النبي ﷺ.'},
+            {id: 'gSGlBpgyRyc', title: 'الدرس 6: الدعوة السرية والجهرية', desc: 'مراحل الدعوة الإسلامية بدءًا من الدعوة السرية ثم الجهرية، وصبر النبي ﷺ وأصحابه على الأذى.'},
+            {id: 'EwrusMLCBLA', title: 'الدرس 7: الهجرة إلى الحبشة', desc: 'قصة هجرة المسلمين الأولى إلى الحبشة، وموقف النجاشي من المسلمين، ودروس مستفادة من هذه الهجرة.'},
+            {id: 'LPz1b6x6rts', title: 'الدرس 8: الإسراء والمعراج', desc: 'تفصيل لأعجب رحلة في التاريخ، رحلة الإسراء والمعراج، ومعجزاتها ودروسها العظيمة.'},
+            {id: 'ExL16_g5-qQ', title: 'الدرس 9: الهجرة إلى المدينة المنورة', desc: 'قصة الهجرة النبوية الشريفة من مكة إلى المدينة، وتفاصيل هذه الرحلة المباركة وأحداثها.'},
+            {id: 'fqRI2h4am9E', title: 'الدرس 10: غزوات النبي ﷺ', desc: 'نظرة عامة على غزوات النبي ﷺ، وأهم المعارك التي خاضها، ودروس مستفادة من هذه الغزوات.'}
+        ];
+
+        let currentLesson = 0;
+        let completedLessons = JSON.parse(localStorage.getItem('completedLessons')) || [];
+
+        function playVideo(videoId, element, lessonIndex) {
+            // تحديث مشغل الفيديو
+            document.getElementById('videoPlayer').src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+            
+            // تحديث الدرس الحالي
+            currentLesson = lessonIndex;
+            
+            // تحديث الوصف
+            document.getElementById('lessonDescription').textContent = lessons[lessonIndex].desc;
+            
+            // تحديث شريط التقدم
+            updateProgress();
+            
+            // تحديث العنصر النشط
+            const lessonsElements = document.querySelectorAll('.lesson-item');
+            lessonsElements.forEach(lesson => lesson.classList.remove('active'));
+            element.classList.add('active');
+            
+            // التمرير إلى العنصر النشط
+            element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function updateProgress() {
+            const progress = Math.round(((currentLesson + 1) / lessons.length) * 100);
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressText').textContent = 
+                progress + '% مكتمل (' + (currentLesson + 1) + '/' + lessons.length + ' درس)';
+        }
+
+        function prevLesson() {
+            if (currentLesson > 0) {
+                const prevLesson = document.querySelectorAll('.lesson-item')[currentLesson - 1];
+                playVideo(lessons[currentLesson - 1].id, prevLesson, currentLesson - 1);
+            }
+        }
+
+        function nextLesson() {
+            if (currentLesson < lessons.length - 1) {
+                const nextLesson = document.querySelectorAll('.lesson-item')[currentLesson + 1];
+                playVideo(lessons[currentLesson + 1].id, nextLesson, currentLesson + 1);
+            }
+        }
+
+        function markAsCompleted() {
+            if (!completedLessons.includes(currentLesson)) {
+                completedLessons.push(currentLesson);
+                localStorage.setItem('completedLessons', JSON.stringify(completedLessons));
+                alert('تم تسجيل الدرس كمكتمل!');
+            }
+        }
+
+        // البحث في الدروس
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const lessonItems = document.querySelectorAll('.lesson-item');
+            
+            lessonItems.forEach((item, index) => {
+                const lessonTitle = lessons[index].title.toLowerCase();
+                if (lessonTitle.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // تحديث التقدم عند تحميل الصفحة
+        window.addEventListener('load', function() {
+            updateProgress();
+        });
+    </script>
+</body>
+</html>

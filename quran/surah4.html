@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سورة النساء | القرآن الكريم</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #f9f0ff 0%, #f0e5ff 100%);
+      min-height: 100vh;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="50%" y="50%" font-size="28" text-anchor="middle" fill="rgba(106, 27, 154, 0.05)" font-family="Arial">﷽</text></svg>');
+      background-repeat: repeat;
+      opacity: 0.2;
+      z-index: -1;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    header {
+      text-align: center;
+      padding: 25px;
+      background: linear-gradient(135deg, #6a1b9a 0%, #9c27b0 100%);
+      border-radius: 15px;
+      margin: 20px auto 30px;
+      max-width: 900px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: linear-gradient(45deg, rgba(255,255,255,0.05) 0%, transparent 50%, rgba(255,255,255,0.05) 100%);
+      z-index: 1;
+      border-radius: 20px;
+    }
+    
+    h1 {
+      color: #fff;
+      margin-bottom: 15px;
+      font-size: 2.5rem;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .surah-info {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 15px;
+      margin: 15px 0;
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(5px);
+    }
+    
+    .surah-info p {
+      color: #fff;
+      margin: 8px 0;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 30px;
+      margin: 15px 0 5px;
+      background: linear-gradient(135deg, #ab47bc 0%, #9c27b0 100%);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border: none;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .back-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      background: linear-gradient(135deg, #ba68c8 0%, #ab47bc 100%);
+    }
+    
+    .back-btn::before {
+      content: "←";
+      margin-left: 8px;
+      font-size: 1.3rem;
+    }
+    
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .pdf-section {
+      flex: 1;
+      min-width: 300px;
+      background: #fff;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+    
+    .pdf-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+    
+    .control-btn {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #6a1b9a 0%, #9c27b0 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .control-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .control-btn.download {
+      background: linear-gradient(135deg, #27ae60 0%, #219653 100%);
+    }
+    
+    .control-btn.zoom {
+      background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    }
+    
+    .pdf-viewer-container {
+      position: relative;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .pdf-viewer {
+      width: 100%;
+      height: 70vh;
+      display: block;
+    }
+    
+    .surah-details {
+      flex: 1;
+      min-width: 300px;
+      background: #fff;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+    
+    .surah-details h2 {
+      color: #6a1b9a;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #f0f0f0;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+    
+    .details-content {
+      line-height: 1.8;
+      color: #444;
+      font-size: 1.1rem;
+    }
+    
+    .details-content p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+    
+    .details-content .highlight {
+      background: linear-gradient(120deg, rgba(171, 71, 188, 0.2) 0%, rgba(171, 71, 188, 0) 100%);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    
+    .benefits-section {
+      background: #fff;
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+    
+    .benefits-section h2 {
+      color: #6a1b9a;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .benefit-card {
+      background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid #eee;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    }
+    
+    .benefit-icon {
+      font-size: 2.5rem;
+      color: #6a1b9a;
+      margin-bottom: 15px;
+    }
+    
+    .benefit-card h3 {
+      color: #6a1b9a;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+    
+    .benefit-card p {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #6a1b9a;
+      font-size: 1rem;
+      border-top: 1px solid rgba(106, 27, 154, 0.2);
+    }
+    
+    .loading-pdf {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+    
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(106, 27, 154, 0.2);
+      border-top: 5px solid #6a1b9a;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    
+    /* Audio Player Styles - المحسنة */
+    .audio-section {
+      background: #fff;
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 30px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+    
+    .audio-section h2 {
+      color: #6a1b9a;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    
+    .audio-player-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .progress-container {
+      width: 100%;
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 4px;
+      margin: 10px 0;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(135deg, #6a1b9a 0%, #9c27b0 100%);
+      width: 0%;
+      border-radius: 4px;
+      transition: width 0.1s linear;
+    }
+    
+    .time-display {
+      display: flex;
+      justify-content: space-between;
+      color: #555;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+    
+    .audio-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin: 15px 0;
+      flex-wrap: wrap;
+    }
+    
+    .audio-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6a1b9a 0%, #9c27b0 100%);
+      color: white;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .audio-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .audio-btn.large {
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+    }
+    
+    .audio-btn.secondary {
+      background: linear-gradient(135deg, #555 0%, #333 100%);
+    }
+    
+    .volume-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 250px;
+      margin: 0 auto;
+    }
+    
+    .volume-slider {
+      flex-grow: 1;
+      height: 6px;
+      background: #e0e0e0;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    
+    .volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #6a1b9a;
+    }
+    
+    .playback-rate {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .rate-btn {
+      padding: 5px 15px;
+      background: #f0f0f0;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      color: #555;
+    }
+    
+    .rate-btn.active {
+      background: linear-gradient(135deg, #6a1b9a 0%, #9c27b0 100%);
+      color: white;
+    }
+    
+    .reciter-info {
+      text-align: center;
+      margin-top: 15px;
+      color: #555;
+      font-size: 1.1rem;
+    }
+    
+    .reciter-name {
+      font-weight: bold;
+      color: #6a1b9a;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+      }
+      
+      .pdf-viewer {
+        height: 50vh;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .audio-controls {
+        gap: 8px;
+      }
+      
+      .audio-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+      }
+      
+      .audio-btn.large {
+        width: 55px;
+        height: 55px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .pdf-controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .control-btn {
+        width: 100%;
+      }
+      
+      .pdf-viewer {
+        height: 40vh;
+      }
+      
+      header {
+        padding: 20px 15px;
+      }
+      
+      h1 {
+        font-size: 1.7rem;
+      }
+      
+      .audio-controls {
+        gap: 6px;
+      }
+      
+      .audio-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+      
+      .audio-btn.large {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .rate-btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+      }
+    }
+    
+    /* Animation for page load */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    header, .pdf-section, .surah-details, .benefits-section, .audio-section {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    
+    .pdf-section { animation-delay: 0.1s; }
+    .surah-details { animation-delay: 0.2s; }
+    .benefits-section { animation-delay: 0.3s; }
+    .audio-section { animation-delay: 0.4s; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>سورة النساء</h1>
+      
+      <div class="surah-info">
+        <p>مدنية | 176 آية | السورة الرابعة في المصحف | سورة الأحكام</p>
+      </div>
+      
+      <a href="../quran.html" class="back-btn">الرجوع إلى قائمة السور</a>
+    </header>
+    
+    <div class="main-content">
+      <div class="pdf-section">
+        <div class="pdf-controls">
+          <button class="control-btn zoom" onclick="zoomIn()">
+            <i class="fas fa-search-plus"></i> تكبير
+          </button>
+          <button class="control-btn zoom" onclick="zoomOut()">
+            <i class="fas fa-search-minus"></i> تصغير
+          </button>
+          <button class="control-btn download" onclick="downloadPDF()">
+            <i class="fas fa-download"></i> تحميل السورة
+          </button>
+        </div>
+        
+        <div class="pdf-viewer-container" id="pdfContainer">
+          <div class="loading-pdf">
+            <div class="loading-spinner"></div>
+            <p>جاري تحميل سورة النساء...</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="surah-details">
+        <h2>معلومات عن السورة</h2>
+        <div class="details-content">
+          <p><span class="highlight">سورة النساء</span> هي رابع سور القرآن الكريم، وعدد آياتها 176 آية، وهي من السور المدنية الطويلة التي نزلت بعد الهجرة.</p>
+          
+          <p>سميت السورة بـ <span class="highlight">النساء</span> لورود أحكام كثيرة تتعلق بالنساء في بداية السورة، كما تتناول أحكام المواريث والزواج والطلاق.</p>
+          
+          <p>تتناول السورة <span class="highlight">أحكام الأسرة والمجتمع</span>، وتؤكد على العدل والرحمة في معاملة النساء، وحفظ حقوق اليتامى والضعفاء.</p>
+          
+          <p>تحتوي السورة على <span class="highlight">أحكام تشريعية مهمة</span> مثل أحكام الميراث، والحدود، والجهاد، والمعاملات المالية، والعلاقات الأسرية والاجتماعية.</p>
+          
+          <p>السورة تبدأ بالدعوة إلى <span class="highlight">تقوى الله</span> والعدل بين الناس، وتحذر من الظلم والبغي والفساد في الأرض.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="audio-section">
+      <h2>تلاوة سورة النساء</h2>
+      <div class="audio-player-container">
+        <audio id="quranAudio">
+          <source src="https://server10.mp3quran.net/minsh/004.mp3" type="audio/mpeg">
+          متصفحك لا يدعم مشغل الصوتيات.
+        </audio>
+        
+        <div class="progress-container" id="progressContainer">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        
+        <div class="time-display">
+          <span id="currentTime">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+        
+        <div class="audio-controls">
+          <button class="audio-btn secondary" id="rewindBtn">
+            <i class="fas fa-backward"></i>
+          </button>
+          
+          <button class="audio-btn large" id="playBtn">
+            <i class="fas fa-play"></i>
+          </button>
+          
+          <button class="audio-btn secondary" id="forwardBtn">
+            <i class="fas fa-forward"></i>
+          </button>
+          
+          <button class="audio-btn" id="muteBtn">
+            <i class="fas fa-volume-up"></i>
+          </button>
+        </div>
+        
+        <div class="volume-control">
+          <i class="fas fa-volume-down" style="color: #555;"></i>
+          <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+          <i class="fas fa-volume-up" style="color: #555;"></i>
+        </div>
+        
+        <div class="playback-rate">
+          <button class="rate-btn" data-rate="0.5">0.5x</button>
+          <button class="rate-btn active" data-rate="1">1x</button>
+          <button class="rate-btn" data-rate="1.5">1.5x</button>
+          <button class="rate-btn" data-rate="2">2x</button>
+        </div>
+        
+        <div class="reciter-info">
+          <p>تلاوة: <span class="reciter-name">الشيخ محمد صديق المنشاوي</span> - رحمه الله</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="benefits-section">
+      <h2>فضائل سورة النساء</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-scale-balanced"></i>
+          </div>
+          <h3>تشريع الأحكام</h3>
+          <p>تضم السورة أحكاماً مفصلة للمعاملات والمواريث والزواج والطلاق، مما يجعلها مرجعاً أساسياً في الفقه الإسلامي</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-hands-holding-child"></i>
+          </div>
+          <h3>حفظ حقوق النساء</h3>
+          <p>السورة تؤكد على حقوق النساء واليتامى والضعفاء في المجتمع، وتدعو إلى العدل والرحمة في معاملتهم</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>التحذير من الظلم</h3>
+          <p>تحذر السورة من الظلم والبغي والفساد في الأرض، وتدعو إلى إقامة العدل بين الناس</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-book-quran"></i>
+          </div>
+          <h3>الهداية والموعظة</h3>
+          <p>تتضمن السورة قصصاً وعبراً من الأمم السابقة، وتدعو إلى التمسك بالقرآن والعمل بأحكامه</p>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <p>© 2025 موقع نور الهدى | سورة النساء - سورة الأحكام</p>
+    </footer>
+  </div>
+
+  <script>
+    // معرّف ملف PDF على Google Drive لسورة النساء
+    const PDF_ID = '1coL_DZVpOMrk_cn1L75e-0BLziQWzQ6R';
+    
+    // رابط عرض PDF من Google Drive
+    const PDF_VIEW_URL = `https://drive.google.com/file/d/${PDF_ID}/preview`;
+    
+    // رابط تحميل PDF من Google Drive
+    const PDF_DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${PDF_ID}`;
+    
+    // متغيرات التحكم في التكبير
+    let currentZoom = 100;
+    let pdfViewer;
+    
+    // تحميل ملف PDF بعد تحميل الصفحة
+    window.addEventListener('load', function() {
+      loadPDF();
+      setupAudioPlayer();
+    });
+    
+    // دالة لتحميل وعرض ملف PDF
+    function loadPDF() {
+      const container = document.getElementById('pdfContainer');
+      
+      // إنشاء عنصر iframe لعرض ملف PDF
+      const iframe = document.createElement('iframe');
+      iframe.id = 'pdfViewer';
+      iframe.className = 'pdf-viewer';
+      iframe.src = PDF_VIEW_URL;
+      iframe.allow = 'autoplay; fullscreen';
+      
+      // إضافة مؤشر تحميل مؤقت
+      setTimeout(() => {
+        container.innerHTML = '';
+        container.appendChild(iframe);
+        pdfViewer = document.getElementById('pdfViewer');
+        
+        // إضافة مستمع للأخطاء في حالة فشل التحميل
+        iframe.onerror = function() {
+          showPDFError();
+        };
+      }, 1500);
+    }
+    
+    // دالة لعرض رسالة خطأ في حالة فشل تحميل ملف PDF
+    function showPDFError() {
+      const container = document.getElementById('pdfContainer');
+      container.innerHTML = `
+        <div style="padding: 30px; text-align: center; background: #f8f9fa; border-radius: 10px; width: 100%;">
+          <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #e74c3c; margin-bottom: 20px;"></i>
+          <h3 style="color: #2c3e50; margin-bottom: 15px;">تعذر تحميل ملف السورة</h3>
+          <p style="color: #555; margin-bottom: 20px; line-height: 1.6;">
+            نعتذر، حدثت مشكلة في تحميل ملف سورة النساء. يمكنك:
+          </p>
+          <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <button class="control-btn download" onclick="downloadPDF()" style="margin: 0;">
+              <i class="fas fa-download"></i> تحميل الملف مباشرة
+            </button>
+            <a href="../quran.html" class="control-btn" style="text-decoration: none; margin: 0;">
+              <i class="fas fa-book-open"></i> العودة للسور
+            </a>
+          </div>
+        </div>
+      `;
+    }
+    
+    // دالة لتكبير عرض PDF
+    function zoomIn() {
+      if (currentZoom < 150 && pdfViewer) {
+        currentZoom += 10;
+        applyZoom();
+      }
+    }
+    
+    // دالة لتصغير عرض PDF
+    function zoomOut() {
+      if (currentZoom > 70 && pdfViewer) {
+        currentZoom -= 10;
+        applyZoom();
+      }
+    }
+    
+    // تطبيق مستوى التكبير الحالي
+    function applyZoom() {
+      if (pdfViewer) {
+        pdfViewer.style.transform = `scale(${currentZoom / 100})`;
+        pdfViewer.style.transformOrigin = 'top center';
+      }
+    }
+    
+    // دالة لتحميل ملف PDF
+    function downloadPDF() {
+      // إنشاء رابط خفي للتحميل
+      const downloadLink = document.createElement('a');
+      downloadLink.href = PDF_DOWNLOAD_URL;
+      downloadLink.target = '_blank';
+      downloadLink.download = 'سورة النساء.pdf';
+      downloadLink.style.display = 'none';
+      
+      // إضافة الرابط إلى الصفحة والنقر عليه برمجياً
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    }
+    
+    // دالة لإعداد مشغل الصوت المحسن
+    function setupAudioPlayer() {
+      const audio = document.getElementById('quranAudio');
+      const playBtn = document.getElementById('playBtn');
+      const rewindBtn = document.getElementById('rewindBtn');
+      const forwardBtn = document.getElementById('forwardBtn');
+      const muteBtn = document.getElementById('muteBtn');
+      const progressBar = document.getElementById('progressBar');
+      const progressContainer = document.getElementById('progressContainer');
+      const currentTimeDisplay = document.getElementById('currentTime');
+      const durationDisplay = document.getElementById('duration');
+      const volumeSlider = document.getElementById('volumeSlider');
+      const rateButtons = document.querySelectorAll('.rate-btn');
+      
+      // تحميل البيانات عند بدء التشغيل
+      audio.addEventListener('loadedmetadata', function() {
+        updateTimeDisplay();
+        audio.volume = volumeSlider.value;
+      });
+      
+      // تحديث شريط التقدم
+      audio.addEventListener('timeupdate', function() {
+        updateProgressBar();
+        updateTimeDisplay();
+      });
+      
+      // عند انتهاء التشغيل
+      audio.addEventListener('ended', function() {
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        audio.currentTime = 0;
+      });
+      
+      // أحداث الأزرار
+      playBtn.addEventListener('click', togglePlay);
+      rewindBtn.addEventListener('click', rewind);
+      forwardBtn.addEventListener('click', forward);
+      muteBtn.addEventListener('click', toggleMute);
+      
+      // حدث شريط التقدم
+      progressContainer.addEventListener('click', setProgress);
+      
+      // حدث التحكم في الصوت
+      volumeSlider.addEventListener('input', function() {
+        audio.volume = this.value;
+        updateVolumeIcon();
+      });
+      
+      // أحداث تغيير سرعة التشغيل
+      rateButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const rate = parseFloat(this.getAttribute('data-rate'));
+          audio.playbackRate = rate;
+          
+          // تحديث الوضع النشط
+          rateButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+      
+      // وظائف المساعدة
+      function togglePlay() {
+        if (audio.paused) {
+          audio.play();
+          playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        } else {
+          audio.pause();
+          playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+      }
+      
+      function rewind() {
+        audio.currentTime = Math.max(0, audio.currentTime - 15);
+      }
+      
+      function forward() {
+        audio.currentTime = Math.min(audio.duration, audio.currentTime + 15);
+      }
+      
+      function toggleMute() {
+        audio.muted = !audio.muted;
+        updateVolumeIcon();
+      }
+      
+      function updateVolumeIcon() {
+        if (audio.muted || audio.volume === 0) {
+          muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+          muteBtn.style.background = 'linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)';
+        } else {
+          muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+          muteBtn.style.background = 'linear-gradient(135deg, #6a1b9a 0%, #9c27b0 100%)';
+        }
+      }
+      
+      function updateProgressBar() {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = percent + '%';
+      }
+      
+      function setProgress(e) {
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+      }
+      
+      function updateTimeDisplay() {
+        // الوقت الحالي
+        let minutes = Math.floor(audio.currentTime / 60);
+        let seconds = Math.floor(audio.currentTime % 60);
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        currentTimeDisplay.textContent = minutes + ':' + seconds;
+        
+        // المدة الكلية
+        minutes = Math.floor(audio.duration / 60);
+        seconds = Math.floor(audio.duration % 60);
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        
+        // تجنب عرض NaN
+        if (!isNaN(minutes) && !isNaN(seconds)) {
+          durationDisplay.textContent = minutes + ':' + seconds;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

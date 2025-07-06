@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سورة المسد | القرآن الكريم</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); /* Light pinkish-red - warning, fire, retribution */
+      min-height: 100vh;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
+      color: #333; /* Dark text for light background */
+    }
+    
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.6) 0%, transparent 8%), /* White shimmer */
+        radial-gradient(circle at 80% 40%, rgba(240, 100, 100, 0.1) 0%, transparent 10%), /* Light red subtle texture */
+        radial-gradient(circle at 40% 70%, rgba(220, 70, 70, 0.05) 0%, transparent 7%); /* Deeper red subtle texture */
+      z-index: -1;
+      opacity: 0.8;
+    }
+    
+    .flame-icon { /* Changed to fire icon for warning/retribution */
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, rgba(255, 121, 97, 0.4) 0%, transparent 70%); /* Light red/orange glow */
+      border-radius: 50%;
+      z-index: -1;
+      animation: pulse 8s ease-in-out infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: rgba(229, 57, 53, 0.7); /* Darker red for main icon */
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    header {
+      text-align: center;
+      padding: 25px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 240, 240, 0.9) 100%); /* Light, clean header */
+      border-radius: 15px;
+      margin: 20px auto 30px;
+      max-width: 900px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(220, 220, 220, 0.5);
+      backdrop-filter: blur(10px);
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: linear-gradient(45deg, rgba(255, 100, 100, 0.1) 0%, transparent 50%, rgba(230, 80, 80, 0.1) 100%);
+      z-index: 1;
+      border-radius: 20px;
+    }
+    
+    h1 {
+      color: #e53935; /* Darker red for heading */
+      margin-bottom: 15px;
+      font-size: 2.8rem;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .surah-info {
+      background: rgba(255, 224, 229, 0.7); /* Light pink, semi-transparent */
+      border-radius: 12px;
+      padding: 15px;
+      margin: 15px 0;
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 200, 210, 0.5);
+    }
+    
+    .surah-info p {
+      color: #555; /* Darker text for contrast */
+      margin: 8px 0;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 30px;
+      margin: 15px 0 5px;
+      background: linear-gradient(135deg, #ef5350 0%, #e53935 100%); /* Red gradient */
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border: none;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      border: 2px solid rgba(229, 57, 53, 0.4);
+    }
+    
+    .back-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, #e53935 0%, #ef5350 100%);
+    }
+    
+    .back-btn::before {
+      content: "←";
+      margin-left: 8px;
+      font-size: 1.3rem;
+    }
+    
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .image-section {
+      flex: 2;
+      min-width: 300px;
+      background: rgba(255, 255, 255, 0.9); /* Light semi-transparent */
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(220, 220, 220, 0.5);
+      backdrop-filter: blur(10px);
+    }
+    
+    .image-controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .control-btn {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #ef5350 0%, #e53935 100%); /* Red gradient */
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(229, 57, 53, 0.4);
+    }
+    
+    .control-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .control-btn.zoom {
+      background: linear-gradient(135deg, #e53935 0%, #ef5350 100%); /* Lighter red */
+    }
+    
+    .image-viewer-container {
+      position: relative;
+      border: 2px solid rgba(220, 220, 220, 0.5);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.05);
+      cursor: zoom-in;
+    }
+    
+    .surah-image {
+      max-width: 100%;
+      max-height: 70vh;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .image-info {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+    
+    .surah-details {
+      flex: 1;
+      min-width: 300px;
+      background: rgba(255, 255, 255, 0.9); /* Light semi-transparent */
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(220, 220, 220, 0.5);
+      backdrop-filter: blur(10px);
+    }
+    
+    .surah-details h2 {
+      color: #e53935; /* Darker red for heading */
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid rgba(220, 220, 220, 0.5);
+      font-size: 1.8rem;
+      text-align: center;
+    }
+    
+    .details-content {
+      line-height: 1.8;
+      color: #444; /* Darker text */
+      font-size: 1.1rem;
+    }
+    
+    .details-content p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+    
+    .details-content .highlight {
+      background: linear-gradient(120deg, rgba(229, 57, 53, 0.3) 0%, rgba(229, 57, 53, 0) 100%);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      color: #e53935; /* Darker red highlight */
+    }
+    
+    .warning-section {
+      background: linear-gradient(135deg, rgba(239, 83, 80, 0.3) 0%, rgba(229, 57, 53, 0.3) 100%); /* Red warning */
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      border: 1px solid rgba(229, 57, 53, 0.4);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      animation: pulseWarning 2s infinite;
+    }
+    
+    .warning-section h3 {
+      color: #e53935; /* Darker red for warning heading */
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .warning-section p {
+      color: #666; /* Medium dark text for warning */
+      line-height: 1.7;
+      text-align: center;
+    }
+    
+    .benefits-section {
+      background: rgba(255, 255, 255, 0.9); /* Light semi-transparent */
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(220, 220, 220, 0.5);
+      backdrop-filter: blur(10px);
+    }
+    
+    .benefits-section h2 {
+      color: #e53935; /* Darker red for heading */
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .benefit-card {
+      background: linear-gradient(135deg, rgba(255, 224, 229, 0.7) 0%, rgba(255, 200, 210, 0.7) 100%); /* Light pink benefit card */
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 200, 210, 0.5);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(135deg, rgba(255, 200, 210, 0.8) 0%, rgba(255, 180, 190, 0.8) 100%);
+    }
+    
+    .benefit-icon {
+      font-size: 2.5rem;
+      color: #e53935; /* Darker red for icon */
+      margin-bottom: 15px;
+    }
+    
+    .benefit-card h3 {
+      color: #e53935; /* Darker red for heading */
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+    
+    .benefit-card p {
+      color: #444; /* Darker text */
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #333; /* Dark text */
+      font-size: 1rem;
+      border-top: 1px solid rgba(220, 220, 220, 0.5);
+    }
+    
+    .loading-image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+    
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(220, 220, 220, 0.2);
+      border-top: 5px solid #e53935;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    
+    .audio-section {
+      background: rgba(255, 255, 255, 0.9); /* Light semi-transparent */
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 30px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(220, 220, 220, 0.5);
+      backdrop-filter: blur(10px);
+    }
+    
+    .audio-section h2 {
+      color: #e53935; /* Darker red for heading */
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    
+    .audio-player-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .progress-container {
+      width: 100%;
+      height: 8px;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      margin: 10px 0;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(135deg, #ef5350 0%, #e53935 100%); /* Red gradient */
+      width: 0%;
+      border-radius: 4px;
+      transition: width 0.1s linear;
+    }
+    
+    .time-display {
+      display: flex;
+      justify-content: space-between;
+      color: #444; /* Dark text */
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+    
+    .audio-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin: 15px 0;
+      flex-wrap: wrap;
+    }
+    
+    .audio-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ef5350 0%, #e53935 100%); /* Red gradient */
+      color: #fff;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(229, 57, 53, 0.4);
+    }
+    
+    .audio-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .audio-btn.large {
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+    }
+    
+    .audio-btn.secondary {
+      background: linear-gradient(135deg, #e53935 0%, #ef5350 100%); /* Lighter red for secondary */
+    }
+
+    /* Mute button specific color for "muted" state */
+    .audio-btn.muted-active {
+        background: linear-gradient(135deg, #c62828 0%, #b71c1c 100%) !important; /* Darker red for muted */
+    }
+    
+    .volume-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 250px;
+      margin: 0 auto;
+    }
+    
+    .volume-slider {
+      flex-grow: 1;
+      height: 6px;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    
+    .volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #e53935; /* Darker red thumb */
+    }
+    
+    .playback-rate {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .rate-btn {
+      padding: 5px 15px;
+      background: rgba(0, 0, 0, 0.1);
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      color: #444; /* Dark text */
+    }
+    
+    .rate-btn.active {
+      background: linear-gradient(135deg, #ef5350 0%, #e53935 100%); /* Red for active */
+      color: #fff; /* White text for contrast */
+      font-weight: bold;
+    }
+    
+    .reciter-info {
+      text-align: center;
+      margin-top: 15px;
+      color: #444; /* Dark text */
+      font-size: 1.1rem;
+    }
+    
+    .reciter-name {
+      font-weight: bold;
+      color: #e53935; /* Darker red for reciter name */
+    }
+    
+    .verses-section {
+      background: linear-gradient(135deg, rgba(255, 224, 229, 0.7) 0%, rgba(255, 200, 210, 0.7) 100%); /* Light pink verses section */
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 30px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 200, 210, 0.5);
+      backdrop-filter: blur(5px);
+    }
+    
+    .verses-section h2 {
+      color: #e53935; /* Darker red for heading */
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    
+    .verses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .verse-card {
+      background: rgba(255, 255, 255, 0.9); /* Light semi-transparent */
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(220, 220, 220, 0.5);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(5px);
+    }
+    
+    .verse-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .verse-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(135deg, #ef5350 0%, #e53935 100%); /* Red gradient */
+    }
+    
+    .verse-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #e53935; /* Darker red for verse number */
+      margin-bottom: 15px;
+    }
+    
+    .verse-text {
+      font-size: 1.3rem;
+      color: #333; /* Dark text for contrast */
+      margin-bottom: 15px;
+      line-height: 1.8;
+      min-height: 100px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    
+    .verse-translation {
+      color: #555; /* Medium dark text */
+      font-size: 1rem;
+      line-height: 1.6;
+      font-style: italic;
+      border-top: 1px dashed rgba(200, 200, 200, 0.6);
+      padding-top: 15px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.3; }
+      50% { transform: scale(1.1); opacity: 0.6; }
+      100% { transform: scale(1); opacity: 0.3; }
+    }
+    
+    @keyframes pulseWarning {
+      0% { box-shadow: 0 0 0 0 rgba(239, 83, 80, 0.7); } /* Red pulse for warning */
+      70% { box-shadow: 0 0 0 15px rgba(239, 83, 80, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 83, 80, 0); }
+    }
+    
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+      }
+      
+      .surah-image {
+        max-height: 50vh;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .audio-controls {
+        gap: 8px;
+      }
+      
+      .audio-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+      }
+      
+      .audio-btn.large {
+        width: 55px;
+        height: 55px;
+      }
+      
+      .verse-text {
+        font-size: 1.1rem;
+      }
+      
+      .flame-icon {
+        width: 70px;
+        height: 70px;
+        top: 15px;
+        left: 15px;
+        font-size: 1.8rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .image-controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .control-btn {
+        width: 100%;
+      }
+      
+      .surah-image {
+        max-height: 40vh;
+      }
+      
+      header {
+        padding: 20px 15px;
+      }
+      
+      h1 {
+        font-size: 1.7rem;
+      }
+      
+      .audio-controls {
+        gap: 6px;
+      }
+      
+      .audio-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+      
+      .audio-btn.large {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .rate-btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+      }
+      
+      .verse-text {
+        font-size: 1rem;
+        min-height: 120px;
+      }
+    }
+    
+    /* Animation for page load */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    header, .image-section, .surah-details, .benefits-section, .audio-section, .verses-section, .warning-section {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    
+    .image-section { animation-delay: 0.1s; }
+    .surah-details { animation-delay: 0.2s; }
+    .warning-section { animation-delay: 0.3s; }
+    .benefits-section { animation-delay: 0.4s; }
+    .audio-section { animation-delay: 0.5s; }
+    .verses-section { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+  <div class="flame-icon">
+    <i class="fas fa-fire-alt"></i> </div>
+  
+  <div class="container">
+    <header>
+      <h1>سورة المسد</h1>
+      
+      <div class="surah-info">
+        <p>مكية | 5 آيات | السورة الحادية عشرة بعد المائة في المصحف</p>
+      </div>
+      
+      <a href="../quran.html" class="back-btn">الرجوع إلى قائمة السور</a>
+    </header>
+    
+    <div class="warning-section">
+      <h3><i class="fas fa-exclamation-triangle"></i> هلاك أبي لهب وزوجته</h3>
+      <p>سورة المسد تُعلن هلاك أبي لهب وزوجته بسبب عدائهما الشديد للإسلام والنبي محمد ﷺ، وتُبيّن جزاء المتكبرين والمعاندين.</p>
+    </div>
+    
+    <div class="main-content">
+      <div class="image-section">
+        <div class="image-controls">
+          <button class="control-btn" id="prevBtn" disabled>
+            <i class="fas fa-arrow-right"></i> الصورة السابقة
+          </button>
+          <button class="control-btn" id="nextBtn" disabled>
+            الصورة التالية <i class="fas fa-arrow-left"></i>
+          </button>
+          <button class="control-btn zoom" id="zoomInBtn">
+            <i class="fas fa-search-plus"></i> تكبير
+          </button>
+          <button class="control-btn zoom" id="zoomOutBtn">
+            <i class="fas fa-search-minus"></i> تصغير
+          </button>
+        </div>
+        
+        <div class="image-viewer-container" id="imageContainer">
+          <img src="quran-images/surah96-6.png" alt="صفحة سورة المسد" class="surah-image" id="surahImage">
+          <div class="image-info" id="imageInfo">1 / 1</div>
+        </div>
+      </div>
+      
+      <div class="surah-details">
+        <h2>معلومات عن السورة</h2>
+        <div class="details-content">
+          <p><span class="highlight">سورة المسد</span> هي سورة مكية، عدد آياتها 5 آيات، وترتيبها الحادية عشرة بعد المائة في المصحف.</p>
+          
+          <p>سُميت السورة بـ <span class="highlight">المسد</span> لأنها تُشير إلى الحبل الذي في عنق امرأة أبي لهب (حمالة الحطب) كرمز لجزائها وعقوبتها.</p>
+          
+          <p>تُعد السورة من السور التي نزلت في <span class="highlight">فضح أبي لهب</span> عم النبي ﷺ وزوجته أم جميل، وبيان سوء عاقبتهما.</p>
+          
+          <p>تُبين السورة أن <span class="highlight">القرابة لا تنفع</span> من كفر وعادى دين الله، وأن الجزاء يكون على العمل.</p>
+          
+          <p>تُقدم السورة <span class="highlight">مثالًا حيًا</span> على عاقبة من يُعادون الحق ويسعون في إطفاء نور الإسلام.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="audio-section">
+      <h2>تلاوة سورة المسد</h2>
+      <div class="audio-player-container">
+        <audio id="quranAudio">
+          <source src="https://server10.mp3quran.net/minsh/111.mp3" type="audio/mpeg">
+          متصفحك لا يدعم مشغل الصوتيات.
+        </audio>
+        
+        <div class="progress-container" id="progressContainer">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        
+        <div class="time-display">
+          <span id="currentTime">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+        
+        <div class="audio-controls">
+          <button class="audio-btn secondary" id="rewindBtn">
+            <i class="fas fa-backward"></i>
+          </button>
+          
+          <button class="audio-btn large" id="playBtn">
+            <i class="fas fa-play"></i>
+          </button>
+          
+          <button class="audio-btn secondary" id="forwardBtn">
+            <i class="fas fa-forward"></i>
+          </button>
+          
+          <button class="audio-btn" id="muteBtn">
+            <i class="fas fa-volume-up"></i>
+          </button>
+        </div>
+        
+        <div class="volume-control">
+          <i class="fas fa-volume-down" style="color: #444;"></i>
+          <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+          <i class="fas fa-volume-up" style="color: #444;"></i>
+        </div>
+        
+        <div class="playback-rate">
+          <button class="rate-btn" data-rate="0.5">0.5x</button>
+          <button class="rate-btn active" data-rate="1">1x</button>
+          <button class="rate-btn" data-rate="1.5">1.5x</button>
+          <button class="rate-btn" data-rate="2">2x</button>
+        </div>
+        
+        <div class="reciter-info">
+          <p>تلاوة: <span class="reciter-name">الشيخ محمد صديق المنشاوي</span> - رحمه الله</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="verses-section">
+      <h2>آيات مضيئة من السورة</h2>
+      <div class="verses-grid">
+        <div class="verse-card">
+          <div class="verse-number">آية 1-3</div>
+          <div class="verse-text">تَبَّتْ يَدَا أَبِي لَهَبٍ وَتَبَّ ﴿1﴾ مَا أَغْنَىٰ عَنْهُ مَالُهُ وَمَا كَسَبَ ﴿2﴾ سَيَصْلَىٰ نَارًا ذَاتَ لَهَبٍ ﴿3﴾</div>
+          <div class="verse-translation">May the hands of Abu Lahab be ruined, and ruined is he. (1) His wealth will not avail him or that which he gained. (2) He will [enter to] burn in a Fire of [blazing] flame (3)</div>
+        </div>
+        
+        <div class="verse-card">
+          <div class="verse-number">آية 4-5</div>
+          <div class="verse-text">وَامْرَأَتُهُ حَمَّالَةَ الْحَطَبِ ﴿4﴾ فِي جِيدِهَا حَبْلٌ مِّن مَّسَدٍ ﴿5﴾</div>
+          <div class="verse-translation">And his wife [as well] - the carrier of firewood. (4) Around her neck is a rope of [twisted] fiber. (5)</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="benefits-section">
+      <h2>فوائد من سورة المسد</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-gavel"></i>
+          </div>
+          <h3>جزاء العناد</h3>
+          <p>بيان عقوبة من يعادي الإسلام ويصد عن سبيل الله.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-hand-holding-usd"></i>
+          </div>
+          <h3>لا ينفع مال ولا جاه</h3>
+          <p>المال والجاه لا يغنيان عن صاحبهما شيئًا أمام عذاب الله.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-fire"></i>
+          </div>
+          <h3>وعد ووعيد</h3>
+          <p>تثبيت المؤمنين بوعد الله بنصر دينه، ووعيده للكافرين.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-user-slash"></i>
+          </div>
+          <h3>البراءة من أهل العداوة</h3>
+          <p>أهمية البراءة من أعداء الدين، حتى لو كانوا من الأقارب.</p>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <p>© 2025 موقع نور الهدى | سورة المسد</p>
+    </footer>
+  </div>
+
+  <script>
+    // صور سورة المسد
+    const images = [
+      "quran-images/surah96-6.png" // Using the provided image path
+    ];
+    
+    // متغيرات التحكم في الصور
+    let currentImageIndex = 0;
+    let currentZoom = 100;
+    const surahImage = document.getElementById('surahImage');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const zoomInBtn = document.getElementById('zoomInBtn');
+    const zoomOutBtn = document.getElementById('zoomOutBtn');
+    const imageInfo = document.getElementById('imageInfo');
+    
+    // تحميل البيانات عند بدء التشغيل
+    window.addEventListener('load', function() {
+      setupImageGallery();
+      setupAudioPlayer();
+      updateImageInfo();
+    });
+    
+    // دالة لإعداد معرض الصور
+    function setupImageGallery() {
+      // عرض الصورة الأولى
+      surahImage.src = images[currentImageIndex];
+      
+      // أحداث الأزرار
+      prevBtn.addEventListener('click', showPrevImage);
+      nextBtn.addEventListener('click', showNextImage);
+      zoomInBtn.addEventListener('click', zoomIn);
+      zoomOutBtn.addEventListener('click', zoomOut);
+      
+      // اختصارات لوحة المفاتيح
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight') {
+          showPrevImage();
+        } else if (e.key === 'ArrowLeft') {
+          showNextImage();
+        } else if (e.key === '+' || e.key === '=') {
+          zoomIn();
+        } else if (e.key === '-' || e.key === '_') {
+          zoomOut();
+        }
+      });
+      
+      // تكبير/تصغير الصورة بالماوس
+      const imageContainer = document.getElementById('imageContainer');
+      imageContainer.addEventListener('dblclick', function() {
+        if (currentZoom === 100) {
+          zoomIn();
+        } else {
+          resetZoom();
+        }
+      });
+      
+      // Disable prev/next buttons if only one image
+      if (images.length <= 1) {
+          prevBtn.disabled = true;
+          nextBtn.disabled = true;
+          prevBtn.style.opacity = '0.5';
+          nextBtn.style.opacity = '0.5';
+          prevBtn.style.cursor = 'not-allowed';
+          nextBtn.style.cursor = 'not-allowed';
+      }
+    }
+    
+    // دالة لعرض الصورة السابقة
+    function showPrevImage() {
+      if (images.length <= 1) return; // Add this check
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      surahImage.src = images[currentImageIndex];
+      animateImageChange();
+      updateImageInfo();
+    }
+    
+    // دالة لعرض الصورة التالية
+    function showNextImage() {
+      if (images.length <= 1) return; // Add this check
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      surahImage.src = images[currentImageIndex];
+      animateImageChange();
+      updateImageInfo();
+    }
+    
+    // دالة لتكبير الصورة
+    function zoomIn() {
+      if (currentZoom < 200) {
+        currentZoom += 20;
+        applyZoom();
+      }
+    }
+    
+    // دالة لتصغير الصورة
+    function zoomOut() {
+      if (currentZoom > 60) {
+        currentZoom -= 20;
+        applyZoom();
+      }
+    }
+    
+    // دالة لإعادة ضبط التكبير
+    function resetZoom() {
+      currentZoom = 100;
+      applyZoom();
+    }
+    
+    // تطبيق مستوى التكبير الحالي
+    function applyZoom() {
+      surahImage.style.transform = `scale(${currentZoom/100})`;
+      surahImage.style.transformOrigin = 'center center';
+      imageContainer.style.cursor = currentZoom > 100 ? 'zoom-out' : 'zoom-in';
+    }
+    
+    // دالة لإضافة تأثير عند تغيير الصور
+    function animateImageChange() {
+      surahImage.style.opacity = 0;
+      setTimeout(() => {
+        surahImage.style.opacity = 1;
+        surahImage.style.transition = 'opacity 0.5s ease-in-out';
+      }, 10);
+    }
+    
+    // تحديث معلومات الصورة
+    function updateImageInfo() {
+      imageInfo.textContent = `${currentImageIndex + 1} / ${images.length}`;
+    }
+    
+    // دالة لإعداد مشغل الصوت المحسن
+    function setupAudioPlayer() {
+      const audio = document.getElementById('quranAudio');
+      const playBtn = document.getElementById('playBtn');
+      const rewindBtn = document.getElementById('rewindBtn');
+      const forwardBtn = document.getElementById('forwardBtn');
+      const muteBtn = document.getElementById('muteBtn');
+      const progressBar = document.getElementById('progressBar');
+      const progressContainer = document.getElementById('progressContainer');
+      const currentTimeDisplay = document.getElementById('currentTime');
+      const durationDisplay = document.getElementById('duration');
+      const volumeSlider = document.getElementById('volumeSlider');
+      const rateButtons = document.querySelectorAll('.rate-btn');
+      
+      // تحميل البيانات عند بدء التشغيل
+      audio.addEventListener('loadedmetadata', function() {
+        updateTimeDisplay();
+        audio.volume = volumeSlider.value;
+      });
+      
+      // تحديث شريط التقدم
+      audio.addEventListener('timeupdate', function() {
+        updateProgressBar();
+        updateTimeDisplay();
+      });
+      
+      // عند انتهاء التشغيل
+      audio.addEventListener('ended', function() {
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        audio.currentTime = 0;
+      });
+      
+      // أحداث الأزرار
+      playBtn.addEventListener('click', togglePlay);
+      rewindBtn.addEventListener('click', rewind);
+      forwardBtn.addEventListener('click', forward);
+      muteBtn.addEventListener('click', toggleMute);
+      
+      // حدث شريط التقدم
+      progressContainer.addEventListener('click', setProgress);
+      
+      // حدث التحكم في الصوت
+      volumeSlider.addEventListener('input', function() {
+        audio.volume = this.value;
+        updateVolumeIcon();
+      });
+      
+      // أحداث تغيير سرعة التشغيل
+      rateButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const rate = parseFloat(this.getAttribute('data-rate'));
+          audio.playbackRate = rate;
+          
+          // تحديث الوضع النشط
+          rateButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+      
+      // وظائف المساعدة
+      function togglePlay() {
+        if (audio.paused) {
+          audio.play();
+          playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        } else {
+          audio.pause();
+          playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+      }
+      
+      function rewind() {
+        audio.currentTime = Math.max(0, audio.currentTime - 15);
+      }
+      
+      function forward() {
+        audio.currentTime = Math.min(audio.duration, audio.currentTime + 15);
+      }
+      
+      function toggleMute() {
+        audio.muted = !audio.muted;
+        updateVolumeIcon();
+      }
+      
+      function updateVolumeIcon() {
+        if (audio.muted || audio.volume === 0) {
+          muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+          muteBtn.classList.add('muted-active');
+        } else {
+          muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+          muteBtn.classList.remove('muted-active');
+        }
+      }
+      
+      function updateProgressBar() {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = percent + '%';
+      }
+      
+      function setProgress(e) {
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+      }
+      
+      function updateTimeDisplay() {
+        // الوقت الحالي
+        let minutes = Math.floor(audio.currentTime / 60);
+        let seconds = Math.floor(audio.currentTime % 60);
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        currentTimeDisplay.textContent = minutes + ':' + seconds;
+        
+        // المدة الكلية
+        minutes = Math.floor(audio.duration / 60);
+        seconds = Math.floor(audio.duration % 60);
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        
+        // تجنب عرض NaN
+        if (!isNaN(minutes) && !isNaN(seconds)) {
+          durationDisplay.textContent = minutes + ':' + seconds;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

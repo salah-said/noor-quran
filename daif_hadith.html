@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تبيان الحق: كشف الأحاديث الضعيفة والمنتشرة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #eef2f6; /* Soft light blue background */
+            padding: 20px;
+            direction: rtl; /* Right-to-left for Arabic */
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+        h1 {
+            text-align: center;
+            color: #c0392b; /* Deep red for emphasis */
+            margin-bottom: 25px;
+            font-size: 2.5em;
+            font-weight: 700;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        .intro-paragraph {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 30px;
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8;
+        }
+        .hadith-count {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        .navigation-buttons-top,
+        .navigation-buttons-bottom,
+        .pagination {
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+        .nav-button, .page-number {
+            display: inline-block;
+            background-color: #3498db; /* Blue */
+            color: white;
+            padding: 10px 18px;
+            margin: 5px 5px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .nav-button:hover, .page-number:hover {
+            background-color: #2980b9; /* Darker blue */
+            transform: translateY(-2px);
+        }
+        .nav-button.home {
+            background-color: #27ae60; /* Green for home button */
+        }
+        .nav-button.home:hover {
+            background-color: #229954;
+        }
+        .page-number.active {
+            background-color: #e74c3c; /* Red for active page */
+            color: white;
+            pointer-events: none; /* Disable click on active page */
+        }
+        .hadith-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .hadith-item {
+            background: #fff;
+            margin: 15px 0;
+            padding: 20px 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border-right: 5px solid #e74c3c; /* Red border on right to indicate warning/correction */
+        }
+        .hadith-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .hadith-title {
+            font-weight: 700;
+            color: #2c3e50; /* Dark blue for titles */
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+        .hadith-status {
+            color: #e74c3c; /* Red for status */
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block; /* Ensures it's on its own line */
+        }
+        .hadith-explanation {
+            font-size: 0.95em;
+            color: #666;
+            margin-top: 10px;
+        }
+        .hadith-source {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            margin-top: 10px;
+            display: block;
+            border-top: 1px dashed #eee;
+            padding-top: 8px;
+        }
+        .disclaimer-note {
+            background: #ffe0b2; /* Light orange */
+            color: #e65100; /* Darker orange text */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 1.1em;
+            border: 1px solid #ffcc80;
+        }
+        .disclaimer-note a {
+            color: #c25e00;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .disclaimer-note a:hover {
+            text-decoration: underline;
+        }
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                margin: 10px auto;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .intro-paragraph {
+                font-size: 1em;
+            }
+            .hadith-item {
+                padding: 15px;
+            }
+            .hadith-title {
+                font-size: 1.1em;
+            }
+            .hadith-explanation, .hadith-source {
+                font-size: 0.8em;
+            }
+            .nav-button, .page-number {
+                padding: 8px 15px;
+                font-size: 0.9em;
+                margin: 3px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 id="top"><span style="color: #2c3e50;">تبيان الحق:</span> كشف الأحاديث الضعيفة والمنتشرة</h1>
+    <p class="intro-paragraph">نستعرض هنا أشهر الأحاديث النبوية المنتشرة بين الناس في مصر والعالم العربي، والتي ثبت ضعفها أو كونها مكذوبة أو لا أصل لها. نوضح حكم الحديث ونُشير إلى السبب والمصادر الموثوقة، لنساهم في نشر السنة الصحيحة والتصدي للأخبار الباطلة.</p>
+
+    <div class="hadith-count">عدد الأحاديث المذكورة: <span id="hadithCounter"></span></div>
+
+    <div class="pagination top-pagination" id="topPagination">
+        </div>
+
+    <ul class="hadith-list" id="hadithList">
+        <li class="hadith-item" id="hadith1">
+            <div class="hadith-title">"حب الدنيا رأس كل خطيئة"</div>
+            <div class="hadith-status">الحكم: **ليس بحديث نبوي شريف** - مكذوب/لا أصل له بهذا اللفظ.</div>
+            <div class="hadith-explanation">هذا اللفظ شائع جداً لكنه لم يثبت عن النبي ﷺ، ولا أصل له في كتب السنة المعتبرة. المعنى صحيح بشكل عام (ذم التعلق بالدنيا)، ولكن لا يُنسب اللفظ إلى النبي ﷺ.</div>
+            <div class="hadith-source">المصدر: الألباني في السلسلة الضعيفة (حديث رقم 385)، ابن تيمية في مجموع الفتاوى.</div>
+        </li>
+        <li class="hadith-item" id="hadith2">
+            <div class="hadith-title">"أنا مدينة العلم وعلي بابها"</div>
+            <div class="hadith-status">الحكم: **موضوع (مكذوب) - لا يصح.**</div>
+            <div class="hadith-explanation">هذا الحديث مكذوب على النبي ﷺ، وقد حكم بوضعه كثير من أئمة الحديث منهم البخاري والترمذي وابن الجوزي والألباني.</div>
+            <div class="hadith-source">المصدر: الذهبي في "ميزان الاعتدال"، ابن تيمية في "منهاج السنة النبوية".</div>
+        </li>
+        <li class="hadith-item" id="hadith3">
+            <div class="hadith-title">"من لم تنهه صلاته عن الفحشاء والمنكر فلا صلاة له"</div>
+            <div class="hadith-status">الحكم: **ضعيف جدًا.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف جدًا ولا يصح عن النبي ﷺ، والصلاة الصحيحة هي التي تُقام بشروطها وأركانها، أما الأثر الذي تتركه في القلب فذلك بتوفيق من الله.</div>
+            <div class="hadith-source">المصدر: الألباني في السلسلة الضعيفة (حديث رقم 2).</div>
+        </li>
+        <li class="hadith-item" id="hadith4">
+            <div class="hadith-title">"تَفَكَّرُوا فِي الْآلَاءِ، وَلَا تَفَكَّرُوا فِي اللَّهِ"</div>
+            <div class="hadith-status">الحكم: **ضعيف جدًا.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف جداً، وهو منتشر، والمعنى صحيح من حيث التفكر في المخلوقات وليس في ذات الله، لكن اللفظ لا يصح عن النبي ﷺ.</div>
+            <div class="hadith-source">المصدر: الألباني في السلسلة الضعيفة (حديث رقم 239).</div>
+        </li>
+        <li class="hadith-item" id="hadith5">
+            <div class="hadith-title">"إذا مات ابن آدم انقطع عمله إلا من ثلاث..." (بزيادة "أو ولد صالح بار يدعو له")</div>
+            <div class="hadith-status">الحكم: **لفظ الحديث صحيح لكن هذه الزيادة ضعيفة/لا تصح.**</div>
+            <div class="hadith-explanation">الحديث الصحيح: "إذا مات الإنسان انقطع عنه عمله إلا من ثلاثة: إلا من صدقة جارية، أو علم ينتفع به، أو ولد صالح يدعو له." (رواه مسلم). زيادة "بار" أو "يدعو له" غير موجودة في الرواية الصحيحة.</div>
+            <div class="hadith-source">المصدر: صحيح مسلم، الألباني - تحقيق المشكاة (رقم 162).</div>
+        </li>
+        <li class="hadith-item" id="hadith6">
+            <div class="hadith-title">"تهادوا تحابوا"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">الحديث ضعيف بهذا اللفظ، وإن كان المعنى صحيحاً وموافقاً لروح الإسلام في الترغيب بالهدية، ولكن لا يُنسب اللفظ للنبي ﷺ.</div>
+            <div class="hadith-source">المصدر: الألباني في الإرواء (رقم 1601)، السلسلة الضعيفة (حديث رقم 200).</div>
+        </li>
+        <li class="hadith-item" id="hadith7">
+            <div class="hadith-title">"اللهم بارك لنا في رجب وشعبان وبلغنا رمضان"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الدعاء ضعيف السند، ولا يصح عن النبي ﷺ.</div>
+            <div class="hadith-source">المصدر: الألباني في السلسلة الضعيفة (حديث رقم 439).</div>
+        </li>
+        <li class="hadith-item" id="hadith8">
+            <div class="hadith-title">"من صلى علي يوم الجمعة ثمانين مرة غفر الله له ذنوب ثمانين عاماً"</div>
+            <div class="hadith-status">الحكم: **ضعيف جداً بل موضوع.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف جداً، وقد حكم بوضعه بعض أهل العلم.</div>
+            <div class="hadith-source">المصدر: الألباني في السلسلة الضعيفة (حديث رقم 4376).</div>
+        </li>
+        <li class="hadith-item" id="hadith9">
+            <div class="hadith-title">"صوموا تصحوا"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند، والمعنى العام للصوم له فوائد صحية معروفة، لكن اللفظ لا يصح عن النبي ﷺ.</div>
+            <div class="hadith-source">المصدر: الألباني في السلسلة الضعيفة (حديث رقم 253).</div>
+        </li>
+        <li class="hadith-item" id="hadith10">
+            <div class="hadith-title">"من صلى على جنازة فله قيراط" (بزيادة "ومن تبعها فله قيراطان، والقيراط مثل أحد")</div>
+            <div class="hadith-status">الحكم: **الحديث صحيح، لكن تحديد القيراط بـ"مثل أحد" ضعيف.**</div>
+            <div class="hadith-explanation">الحديث الصحيح هو "من شهد الجنازة حتى يصلى عليها فله قيراط، ومن شهدها حتى تدفن فله قيراطان. قيل: وما القيراطان؟ قال: مثل الجبلين العظيمين" (متفق عليه). تحديد "مثل أحد" جاء في رواية ضعيفة.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري ومسلم، الألباني في السلسلة الضعيفة (حديث رقم 153).</div>
+        </li>
+        <li class="hadith-item" id="hadith11">
+            <div class="hadith-title">"خير البر عاجله"</div>
+            <div class="hadith-status">الحكم: **ليس بحديث نبوي - لا أصل له بهذا اللفظ.**</div>
+            <div class="hadith-explanation">هذه مقولة شائعة في الأمثال الشعبية وبعض الكتب، ولكنها لا تعتبر حديثاً نبوياً عن الرسول ﷺ، ولا أصل لها في كتب السنة.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني، فتاوى اللجنة الدائمة.</div>
+        </li>
+        <li class="hadith-item" id="hadith12">
+            <div class="hadith-title">"الفقر فخري"</div>
+            <div class="hadith-status">الحكم: **حديث موضوع (مكذوب).**</div>
+            <div class="hadith-explanation">هذا الحديث باطل ومكذوب على النبي ﷺ، لا أصل له في كتب السنة الصحيحة، ومخالف لمنهج النبي ﷺ الذي كان يستعيذ من الفقر.</div>
+            <div class="hadith-source">المصدر: الألباني (السلسلة الضعيفة)، ابن الجوزي (الموضوعات).</div>
+        </li>
+        <li class="hadith-item" id="hadith13">
+            <div class="hadith-title">"العمل عبادة"</div>
+            <div class="hadith-status">الحكم: **لا أصل له بهذا اللفظ كحديث نبوي.**</div>
+            <div class="hadith-explanation">هذه عبارة صحيحة المعنى من حيث الترغيب في العمل، ولكنها ليست حديثًا نبويًا.</div>
+            <div class="hadith-source">المصدر: فتاوى اللجنة الدائمة، ابن باز.</div>
+        </li>
+        <li class="hadith-item" id="hadith14">
+            <div class="hadith-title">"من لم يشكر الناس لم يشكر الله"</div>
+            <div class="hadith-status">الحكم: **ضعيف السند.**</div>
+            <div class="hadith-explanation">صحيح المعنى، ولكن اللفظ الذي ينتشر به ضعيف. ورد بلفظ قريب في الترمذي وأحمد وهو صحيح، لكن هذا اللفظ ضعيف.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني (حديث رقم 218).</div>
+        </li>
+        <li class="hadith-item" id="hadith15">
+            <div class="hadith-title">"أقربكم مني مجلساً يوم القيامة أحاسنكم أخلاقاً"</div>
+            <div class="hadith-status">الحكم: **ضعيف - لا يصح إسناده.**</div>
+            <div class="hadith-explanation">الحديث بلفظ "إن من أحبكم إلي وأقربكم مني مجلساً يوم القيامة أحاسنكم أخلاقاً" رواه الترمذي وهو صحيح، لكن اللفظ المنتشر ضعيف.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني (حديث رقم 239).</div>
+        </li>
+        <li class="hadith-item" id="hadith16">
+            <div class="hadith-title">"الصلاة عماد الدين"</div>
+            <div class="hadith-status">الحكم: **مشهور ضعيف.**</div>
+            <div class="hadith-explanation">هو حديث مشهور على الألسنة، لكنه ضعيف السند. المعنى صحيح، فالصلاة ركن عظيم في الدين، لكن اللفظ لم يصح عن النبي ﷺ.</div>
+            <div class="hadith-source">المصدر: الألباني (ضعيف الجامع الصغير).</div>
+        </li>
+        <li class="hadith-item" id="hadith17">
+            <div class="hadith-title">"من قرأ سورة الإخلاص عشر مرات بنى الله له بيتاً في الجنة"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف، على الرغم من أن فضل سورة الإخلاص عظيم.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة (رقم 582).</div>
+        </li>
+        <li class="hadith-item" id="hadith18">
+            <div class="hadith-title">"من قرأ آية الكرسي دبر كل صلاة دخل الجنة"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">الحديث صحيح بلفظ "لا يمنعه من دخول الجنة إلا أن يموت" وليس "دخل الجنة" مباشرة. اللفظ المنتشر بـ"دخل الجنة" هو ضعيف.</div>
+            <div class="hadith-source">المصدر: الألباني (ضعيف الترغيب والترهيب).</div>
+        </li>
+        <li class="hadith-item" id="hadith19">
+            <div class="hadith-title">"يد الله فوق أيديهم" (كحديث عند الشرب)</div>
+            <div class="hadith-status">الحكم: **ليست حديثًا نبويًا، وهي جزء من آية قرآنية.**</div>
+            <div class="hadith-explanation">هذه العبارة هي جزء من الآية رقم 10 من سورة الفتح في القرآن الكريم، ولا تُعد حديثًا نبويًا.</div>
+            <div class="hadith-source">المصدر: القرآن الكريم (سورة الفتح: 10).</div>
+        </li>
+        <li class="hadith-item" id="hadith20">
+            <div class="hadith-title">"اطلبوا العلم ولو في الصين"</div>
+            <div class="hadith-status">الحكم: **موضوع (مكذوب).**</div>
+            <div class="hadith-explanation">هذا الحديث باطل ومكذوب على النبي ﷺ، ولا أصل له.</div>
+            <div class="hadith-source">المصدر: الألباني في السلسلة الضعيفة (حديث رقم 41).</div>
+        </li>
+        <li class="hadith-item" id="hadith21">
+            <div class="hadith-title">"النجاة في ثلاثة: أن تقول الحق وإن كان مرًا، وأن لا تخاف في الله لومة لائم، وأن تعمل الخير حيثما كان"</div>
+            <div class="hadith-status">الحكم: **ليس بحديث نبوي - لا أصل له.**</div>
+            <div class="hadith-explanation">هذه العبارة شائعة لكنها ليست من كلام النبي ﷺ.</div>
+            <div class="hadith-source">المصدر: لا يوجد له أصل في كتب السنة.</div>
+        </li>
+        <li class="hadith-item" id="hadith22">
+            <div class="hadith-title">"اللهم لا تدع لنا ذنباً إلا غفرته، ولا هماً إلا فرجته..." (دعاء منتشر)</div>
+            <div class="hadith-status">الحكم: **مقطع دعاء منتشر ليس له أصل كحديث نبوي كامل.**</div>
+            <div class="hadith-explanation">هو دعاء جامع لبعض المعاني الصحيحة، ولكن لم يثبت عن النبي ﷺ بهذا اللفظ الجامع.</div>
+            <div class="hadith-source">المصدر: لا يوجد له أصل كحديث في كتب السنة.</div>
+        </li>
+        <li class="hadith-item" id="hadith23">
+            <div class="hadith-title">"توسلوا بجاهي فإن جاهي عند الله عظيم"</div>
+            <div class="hadith-status">الحكم: **موضوع (مكذوب).**</div>
+            <div class="hadith-explanation">هذا الحديث مكذوب على النبي ﷺ، وهو من الأحاديث التي وضعتها بعض الطرق الصوفية.</div>
+            <div class="hadith-source">المصدر: الألباني في السلسلة الضعيفة (حديث رقم 288).</div>
+        </li>
+        <li class="hadith-item" id="hadith24">
+            <div class="hadith-title">"أصحابي كالنجوم بأيهم اقتديتم اهتديتم"</div>
+            <div class="hadith-status">الحكم: **ضعيف جداً وموضوع.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف جدًا، وبعض أهل العلم حكم بوضعه، لأجل ضعف شديد في سنده وتعارضه مع نصوص أخرى.</div>
+            <div class="hadith-source">المصدر: الألباني في السلسلة الضعيفة (حديث رقم 66)، ابن عبد البر في "جامع بيان العلم وفضله".</div>
+        </li>
+        <li class="hadith-item" id="hadith25">
+            <div class="hadith-title">"النظر في المصحف عبادة"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند، وإن كان تلاوة القرآن عبادة عظيمة سواء من المصحف أو حفظًا.</div>
+            <div class="hadith-source">المصدر: الألباني في السلسلة الضعيفة (حديث رقم 403).</div>
+        </li>
+        <li class="hadith-item" id="hadith26">
+            <div class="hadith-title">"أول ما نزل من القرآن بسم الله الرحمن الرحيم"</div>
+            <div class="hadith-status">الحكم: **ضعيف جدًا.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف جدًا. الصحيح أن أول ما نزل من القرآن هو "اقرأ باسم ربك الذي خلق".</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني (حديث رقم 3031).</div>
+        </li>
+        <li class="hadith-item" id="hadith27">
+            <div class="hadith-title">"من زار قبري وجبت له شفاعتي"</div>
+            <div class="hadith-status">الحكم: **ضعيف جدًا بل موضوع.**</div>
+            <div class="hadith-explanation">هذا الحديث مكذوب على النبي ﷺ، ولا يصح. والشفاعة تكون بإذن الله لمن يشاء.</div>
+            <div class="hadith-source">المصدر: ابن تيمية، الألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith28">
+            <div class="hadith-title">"إن الله لا يستحي أن يضرب مثلا بعوضة فما فوقها"</div>
+            <div class="hadith-status">الحكم: **جزء من آية قرآنية، وليس حديثًا.**</div>
+            <div class="hadith-explanation">هذا جزء من الآية 26 من سورة البقرة. يجب التمييز بين الآيات القرآنية والأحاديث النبوية.</div>
+            <div class="hadith-source">المصدر: القرآن الكريم (سورة البقرة: 26).</div>
+        </li>
+        <li class="hadith-item" id="hadith29">
+            <div class="hadith-title">"نور بيوتكم بالقرآن"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">الحديث ضعيف، وإن كان قراءة القرآن في البيوت فيها فضل كبير وتطرد الشياطين.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني (حديث رقم 565).</div>
+        </li>
+        <li class="hadith-item" id="hadith30">
+            <div class="hadith-title">"إن للموت سكرات"</div>
+            <div class="hadith-status">الحكم: **صحيح، لكنه يُنسب لغير النبي ﷺ أحيانًا.**</div>
+            <div class="hadith-explanation">هذا القول صحيح وقد ورد عن النبي ﷺ عند موته، لكنه يُنسب أحيانًا لأقوال بعض الصحابة أو غيرهم.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري.</div>
+        </li>
+        <li class="hadith-item" id="hadith31">
+            <div class="hadith-title">"ليس في القيامة حسب ولا نسب إلا في الجنة"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند، والمعنى العام أن النسب لا ينفع وحده دون عمل صالح.</div>
+            <div class="hadith-source">المصدر: الألباني في السلسلة الضعيفة (حديث رقم 558).</div>
+        </li>
+        <li class="hadith-item" id="hadith32">
+            <div class="hadith-title">"من وسع على عياله في النفقة يوم عاشوراء، وسع الله عليه سائر سنته"</div>
+            <div class="hadith-status">الحكم: **ضعيف جدًا بل موضوع.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف جداً ولا يصح، وقد حكم بوضعه بعض أهل العلم.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني (حديث رقم 669).</div>
+        </li>
+        <li class="hadith-item" id="hadith33">
+            <div class="hadith-title">"فضل العالم على العابد كفضل القمر ليلة البدر على سائر الكواكب"</div>
+            <div class="hadith-status">الحكم: **ضعيف بهذا اللفظ.**</div>
+            <div class="hadith-explanation">الحديث الصحيح بلفظ "فضل العالم على العابد كفضل القمر ليلة البدر على سائر الكواكب" هو ضعيف. ولكن ورد في صحيح مسلم بلفظ "فضل العالم على العابد كفضلي على أدناكم" وهو صحيح.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة (حديث رقم 230)، صحيح مسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith34">
+            <div class="hadith-title">"الرضا بالمقدور خير من طلب الاختيار"</div>
+            <div class="hadith-status">الحكم: **ليس بحديث نبوي - مقولة.**</div>
+            <div class="hadith-explanation">هذه مقولة تُنسب لبعض الصالحين أو الحكماء، وليست حديثًا نبويًا.</div>
+            <div class="hadith-source">المصدر: لا يوجد له أصل في كتب السنة.</div>
+        </li>
+        <li class="hadith-item" id="hadith35">
+            <div class="hadith-title">"لا تسبوا الدهر فإن الدهر هو الله"</div>
+            <div class="hadith-status">الحكم: **الحديث صحيح لكن يفهم خطأً.**</div>
+            <div class="hadith-explanation">الحديث بلفظ "لا تسبوا الدهر، فإن الله هو الدهر" (رواه مسلم) حديث صحيح. المعنى أن الله هو مصرف الدهر ومقلب الليل والنهار، وليس أن الدهر جزء من ذات الله. هذا يقع فيه سوء فهم لبعض الناس.</div>
+            <div class="hadith-source">المصدر: صحيح مسلم. (أضفته هنا لتصحيح الفهم وليس لضعفه).</div>
+        </li>
+        <li class="hadith-item" id="hadith36">
+            <div class="hadith-title">"اللهم إني أسألك رضاك والجنة، وأعوذ بك من سخطك والنار"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الدعاء ضعيف السند، وإن كان معناه صحيحًا وجائزًا الدعاء به.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني (حديث رقم 2616).</div>
+        </li>
+        <li class="hadith-item" id="hadith37">
+            <div class="hadith-title">"من صلى الفجر في جماعة، ثم جلس يذكر الله حتى تطلع الشمس..." (بزيادة أجر الحج والعمرة)</div>
+            <div class="hadith-status">الحكم: **ضعيف السند.**</div>
+            <div class="hadith-explanation">الحديث بلفظ "من صلى الفجر في جماعة ثم قعد يذكر الله حتى تطلع الشمس ثم صلى ركعتين كانت له كأجر حجة وعمرة تامة تامة تامة" صحيح بلفظ "تامة" فقط وليس ثلاث مرات، والزيادة ضعيفة.</div>
+            <div class="hadith-source">المصدر: صحيح الترمذي، الألباني (ضعيف الترغيب والترهيب).</div>
+        </li>
+        <li class="hadith-item" id="hadith38">
+            <div class="hadith-title">"اطلبوا العلم من المهد إلى اللحد"</div>
+            <div class="hadith-status">الحكم: **ليس بحديث نبوي - مقولة مشهورة.**</div>
+            <div class="hadith-explanation">هذه مقولة مشهورة تحث على طلب العلم، ومعناها صحيح، لكنها ليست حديثًا عن النبي ﷺ.</div>
+            <div class="hadith-source">المصدر: لا يوجد له أصل في كتب السنة.</div>
+        </li>
+        <li class="hadith-item" id="hadith39">
+            <div class="hadith-title">"إن الله طيب لا يقبل إلا طيبًا"</div>
+            <div class="hadith-status">الحكم: **صحيح، ولكن ليس له علاقة بالطعام المحرم.**</div>
+            <div class="hadith-explanation">الحديث صحيح رواه مسلم، ويدل على أن الله لا يقبل من الأعمال إلا ما كان خالصًا وصحيحًا، ولا يقبل من الأموال إلا ما كان حلالًا. لكن يُفهم خطأً أحيانًا بأنه يحلل الطعام المحرم إذا كان طيبًا.</div>
+            <div class="hadith-source">المصدر: صحيح مسلم. (لتصحيح الفهم).</div>
+        </li>
+        <li class="hadith-item" id="hadith40">
+            <div class="hadith-title">"المؤمن كيس فطن حذر"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند، ولا يصح عن النبي ﷺ.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني (حديث رقم 404).</div>
+        </li>
+        <li class="hadith-item" id="hadith41">
+            <div class="hadith-title">"لا يبلغ العبد حقيقة الإيمان حتى يدع المزاح والكذب"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند، وإن كان ترك الكذب من علامات الإيمان الصادق.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith42">
+            <div class="hadith-title">"إن هذا العلم دين فانظروا عمن تأخذون دينكم"</div>
+            <div class="hadith-status">الحكم: **مقولة عن الإمام ابن سيرين وليست حديثاً نبوياً.**</div>
+            <div class="hadith-explanation">هذه العبارة مشهورة عن الإمام محمد بن سيرين رحمه الله، وهي قاعدة عظيمة في علم الجرح والتعديل، لكنها ليست حديثاً.</div>
+            <div class="hadith-source">المصدر: مقدمة صحيح مسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith43">
+            <div class="hadith-title">"خير الناس من طال عمره وحسن عمله"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه الترمذي وغيره. (أضفته هنا لأنه قد يُذكر في سياق الأحاديث الشائعة).</div>
+            <div class="hadith-source">المصدر: صحيح الترمذي.</div>
+        </li>
+        <li class="hadith-item" id="hadith44">
+            <div class="hadith-title">"لا يزال العبد بخير ما لم يستعجل"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith45">
+            <div class="hadith-title">"التائب من الذنب كمن لا ذنب له"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه ابن ماجه، وهو يدل على عظيم فضل التوبة الصادقة. (أضفته هنا لأنه قد يُذكر في سياق الأحاديث الشائعة).</div>
+            <div class="hadith-source">المصدر: صحيح ابن ماجه.</div>
+        </li>
+        <li class="hadith-item" id="hadith46">
+            <div class="hadith-title">"إذا دخلت مصر فخذ من نيلها"</div>
+            <div class="hadith-status">الحكم: **ضعيف أو لا أصل له.**</div>
+            <div class="hadith-explanation">هذا الحديث لا أصل له في كتب السنة الصحيحة، وهو منتشر في مصر.</div>
+            <div class="hadith-source">المصدر: لا يوجد له أصل معروف.</div>
+        </li>
+        <li class="hadith-item" id="hadith47">
+            <div class="hadith-title">"أكرموا الخبز"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند، وإن كان إكرام النعم مطلوب شرعاً.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith48">
+            <div class="hadith-title">"إِنَّ اللَّهَ يُحِبُّ الْعَبْدَ الْمُحْتَرِفَ"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند.</div>
+            <div class="hadith-source">المصدر: الألباني في السلسلة الضعيفة (حديث رقم 564).</div>
+        </li>
+        <li class="hadith-item" id="hadith49">
+            <div class="hadith-title">"عليكم بالشفاءين: العسل والقرآن"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني (حديث رقم 5029).</div>
+        </li>
+        <li class="hadith-item" id="hadith50">
+            <div class="hadith-title">"ليس منَّا من لم يتغنَّ بالقرآن"</div>
+            <div class="hadith-status">الحكم: **صحيح، ولكن يُفهم خطأً.**</div>
+            <div class="hadith-explanation">الحديث صحيح رواه البخاري ومسلم، ومعنى "يتغن" ليس الغناء بالموسيقى، بل تحسين الصوت به وتزيينه وترتيله.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري ومسلم. (لتصحيح الفهم).</div>
+        </li>
+        <li class="hadith-item" id="hadith51">
+            <div class="hadith-title">"استعينوا على قضاء حوائجكم بالكتمان"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه الطبراني والبيهقي وصححه الألباني، وهو من النصائح النبوية القيمة في التعامل مع الأمور التي تتطلب سرية لإتمامها.</div>
+            <div class="hadith-source">المصدر: السلسلة الصحيحة للألباني (حديث رقم 76).</div>
+        </li>
+        <li class="hadith-item" id="hadith52">
+            <div class="hadith-title">"كل أمر ذي بال لم يبدأ ببسم الله الرحمن الرحيم فهو أبتر"</div>
+            <div class="hadith-status">الحكم: **ضعيف بهذا اللفظ.**</div>
+            <div class="hadith-explanation">ورد بلفظ "كل أمر ذي بال لا يُبدأ فيه بالحمد لله فهو أبتر" وهو حسن. أما هذا اللفظ فضعيف.</div>
+            <div class="hadith-source">المصدر: ضعيف الجامع الصغير للألباني (حديث رقم 4443).</div>
+        </li>
+        <li class="hadith-item" id="hadith53">
+            <div class="hadith-title">"الصبر مفتاح الفرج"</div>
+            <div class="hadith-status">الحكم: **ليس بحديث نبوي - مقولة مشهورة.**</div>
+            <div class="hadith-explanation">هذه مقولة حكيمة ومعناها صحيح، لكنها ليست حديثًا نبويًا عن النبي ﷺ.</div>
+            <div class="hadith-source">المصدر: لا يوجد له أصل في كتب السنة.</div>
+        </li>
+        <li class="hadith-item" id="hadith54">
+            <div class="hadith-title">"العلماء ورثة الأنبياء"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه أبو داود والترمذي وابن ماجه، وصححه الألباني، ويدل على فضل العلم وأهله.</div>
+            <div class="hadith-source">المصدر: صحيح أبي داود، صحيح الترمذي، صحيح ابن ماجه.</div>
+        </li>
+        <li class="hadith-item" id="hadith55">
+            <div class="hadith-title">"الجنة تحت أقدام الأمهات"</div>
+            <div class="hadith-status">الحكم: **ضعيف بهذا اللفظ.**</div>
+            <div class="hadith-explanation">ورد بمعناه حديث صحيح بلفظ "الجنة تحت أقدام الأمهات" وهو ضعيف، لكن ما ورد في فضل الوالدين أصح وأقوى. واللفظ الصحيح "الْزَمْ رِجْلَهَا فَثَمَّ الْجَنَّةُ" (رواه النسائي، وصححه الألباني).</div>
+            <div class="hadith-source">المصدر: ضعيف الجامع الصغير (حديث رقم 2617)، صحيح النسائي.</div>
+        </li>
+        <li class="hadith-item" id="hadith56">
+            <div class="hadith-title">"من صلى علي صلاة واحدة صلى الله عليه بها عشراً"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه مسلم وأبو داود والترمذي والنسائي وابن ماجه.</div>
+            <div class="hadith-source">المصدر: صحيح مسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith57">
+            <div class="hadith-title">"من صلى ركعتين لا يحدث فيهما نفسه غفر له ما تقدم من ذنبه"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith58">
+            <div class="hadith-title">"الدال على الخير كفاعله"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه مسلم وغيره، ويحث على الدعوة إلى الخير.</div>
+            <div class="hadith-source">المصدر: صحيح مسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith59">
+            <div class="hadith-title">"لا يزال العبد في فسحة من دينه ما لم يصب دمًا حرامًا"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه البخاري، ويحذر من خطورة إراقة الدماء.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري.</div>
+        </li>
+        <li class="hadith-item" id="hadith60">
+            <div class="hadith-title">"خير الناس أنفعهم للناس"</div>
+            <div class="hadith-status">الحكم: **ضعيف بهذا اللفظ، ولكنه صحيح المعنى.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف بهذا اللفظ، لكن معناه صحيح وتدل عليه نصوص أخرى.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني (حديث رقم 576).</div>
+        </li>
+        <li class="hadith-item" id="hadith61">
+            <div class="hadith-title">"المرء على دين خليله فلينظر أحدكم من يخالل"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه أبو داود والترمذي، ويؤكد على أهمية اختيار الصحبة الصالحة.</div>
+            <div class="hadith-source">المصدر: صحيح أبي داود، صحيح الترمذي.</div>
+        </li>
+        <li class="hadith-item" id="hadith62">
+            <div class="hadith-title">"من أتى عرافاً أو كاهناً فصدقه بما يقول فقد كفر بما أنزل على محمد"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه أحمد وأبو داود والترمذي وابن ماجه، وصححه الألباني.</div>
+            <div class="hadith-source">المصدر: صحيح أبي داود، صحيح الترمذي.</div>
+        </li>
+        <li class="hadith-item" id="hadith63">
+            <div class="hadith-title">"الرضا بقضاء الله باب عظيم من أبواب الجنة"</div>
+            <div class="hadith-status">الحكم: **ليس بحديث نبوي - مقولة.**</div>
+            <div class="hadith-explanation">هذه مقولة حكيمة ومعناها صحيح، لكنها ليست حديثًا نبويًا.</div>
+            <div class="hadith-source">المصدر: لا يوجد له أصل في كتب السنة.</div>
+        </li>
+        <li class="hadith-item" id="hadith64">
+            <div class="hadith-title">"إنما الأعمال بالنيات"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح ومتفق عليه، وهو من الأحاديث الجامعة في الإسلام.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري ومسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith65">
+            <div class="hadith-title">"إذا بلغ الماء قلتين لم يحمل الخبث"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه أبو داود والترمذي وابن ماجه، وصححه الألباني، وهو في أحكام الطهارة.</div>
+            <div class="hadith-source">المصدر: صحيح أبي داود.</div>
+        </li>
+        <li class="hadith-item" id="hadith66">
+            <div class="hadith-title">"لا رهبانية في الإسلام"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه أحمد وأبو داود، ويؤكد على أن الإسلام دين حياة وعمل لا اعتزال.</div>
+            <div class="hadith-source">المصدر: صحيح أحمد.</div>
+        </li>
+        <li class="hadith-item" id="hadith67">
+            <div class="hadith-title">"من غشنا فليس منا"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه مسلم، ويحرم الغش بكل صوره.</div>
+            <div class="hadith-source">المصدر: صحيح مسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith68">
+            <div class="hadith-title">"لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح متفق عليه، وهو من قواعد الإيمان والأخلاق في الإسلام.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري ومسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith69">
+            <div class="hadith-title">"إن الله وتر يحب الوتر"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه البخاري ومسلم، ويدل على محبة الله للأعداد الفردية في العبادات وغيرها.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري ومسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith70">
+            <div class="hadith-title">"خير القرون قرني ثم الذين يلونهم ثم الذين يلونهم"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح متفق عليه، ويدل على فضل الصحابة والتابعين وتابعي التابعين.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري ومسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith71">
+            <div class="hadith-title">"إنما بعثت لأتمم مكارم الأخلاق"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه أحمد والبيهقي وصححه الألباني، ويدل على أن الأخلاق هي جوهر الرسالة النبوية.</div>
+            <div class="hadith-source">المصدر: صحيح أحمد، السلسلة الصحيحة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith72">
+            <div class="hadith-title">"الدنيا سجن المؤمن وجنة الكافر"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه مسلم، ويدل على أن المؤمن يرى الدنيا دار ابتلاء بخلاف الكافر الذي يتمتع بها.</div>
+            <div class="hadith-source">المصدر: صحيح مسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith73">
+            <div class="hadith-title">"من صلى علي في يوم ألف مرة لم يمت حتى يرى مقعده من الجنة"</div>
+            <div class="hadith-status">الحكم: **موضوع (مكذوب).**</div>
+            <div class="hadith-explanation">هذا الحديث مكذوب ولا يصح عن النبي ﷺ، ولا توجد أحاديث صحيحة تحدد هذا العدد بفضل معين.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith74">
+            <div class="hadith-title">"من قرأ يس في ليلة أصبح مغفوراً له"</div>
+            <div class="hadith-status">الحكم: **ضعيف جدًا.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف جداً، ولا يصح عن النبي ﷺ.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith75">
+            <div class="hadith-title">"اطلبوا الرزق في خبايا الأرض"</div>
+            <div class="hadith-status">الحكم: **لا أصل له بهذا اللفظ.**</div>
+            <div class="hadith-explanation">هذه مقولة شائعة في بعض الثقافات، لكنها ليست حديثًا نبويًا.</div>
+            <div class="hadith-source">المصدر: لا يوجد له أصل في كتب السنة.</div>
+        </li>
+        <li class="hadith-item" id="hadith76">
+            <div class="hadith-title">"إِنَّمَا الصَّبْرُ عِنْدَ الصَّدْمَةِ الْأُولَى"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح متفق عليه، ويدل على أن الصبر الحقيقي يظهر عند وقوع المصيبة مباشرة.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري ومسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith77">
+            <div class="hadith-title">"الحكمة ضالة المؤمن أنى وجدها فهو أحق بها"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند، وإن كان المعنى صحيحًا من حيث طلب العلم النافع.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني (حديث رقم 195).</div>
+        </li>
+        <li class="hadith-item" id="hadith78">
+            <div class="hadith-title">"إن لكل شيء قلباً وقلب القرآن يس"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith79">
+            <div class="hadith-title">"من قرأ سورة الدخان في ليلة أصبح يستغفر له سبعون ألف ملك"</div>
+            <div class="hadith-status">الحكم: **موضوع (مكذوب).**</div>
+            <div class="hadith-explanation">هذا الحديث مكذوب ولا يصح عن النبي ﷺ.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith80">
+            <div class="hadith-title">"إن هذا القرآن نزلت آية منه كذا وكذا" (للدلالة على عدم فهم الآية)</div>
+            <div class="hadith-status">الحكم: **ليست بحديث نبوي - سوء فهم.**</div>
+            <div class="hadith-explanation">هذه العبارة تستخدم خطأً للدلالة على أن القرآن صعب الفهم، وهي ليست حديثًا نبويًا. القرآن ميسر لمن أراد تدبره.</div>
+            <div class="hadith-source">المصدر: لا يوجد لها أصل في كتب السنة.</div>
+        </li>
+        <li class="hadith-item" id="hadith81">
+            <div class="hadith-title">"لا ضرر ولا ضرار"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه ابن ماجه والدارقطني، وصححه الألباني، وهو من القواعد الفقهية الكبرى.</div>
+            <div class="hadith-source">المصدر: صحيح ابن ماجه، السلسلة الصحيحة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith82">
+            <div class="hadith-title">"ما خاب من استخار ولا ندم من استشار"</div>
+            <div class="hadith-status">الحكم: **ضعيف بهذا اللفظ.**</div>
+            <div class="hadith-explanation">المعنى صحيح، لكن اللفظ المنتشر ضعيف. حديث الاستخارة الصحيح معروف.</div>
+            <div class="hadith-source">المصدر: ضعيف الجامع الصغير للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith83">
+            <div class="hadith-title">"إن بيوت الجنة لا يرى ظاهرها من باطنها"</div>
+            <div class="hadith-status">الحكم: **جزء من حديث صحيح، لكن يُفهم أحياناً خطأ.**</div>
+            <div class="hadith-explanation">الحديث الصحيح بلفظ: "إن في الجنة لغرفاً يرى ظاهرها من باطنها، وباطنها من ظاهرها، أعدها الله للمطعم الطعام، ومُلين الكلام، وتابع الصيام، ومن صلى بالليل والناس نيام" (رواه الترمذي وحسنه).</div>
+            <div class="hadith-source">المصدر: صحيح الترمذي.</div>
+        </li>
+        <li class="hadith-item" id="hadith84">
+            <div class="hadith-title">"التفكر ساعة خير من قيام ليلة"</div>
+            <div class="hadith-status">الحكم: **ضعيف جداً.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف جداً ولا يصح.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith85">
+            <div class="hadith-title">"إذا رأيتم الرجل يرتاد المساجد فاشهدوا له بالإيمان"</div>
+            <div class="hadith-status">الحكم: **ضعيف جدًا.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف جداً، وقد حكم عليه بعض أهل العلم بالوضع.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith86">
+            <div class="hadith-title">"الموت أحب إلى المؤمن من الحياة"</div>
+            <div class="hadith-status">الحكم: **ليس بحديث نبوي - مقولة.**</div>
+            <div class="hadith-explanation">هذه مقولة قد تحمل معنىً صحيحاً في سياق الشوق للقاء الله، لكنها ليست حديثاً نبوياً.</div>
+            <div class="hadith-source">المصدر: لا يوجد له أصل في كتب السنة.</div>
+        </li>
+        <li class="hadith-item" id="hadith87">
+            <div class="hadith-title">"لا يلدغ المؤمن من جحر واحد مرتين"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح متفق عليه، ويدل على فطنة المؤمن وحرصه على التعلم من أخطائه.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري ومسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith88">
+            <div class="hadith-title">"اغزوا تورثوا أبناءكم مجدا"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith89">
+            <div class="hadith-title">"من صلى الصبح فهو في ذمة الله"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه مسلم، وفيه فضل عظيم لمن صلى الفجر في جماعة.</div>
+            <div class="hadith-source">المصدر: صحيح مسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith90">
+            <div class="hadith-title">"لا يؤخر الله شيئًا إلا لخير"</div>
+            <div class="hadith-status">الحكم: **ليس بحديث نبوي - مقولة.**</div>
+            <div class="hadith-explanation">هذه مقولة شائعة تعبر عن حسن الظن بالله، ومعناها صحيح، لكنها ليست حديثًا نبويًا.</div>
+            <div class="hadith-source">المصدر: لا يوجد له أصل في كتب السنة.</div>
+        </li>
+        <li class="hadith-item" id="hadith91">
+            <div class="hadith-title">"خير اللحم ما دبر"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند، ولا يصح عن النبي ﷺ.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith92">
+            <div class="hadith-title">"قل الحق ولو كان مرًا"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند، وإن كان المعنى صحيحًا ومطلوبًا شرعًا.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith93">
+            <div class="hadith-title">"ما من مسلم يغرس غرساً أو يزرع زرعاً فيأكل منه طير أو إنسان أو بهيمة إلا كان له به صدقة"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح متفق عليه، وفيه فضل عظيم للزراعة والغرس.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري ومسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith94">
+            <div class="hadith-title">"من تواضع لله رفعه"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه مسلم، ويدل على فضل التواضع.</div>
+            <div class="hadith-source">المصدر: صحيح مسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith95">
+            <div class="hadith-title">"السعيد من وعظ بغيره"</div>
+            <div class="hadith-status">الحكم: **ليس بحديث نبوي - مقولة مشهورة.**</div>
+            <div class="hadith-explanation">هذه مقولة شائعة تحمل معنىً صحيحاً، لكنها ليست حديثاً نبوياً.</div>
+            <div class="hadith-source">المصدر: لا يوجد له أصل في كتب السنة.</div>
+        </li>
+        <li class="hadith-item" id="hadith96">
+            <div class="hadith-title">"إذا رأيتم هلال ذي الحجة وأراد أحدكم أن يضحي فليمسك عن شعره وأظفاره"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه مسلم، وفيه حكم لمن أراد الأضحية.</div>
+            <div class="hadith-source">المصدر: صحيح مسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith97">
+            <div class="hadith-title">"من أفطر يوماً من رمضان من غير رخصة ولا مرض لم يقض عنه صيام الدهر كله وإن صامه"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند، ولا يصح عن النبي ﷺ.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith98">
+            <div class="hadith-title">"اتقوا الشبهات"</div>
+            <div class="hadith-status">الحكم: **جزء من حديث صحيح.**</div>
+            <div class="hadith-explanation">هو جزء من حديث النعمان بن بشير المتفق عليه: "الحلال بيّن والحرام بيّن وبينهما أمور مشتبهات..."</div>
+            <div class="hadith-source">المصدر: صحيح البخاري ومسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith99">
+            <div class="hadith-title">"من استيقظ من الليل فقال: لا إله إلا الله وحده لا شريك له..." (دعاء منتشر)</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الدعاء صحيح رواه البخاري، وفيه فضل عظيم.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري.</div>
+        </li>
+        <li class="hadith-item" id="hadith100">
+            <div class="hadith-title">"الجار قبل الدار"</div>
+            <div class="hadith-status">الحكم: **ليس بحديث نبوي - مقولة مشهورة.**</div>
+            <div class="hadith-explanation">هذه مقولة شائعة، ومعناها صحيح في أهمية الجار، لكنها ليست حديثًا نبويًا.</div>
+            <div class="hadith-source">المصدر: لا يوجد له أصل في كتب السنة.</div>
+        </li>
+        <li class="hadith-item" id="hadith101">
+            <div class="hadith-title">"لا حسد إلا في اثنتين: رجل آتاه الله مالًا فهو ينفقه في الحق، ورجل آتاه الله حكمة فهو يقضي بها ويعلمها"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح متفق عليه، وفيه بيان للمواضع التي يجوز فيها "الغبطة" وهي التمني مثل ما عند الغير دون زوال النعمة عنه.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري ومسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith102">
+            <div class="hadith-title">"من كثرت ذنوبه فليقل: سبحان الله وبحمده"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith103">
+            <div class="hadith-title">"المؤمن مرآة أخيه"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه أبو داود والترمذي، وحسنه الألباني.</div>
+            <div class="hadith-source">المصدر: صحيح أبي داود، صحيح الترمذي.</div>
+        </li>
+        <li class="hadith-item" id="hadith104">
+            <div class="hadith-title">"إن الله رفيق يحب الرفق في الأمر كله"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح متفق عليه، ويدل على فضل الرفق ولين الجانب.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري ومسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith105">
+            <div class="hadith-title">"العجلة من الشيطان"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه الترمذي، ويدل على أن التأني والتبصر مطلوبان في الأمور.</div>
+            <div class="hadith-source">المصدر: صحيح الترمذي.</div>
+        </li>
+        <li class="hadith-item" id="hadith106">
+            <div class="hadith-title">"القرآن غنى لا فقر بعده"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith107">
+            <div class="hadith-title">"من مات يوم الجمعة أو ليلة الجمعة وقاه الله فتنة القبر"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند، ولا يصح عن النبي ﷺ.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith108">
+            <div class="hadith-title">"إن هذا الدين يسر، ولن يشاد الدين أحد إلا غلبه"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه البخاري، وفيه تيسير الإسلام والتحذير من الغلو.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري.</div>
+        </li>
+        <li class="hadith-item" id="hadith109">
+            <div class="hadith-title">"السواك مطهرة للفم مرضاة للرب"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه النسائي وابن خزيمة، وصححه الألباني.</div>
+            <div class="hadith-source">المصدر: صحيح النسائي، صحيح ابن خزيمة.</div>
+        </li>
+        <li class="hadith-item" id="hadith110">
+            <div class="hadith-title">"من بات على وضوء بات الشيطان عنه بعيدًا"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند، وإن كان النوم على وضوء مستحبًا.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith111">
+            <div class="hadith-title">"احذروا الدنيا، فإنها كالحية ملس الجسد..."</div>
+            <div class="hadith-status">الحكم: **ضعيف جدًا.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف جداً ولا يصح عن النبي ﷺ.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith112">
+            <div class="hadith-title">"رحم الله امرأً سمحًا إذا باع، سمحًا إذا اشترى، سمحًا إذا قضى، سمحًا إذا اقتضى"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه البخاري، ويدل على فضل السماحة في المعاملات.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري.</div>
+        </li>
+        <li class="hadith-item" id="hadith113">
+            <div class="hadith-title">"الأرواح جنود مجندة فما تعارف منها ائتلف وما تناكر منها اختلف"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه البخاري ومسلم، ويفسر التوافق والاختلاف بين الناس.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري ومسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith114">
+            <div class="hadith-title">"أفضل الأعمال سرور تدخله على قلب مسلم"</div>
+            <div class="hadith-status">الحكم: **ضعيف.**</div>
+            <div class="hadith-explanation">هذا الحديث ضعيف السند، وإن كان إدخال السرور على المسلم من الأمور المستحبة.</div>
+            <div class="hadith-source">المصدر: السلسلة الضعيفة للألباني.</div>
+        </li>
+        <li class="hadith-item" id="hadith115">
+            <div class="hadith-title">"الناس نيام فإذا ماتوا انتبهوا"</div>
+            <div class="hadith-status">الحكم: **ليس بحديث نبوي - مقولة لعلي بن أبي طالب رضي الله عنه.**</div>
+            <div class="hadith-explanation">هذه مقولة مشهورة للإمام علي بن أبي طالب رضي الله عنه، وليست حديثًا نبويًا.</div>
+            <div class="hadith-source">المصدر: منسوب للإمام علي بن أبي طالب.</div>
+        </li>
+        <li class="hadith-item" id="hadith116">
+            <div class="hadith-title">"إن الله كتب الإحسان على كل شيء"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه مسلم، ويدل على عموم الإحسان في كل شيء.</div>
+            <div class="hadith-source">المصدر: صحيح مسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith117">
+            <div class="hadith-title">"أوصاني خليلي بسبع: بحب المساكين والدنو منهم، وأن أنظر إلى من هو دوني ولا أنظر إلى من هو فوقي..."</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه أحمد وابن حبان، وصححه الألباني.</div>
+            <div class="hadith-source">المصدر: صحيح أحمد، صحيح ابن حبان.</div>
+        </li>
+        <li class="hadith-item" id="hadith118">
+            <div class="hadith-title">"ما نقص مال من صدقة"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه مسلم، وفيه فضل الصدقة وأنها لا تنقص المال بل تزيده بركة.</div>
+            <div class="hadith-source">المصدر: صحيح مسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith119">
+            <div class="hadith-title">"يا غلام سم الله وكل بيمينك وكل مما يليك"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح متفق عليه، وفيه آداب الطعام.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري ومسلم.</div>
+        </li>
+        <li class="hadith-item" id="hadith120">
+            <div class="hadith-title">"لا يدخل الجنة قاطع رحم"</div>
+            <div class="hadith-status">الحكم: **صحيح.**</div>
+            <div class="hadith-explanation">هذا الحديث صحيح رواه البخاري ومسلم، وفيه التحذير الشديد من قطيعة الرحم.</div>
+            <div class="hadith-source">المصدر: صحيح البخاري ومسلم.</div>
+        </li>
+        </ul>
+
+    <div class="pagination bottom-pagination" id="bottomPagination">
+        </div>
+
+    <div class="disclaimer-note" id="bottom">
+        نؤكد على أن هذا الجهد يهدف إلى توضيح السنة النبوية الشريفة. <br>
+        للتأكد من صحة أي حديث أو للحصول على تفاصيل أوسع، يرجى دائمًا الرجوع إلى <a href="https://dorar.net" target="_blank">الموسوعة الحديثية بموقع الدرر السنية</a>، أو كتب أئمة الحديث المعتمدين كالإمام البخاري ومسلم والألباني.
+        <br>
+        **المصادر الموثوقة هي ركيزة علم الحديث الشريف.**
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hadithList = document.getElementById('hadithList');
+        const hadithItems = Array.from(hadithList.getElementsByClassName('hadith-item'));
+        const hadithCounter = document.getElementById('hadithCounter');
+        const itemsPerPage = 10;
+        const totalPages = Math.ceil(hadithItems.length / itemsPerPage);
+        let currentPage = 1;
+
+        // Update total hadith count
+        hadithCounter.textContent = hadithItems.length;
+
+        // Function to display specific page
+        function displayPage(page) {
+            currentPage = page;
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+
+            hadithItems.forEach((item, index) => {
+                if (index >= startIndex && index < endIndex) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            updatePaginationButtons();
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
+        }
+
+        // Function to create pagination buttons
+        function createPaginationButtons() {
+            const topPaginationDiv = document.getElementById('topPagination');
+            const bottomPaginationDiv = document.getElementById('bottomPagination');
+            topPaginationDiv.innerHTML = '';
+            bottomPaginationDiv.innerHTML = '';
+
+            // Add "العودة للصفحة الرئيسية" button to the top
+            const homeButtonTop = document.createElement('a');
+            homeButtonTop.href = "index.html"; // Updated to index.html
+            homeButtonTop.className = "nav-button home";
+            homeButtonTop.textContent = "العودة للصفحة الرئيسية";
+            topPaginationDiv.appendChild(homeButtonTop);
+
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.className = 'page-number';
+                button.textContent = i;
+                button.addEventListener('click', () => displayPage(i));
+                topPaginationDiv.appendChild(button);
+
+                const bottomButton = button.cloneNode(true);
+                bottomButton.addEventListener('click', () => displayPage(i));
+                bottomPaginationDiv.appendChild(bottomButton);
+            }
+
+            // Add "العودة للصفحة الرئيسية" button to the bottom
+            const homeButtonBottom = document.createElement('a');
+            homeButtonBottom.href = "index.html"; // Updated to index.html
+            homeButtonBottom.className = "nav-button home";
+            homeButtonBottom.textContent = "العودة للصفحة الرئيسية";
+            bottomPaginationDiv.appendChild(homeButtonBottom);
+        }
+
+        // Function to update active state of pagination buttons
+        function updatePaginationButtons() {
+            document.querySelectorAll('.page-number').forEach(button => {
+                if (parseInt(button.textContent) === currentPage) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+        }
+
+        // Initial setup
+        createPaginationButtons();
+        displayPage(currentPage);
+    });
+</script>
+
+</body>
+</html>

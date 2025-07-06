@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سورة المطففين | القرآن الكريم</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #0a1e1e 0%, #1a2a2a 100%);
+      min-height: 100vh;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
+      color: #fff;
+    }
+    
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(74, 200, 200, 0.1) 0%, transparent 8%),
+        radial-gradient(circle at 80% 40%, rgba(74, 200, 200, 0.1) 0%, transparent 10%),
+        radial-gradient(circle at 40% 70%, rgba(74, 200, 200, 0.1) 0%, transparent 7%);
+      z-index: -1;
+      opacity: 0.3;
+    }
+    
+    .scale-icon {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, rgba(74, 200, 200, 0.3) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: -1;
+      animation: pulse 8s ease-in-out infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: rgba(100, 255, 255, 0.3);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    header {
+      text-align: center;
+      padding: 25px;
+      background: linear-gradient(135deg, rgba(44, 150, 150, 0.8) 0%, rgba(24, 120, 120, 0.8) 100%);
+      border-radius: 15px;
+      margin: 20px auto 30px;
+      max-width: 900px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(180, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: linear-gradient(45deg, rgba(180, 255, 255, 0.1) 0%, transparent 50%, rgba(180, 255, 255, 0.1) 100%);
+      z-index: 1;
+      border-radius: 20px;
+    }
+    
+    h1 {
+      color: #a8fff5;
+      margin-bottom: 15px;
+      font-size: 2.8rem;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    
+    .surah-info {
+      background: rgba(180, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 15px;
+      margin: 15px 0;
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(180, 255, 255, 0.2);
+    }
+    
+    .surah-info p {
+      color: #e6ffff;
+      margin: 8px 0;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 30px;
+      margin: 15px 0 5px;
+      background: linear-gradient(135deg, #4ac9c9 0%, #2aa9a9 100%);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      border: none;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      border: 2px solid rgba(180, 255, 255, 0.3);
+    }
+    
+    .back-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      background: linear-gradient(135deg, #5ad9d9 0%, #4ac9c9 100%);
+    }
+    
+    .back-btn::before {
+      content: "←";
+      margin-left: 8px;
+      font-size: 1.3rem;
+    }
+    
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .image-section {
+      flex: 2;
+      min-width: 300px;
+      background: rgba(44, 150, 150, 0.15);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(180, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+    
+    .image-controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .control-btn {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #4ac9c9 0%, #2aa9a9 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(180, 255, 255, 0.3);
+    }
+    
+    .control-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    }
+    
+    .control-btn.zoom {
+      background: linear-gradient(135deg, #5ad9d9 0%, #4ac9c9 100%);
+    }
+    
+    .image-viewer-container {
+      position: relative;
+      border: 2px solid rgba(180, 255, 255, 0.2);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.2);
+      cursor: zoom-in;
+    }
+    
+    .surah-image {
+      max-width: 100%;
+      max-height: 70vh;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+    
+    .image-info {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+    
+    .surah-details {
+      flex: 1;
+      min-width: 300px;
+      background: rgba(44, 150, 150, 0.15);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(180, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+    
+    .surah-details h2 {
+      color: #a8fff5;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid rgba(180, 255, 255, 0.2);
+      font-size: 1.8rem;
+      text-align: center;
+    }
+    
+    .details-content {
+      line-height: 1.8;
+      color: #f0ffff;
+      font-size: 1.1rem;
+    }
+    
+    .details-content p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+    
+    .details-content .highlight {
+      background: linear-gradient(120deg, rgba(168, 255, 255, 0.3) 0%, rgba(168, 255, 255, 0) 100%);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      color: #a8fff5;
+    }
+    
+    .warning-section {
+      background: linear-gradient(135deg, rgba(74, 200, 200, 0.3) 0%, rgba(42, 169, 169, 0.3) 100%);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      border: 1px solid rgba(100, 255, 255, 0.3);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .warning-section h3 {
+      color: #a6ffff;
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .warning-section p {
+      color: #e6ffff;
+      line-height: 1.7;
+      text-align: center;
+    }
+    
+    .benefits-section {
+      background: rgba(44, 150, 150, 0.15);
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(180, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+    
+    .benefits-section h2 {
+      color: #a8fff5;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .benefit-card {
+      background: linear-gradient(135deg, rgba(74, 200, 200, 0.3) 0%, rgba(42, 169, 169, 0.3) 100%);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(180, 255, 255, 0.3);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(5px);
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      background: linear-gradient(135deg, rgba(84, 220, 220, 0.4) 0%, rgba(74, 200, 200, 0.4) 100%);
+    }
+    
+    .benefit-icon {
+      font-size: 2.5rem;
+      color: #a8fff5;
+      margin-bottom: 15px;
+    }
+    
+    .benefit-card h3 {
+      color: #e6ffff;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+    
+    .benefit-card p {
+      color: #f0ffff;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #e6ffff;
+      font-size: 1rem;
+      border-top: 1px solid rgba(180, 255, 255, 0.2);
+    }
+    
+    .loading-image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+    
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(180, 255, 255, 0.2);
+      border-top: 5px solid #a8fff5;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    
+    .audio-section {
+      background: rgba(44, 150, 150, 0.15);
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 30px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(180, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+    
+    .audio-section h2 {
+      color: #a8fff5;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    
+    .audio-player-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .progress-container {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      margin: 10px 0;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(135deg, #a8fff5 0%, #88e9e9 100%);
+      width: 0%;
+      border-radius: 4px;
+      transition: width 0.1s linear;
+    }
+    
+    .time-display {
+      display: flex;
+      justify-content: space-between;
+      color: #e6ffff;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+    
+    .audio-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin: 15px 0;
+      flex-wrap: wrap;
+    }
+    
+    .audio-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4ac9c9 0%, #2aa9a9 100%);
+      color: white;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(180, 255, 255, 0.3);
+    }
+    
+    .audio-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    }
+    
+    .audio-btn.large {
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+    }
+    
+    .audio-btn.secondary {
+      background: linear-gradient(135deg, #555 0%, #333 100%);
+    }
+    
+    .volume-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 250px;
+      margin: 0 auto;
+    }
+    
+    .volume-slider {
+      flex-grow: 1;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    
+    .volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #a8fff5;
+    }
+    
+    .playback-rate {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .rate-btn {
+      padding: 5px 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      color: #e6ffff;
+    }
+    
+    .rate-btn.active {
+      background: linear-gradient(135deg, #a8fff5 0%, #88e9e9 100%);
+      color: #1a2a2a;
+      font-weight: bold;
+    }
+    
+    .reciter-info {
+      text-align: center;
+      margin-top: 15px;
+      color: #e6ffff;
+      font-size: 1.1rem;
+    }
+    
+    .reciter-name {
+      font-weight: bold;
+      color: #a8fff5;
+    }
+    
+    .verses-section {
+      background: linear-gradient(135deg, rgba(74, 200, 200, 0.3) 0%, rgba(42, 169, 169, 0.3) 100%);
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 30px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(180, 255, 255, 0.3);
+      backdrop-filter: blur(5px);
+    }
+    
+    .verses-section h2 {
+      color: #a8fff5;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    
+    .verses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .verse-card {
+      background: rgba(44, 150, 150, 0.15);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(180, 255, 255, 0.3);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(5px);
+    }
+    
+    .verse-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+    
+    .verse-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(135deg, #a8fff5 0%, #88e9e9 100%);
+    }
+    
+    .verse-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #a8fff5;
+      margin-bottom: 15px;
+    }
+    
+    .verse-text {
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 15px;
+      line-height: 1.8;
+      min-height: 100px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    }
+    
+    .verse-translation {
+      color: #e6ffff;
+      font-size: 1rem;
+      line-height: 1.6;
+      font-style: italic;
+      border-top: 1px dashed rgba(180, 255, 255, 0.5);
+      padding-top: 15px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.3; }
+      50% { transform: scale(1.1); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 0.3; }
+    }
+    
+    @keyframes pulseWarning {
+      0% { box-shadow: 0 0 0 0 rgba(100, 255, 255, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(100, 255, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(100, 255, 255, 0); }
+    }
+    
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+      }
+      
+      .surah-image {
+        max-height: 50vh;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .audio-controls {
+        gap: 8px;
+      }
+      
+      .audio-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+      }
+      
+      .audio-btn.large {
+        width: 55px;
+        height: 55px;
+      }
+      
+      .verse-text {
+        font-size: 1.1rem;
+      }
+      
+      .scale-icon {
+        width: 70px;
+        height: 70px;
+        top: 15px;
+        left: 15px;
+        font-size: 1.8rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .image-controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .control-btn {
+        width: 100%;
+      }
+      
+      .surah-image {
+        max-height: 40vh;
+      }
+      
+      header {
+        padding: 20px 15px;
+      }
+      
+      h1 {
+        font-size: 1.7rem;
+      }
+      
+      .audio-controls {
+        gap: 6px;
+      }
+      
+      .audio-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+      
+      .audio-btn.large {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .rate-btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+      }
+      
+      .verse-text {
+        font-size: 1rem;
+        min-height: 120px;
+      }
+    }
+    
+    /* Animation for page load */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    header, .image-section, .surah-details, .benefits-section, .audio-section, .verses-section, .warning-section {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    
+    .image-section { animation-delay: 0.1s; }
+    .surah-details { animation-delay: 0.2s; }
+    .warning-section { animation-delay: 0.3s; }
+    .benefits-section { animation-delay: 0.4s; }
+    .audio-section { animation-delay: 0.5s; }
+    .verses-section { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+  <div class="scale-icon">
+    <i class="fas fa-balance-scale"></i>
+  </div>
+  
+  <div class="container">
+    <header>
+      <h1>سورة المطففين</h1>
+      
+      <div class="surah-info">
+        <p>مكية | 36 آية | السورة الثالثة والثمانون في المصحف | سورة الميزان والعدل</p>
+      </div>
+      
+      <a href="../quran.html" class="back-btn">الرجوع إلى قائمة السور</a>
+    </header>
+    
+    <div class="warning-section">
+      <h3><i class="fas fa-exclamation-triangle"></i> تحذير من التطفيف</h3>
+      <p>تتحدث سورة المطففين عن وعيد الذين يطففون في الميزان والمكاييل</p>
+    </div>
+    
+    <div class="main-content">
+      <div class="image-section">
+        <div class="image-controls">
+          <button class="control-btn" id="prevBtn">
+            <i class="fas fa-arrow-right"></i> الصورة السابقة
+          </button>
+          <button class="control-btn" id="nextBtn">
+            الصورة التالية <i class="fas fa-arrow-left"></i>
+          </button>
+          <button class="control-btn zoom" id="zoomInBtn">
+            <i class="fas fa-search-plus"></i> تكبير
+          </button>
+          <button class="control-btn zoom" id="zoomOutBtn">
+            <i class="fas fa-search-minus"></i> تصغير
+          </button>
+        </div>
+        
+        <div class="image-viewer-container" id="imageContainer">
+          <img src="quran-images/surah83-1.png" alt="صفحة سورة المطففين" class="surah-image" id="surahImage">
+          <div class="image-info" id="imageInfo">1 / 3</div>
+        </div>
+      </div>
+      
+      <div class="surah-details">
+        <h2>معلومات عن السورة</h2>
+        <div class="details-content">
+          <p><span class="highlight">سورة المطففين</span> هي سورة مكية، عدد آياتها 36 آية، وهي السورة الثالثة والثمانون في ترتيب المصحف.</p>
+          
+          <p>سُميت السورة بـ <span class="highlight">المطففين</span> لأنها تتحدث عن الذين يطففون في الميزان والمكاييل.</p>
+          
+          <p>تتناول السورة موضوع <span class="highlight">العدل في المعاملات</span> والتحذير من الغش والخداع.</p>
+          
+          <p>تحتوي السورة على <span class="highlight">وعيد شديد</span> للمطففين الذين يبخسون الناس أشياءهم.</p>
+          
+          <p>تؤكد السورة على <span class="highlight">العدل الإلهي</span> وجزاء المحسنين والمجرمين.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="audio-section">
+      <h2>تلاوة سورة المطففين</h2>
+      <div class="audio-player-container">
+        <audio id="quranAudio">
+          <source src="https://server10.mp3quran.net/minsh/083.mp3" type="audio/mpeg">
+          متصفحك لا يدعم مشغل الصوتيات.
+        </audio>
+        
+        <div class="progress-container" id="progressContainer">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        
+        <div class="time-display">
+          <span id="currentTime">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+        
+        <div class="audio-controls">
+          <button class="audio-btn secondary" id="rewindBtn">
+            <i class="fas fa-backward"></i>
+          </button>
+          
+          <button class="audio-btn large" id="playBtn">
+            <i class="fas fa-play"></i>
+          </button>
+          
+          <button class="audio-btn secondary" id="forwardBtn">
+            <i class="fas fa-forward"></i>
+          </button>
+          
+          <button class="audio-btn" id="muteBtn">
+            <i class="fas fa-volume-up"></i>
+          </button>
+        </div>
+        
+        <div class="volume-control">
+          <i class="fas fa-volume-down" style="color: #e6ffff;"></i>
+          <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+          <i class="fas fa-volume-up" style="color: #e6ffff;"></i>
+        </div>
+        
+        <div class="playback-rate">
+          <button class="rate-btn" data-rate="0.5">0.5x</button>
+          <button class="rate-btn active" data-rate="1">1x</button>
+          <button class="rate-btn" data-rate="1.5">1.5x</button>
+          <button class="rate-btn" data-rate="2">2x</button>
+        </div>
+        
+        <div class="reciter-info">
+          <p>تلاوة: <span class="reciter-name">الشيخ محمد صديق المنشاوي</span> - رحمه الله</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="verses-section">
+      <h2>آيات مضيئة من السورة</h2>
+      <div class="verses-grid">
+        <div class="verse-card">
+          <div class="verse-number">آية 1-3</div>
+          <div class="verse-text">وَيْلٌ لِّلْمُطَفِّفِينَ ﴿1﴾ الَّذِينَ إِذَا اكْتَالُوا عَلَى النَّاسِ يَسْتَوْفُونَ ﴿2﴾ وَإِذَا كَالُوهُمْ أَو وَّزَنُوهُمْ يُخْسِرُونَ ﴿3﴾</div>
+          <div class="verse-translation">ويل للمطففين (1) الذين إذا اكتالوا على الناس يستوفون (2) وإذا كالوهم أو وزنوهم يخسرون (3)</div>
+        </div>
+        
+        <div class="verse-card">
+          <div class="verse-number">آية 14-15</div>
+          <div class="verse-text">كَلَّا بَلْ رَانَ عَلَى قُلُوبِهِم مَّا كَانُوا يَكْسِبُونَ ﴿14﴾ كَلَّا إِنَّهُمْ عَن رَّبِّهِمْ يَوْمَئِذٍ لَّمَحْجُوبُونَ ﴿15﴾</div>
+          <div class="verse-translation">كلا بل ران على قلوبهم ما كانوا يكسبون (14) كلا إنهم عن ربهم يومئذ لمحجوبون (15)</div>
+        </div>
+        
+        <div class="verse-card">
+          <div class="verse-number">آية 22-24</div>
+          <div class="verse-text">إِنَّ الْأَبْرَارَ لَفِي نَعِيمٍ ﴿22﴾ عَلَى الْأَرَائِكِ يَنظُرُونَ ﴿23﴾ تَعْرِفُ فِي وُجُوهِهِمْ نَضْرَةَ النَّعِيمِ ﴿24﴾</div>
+          <div class="verse-translation">إن الأبرار لفي نعيم (22) على الأرائك ينظرون (23) تعرف في وجوههم نضرة النعيم (24)</div>
+        </div>
+        
+        <div class="verse-card">
+          <div class="verse-number">آية 34-36</div>
+          <div class="verse-text">فَالْيَوْمَ الَّذِينَ آمَنُوا مِنَ الْكُفَّارِ يَضْحَكُونَ ﴿34﴾ عَلَى الْأَرَائِكِ يَنظُرُونَ ﴿35﴾ هَلْ ثُوِّبَ الْكُفَّارُ مَا كَانُوا يَفْعَلُونَ ﴿36﴾</div>
+          <div class="verse-translation">فاليوم الذين آمنوا من الكفار يضحكون (34) على الأرائك ينظرون (35) هل ثوب الكفار ما كانوا يفعلون (36)</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="benefits-section">
+      <h2>فوائد من سورة المطففين</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-balance-scale"></i>
+          </div>
+          <h3>العدل في الميزان</h3>
+          <p>تحذير شديد من التطفيف في الميزان والمكاييل</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>طهارة القلب</h3>
+          <p>بيان أن الذنوب ترين على القلوب فتحجبها عن الحق</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-smile"></i>
+          </div>
+          <h3>نعيم الأبرار</h3>
+          <p>وصف لنعيم الأبرار في الجنة ونضرة النعيم في وجوههم</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-gavel"></i>
+          </div>
+          <h3>العدل الإلهي</h3>
+          <p>تأكيد على عدل الله في الجزاء بين المحسنين والمجرمين</p>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <p>© 2025 موقع نور الهدى | سورة المطففين - سورة العدل والميزان</p>
+    </footer>
+  </div>
+
+  <script>
+    // صور سورة المطففين
+    const images = [
+      "quran-images/surah83-1.png",
+      "quran-images/surah83-2.png",
+      "quran-images/surah83-3.png"
+    ];
+    
+    // متغيرات التحكم في الصور
+    let currentImageIndex = 0;
+    let currentZoom = 100;
+    const surahImage = document.getElementById('surahImage');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const zoomInBtn = document.getElementById('zoomInBtn');
+    const zoomOutBtn = document.getElementById('zoomOutBtn');
+    const imageInfo = document.getElementById('imageInfo');
+    
+    // تحميل الصفحة
+    window.addEventListener('load', function() {
+      setupImageGallery();
+      setupAudioPlayer();
+      updateImageInfo();
+    });
+    
+    // دالة لإعداد معرض الصور
+    function setupImageGallery() {
+      // عرض الصورة الأولى
+      surahImage.src = images[currentImageIndex];
+      
+      // أحداث الأزرار
+      prevBtn.addEventListener('click', showPrevImage);
+      nextBtn.addEventListener('click', showNextImage);
+      zoomInBtn.addEventListener('click', zoomIn);
+      zoomOutBtn.addEventListener('click', zoomOut);
+      
+      // اختصارات لوحة المفاتيح
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight') {
+          showPrevImage();
+        } else if (e.key === 'ArrowLeft') {
+          showNextImage();
+        } else if (e.key === '+' || e.key === '=') {
+          zoomIn();
+        } else if (e.key === '-' || e.key === '_') {
+          zoomOut();
+        }
+      });
+      
+      // تكبير/تصغير الصورة بالماوس
+      const imageContainer = document.getElementById('imageContainer');
+      imageContainer.addEventListener('dblclick', function() {
+        if (currentZoom === 100) {
+          zoomIn();
+        } else {
+          resetZoom();
+        }
+      });
+    }
+    
+    // دالة لعرض الصورة السابقة
+    function showPrevImage() {
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      surahImage.src = images[currentImageIndex];
+      animateImageChange();
+      updateImageInfo();
+    }
+    
+    // دالة لعرض الصورة التالية
+    function showNextImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      surahImage.src = images[currentImageIndex];
+      animateImageChange();
+      updateImageInfo();
+    }
+    
+    // دالة لتكبير الصورة
+    function zoomIn() {
+      if (currentZoom < 200) {
+        currentZoom += 20;
+        applyZoom();
+      }
+    }
+    
+    // دالة لتصغير الصورة
+    function zoomOut() {
+      if (currentZoom > 60) {
+        currentZoom -= 20;
+        applyZoom();
+      }
+    }
+    
+    // دالة لإعادة ضبط التكبير
+    function resetZoom() {
+      currentZoom = 100;
+      applyZoom();
+    }
+    
+    // تطبيق مستوى التكبير الحالي
+    function applyZoom() {
+      surahImage.style.transform = `scale(${currentZoom/100})`;
+      surahImage.style.transformOrigin = 'center center';
+      imageContainer.style.cursor = currentZoom > 100 ? 'zoom-out' : 'zoom-in';
+    }
+    
+    // دالة لإضافة تأثير عند تغيير الصور
+    function animateImageChange() {
+      surahImage.style.opacity = 0;
+      setTimeout(() => {
+        surahImage.style.opacity = 1;
+        surahImage.style.transition = 'opacity 0.5s ease-in-out';
+      }, 10);
+    }
+    
+    // تحديث معلومات الصورة
+    function updateImageInfo() {
+      imageInfo.textContent = `${currentImageIndex + 1} / ${images.length}`;
+    }
+    
+    // دالة لإعداد مشغل الصوت المحسن
+    function setupAudioPlayer() {
+      const audio = document.getElementById('quranAudio');
+      const playBtn = document.getElementById('playBtn');
+      const rewindBtn = document.getElementById('rewindBtn');
+      const forwardBtn = document.getElementById('forwardBtn');
+      const muteBtn = document.getElementById('muteBtn');
+      const progressBar = document.getElementById('progressBar');
+      const progressContainer = document.getElementById('progressContainer');
+      const currentTimeDisplay = document.getElementById('currentTime');
+      const durationDisplay = document.getElementById('duration');
+      const volumeSlider = document.getElementById('volumeSlider');
+      const rateButtons = document.querySelectorAll('.rate-btn');
+      
+      // تحميل البيانات عند بدء التشغيل
+      audio.addEventListener('loadedmetadata', function() {
+        updateTimeDisplay();
+        audio.volume = volumeSlider.value;
+      });
+      
+      // تحديث شريط التقدم
+      audio.addEventListener('timeupdate', function() {
+        updateProgressBar();
+        updateTimeDisplay();
+      });
+      
+      // عند انتهاء التشغيل
+      audio.addEventListener('ended', function() {
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        audio.currentTime = 0;
+      });
+      
+      // أحداث الأزرار
+      playBtn.addEventListener('click', togglePlay);
+      rewindBtn.addEventListener('click', rewind);
+      forwardBtn.addEventListener('click', forward);
+      muteBtn.addEventListener('click', toggleMute);
+      
+      // حدث شريط التقدم
+      progressContainer.addEventListener('click', setProgress);
+      
+      // حدث التحكم في الصوت
+      volumeSlider.addEventListener('input', function() {
+        audio.volume = this.value;
+        updateVolumeIcon();
+      });
+      
+      // أحداث تغيير سرعة التشغيل
+      rateButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const rate = parseFloat(this.getAttribute('data-rate'));
+          audio.playbackRate = rate;
+          
+          // تحديث الوضع النشط
+          rateButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+      
+      // وظائف المساعدة
+      function togglePlay() {
+        if (audio.paused) {
+          audio.play();
+          playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        } else {
+          audio.pause();
+          playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+      }
+      
+      function rewind() {
+        audio.currentTime = Math.max(0, audio.currentTime - 15);
+      }
+      
+      function forward() {
+        audio.currentTime = Math.min(audio.duration, audio.currentTime + 15);
+      }
+      
+      function toggleMute() {
+        audio.muted = !audio.muted;
+        updateVolumeIcon();
+      }
+      
+      function updateVolumeIcon() {
+        if (audio.muted || audio.volume === 0) {
+          muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+          muteBtn.style.background = 'linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)';
+        } else {
+          muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+          muteBtn.style.background = 'linear-gradient(135deg, #4ac9c9 0%, #2aa9a9 100%)';
+        }
+      }
+      
+      function updateProgressBar() {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = percent + '%';
+      }
+      
+      function setProgress(e) {
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+      }
+      
+      function updateTimeDisplay() {
+        // الوقت الحالي
+        let minutes = Math.floor(audio.currentTime / 60);
+        let seconds = Math.floor(audio.currentTime % 60);
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        currentTimeDisplay.textContent = minutes + ':' + seconds;
+        
+        // المدة الكلية
+        minutes = Math.floor(audio.duration / 60);
+        seconds = Math.floor(audio.duration % 60);
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        
+        // تجنب عرض NaN
+        if (!isNaN(minutes) && !isNaN(seconds)) {
+          durationDisplay.textContent = minutes + ':' + seconds;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

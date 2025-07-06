@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>القرآن الكريم - نور الهدى</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        :root {
+            --primary: #1a5d38;
+            --primary-dark: #0f3a24;
+            --secondary: #c19d0c;
+            --light: #f8f9fa;
+            --dark: #2d2d2d;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --gold-light: #f9f3e0;
+            --green-light: #e9f5ee;
+            --purple: #6a1b9a;
+            --gold: #FFD700;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: var(--dark);
+            line-height: 1.8;
+            background: linear-gradient(135deg, #f9f9f9 0%, #f5f9f7 100%);
+            position: relative;
+            overflow-x: hidden;
+            min-height: 100vh;
+            transition: padding-top 0.3s ease;
+        }
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%231a5d3822" d="M20,20 Q40,5 50,30 T80,20 Q95,40 80,50 T95,80 Q80,95 50,80 T20,95 Q5,80 20,50 T5,20 Q20,5 50,20 Z"/></svg>');
+            background-size: 300px;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transform: translateY(0);
+            transition: transform 0.4s ease;
+        }
+        
+        header.hide {
+            transform: translateY(-100%);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.03);
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            text-shadow: 0 0 10px rgba(193, 157, 12, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #f3e37c, #c19d0c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 15px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        nav ul li a.active {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1300px;
+            margin: 140px auto 40px;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-dark);
+            position: relative;
+            padding-bottom: 20px;
+            font-size: 2.2rem;
+            animation: fadeInDown 1s ease;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .quran-intro {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            animation: fadeInUp 1s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .quran-intro p {
+            margin-bottom: 20px;
+        }
+        
+        .search-container {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 1s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .search-box {
+            display: flex;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 50px;
+            overflow: hidden;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 15px 25px;
+            border: none;
+            font-size: 1.1rem;
+            background: #f9f9f9;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            background: white;
+            box-shadow: inset 0 0 0 2px var(--secondary);
+        }
+        
+        .search-box button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .search-box button:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* Surah Grid */
+        .sura-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .surah-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: scaleIn 0.5s ease;
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .surah-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
+            color: white;
+        }
+        
+        .surah-card:hover .surah-number {
+            background: var(--gold-light);
+            color: var(--dark);
+        }
+        
+        .surah-number {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--secondary);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .surah-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            padding: 0 10px;
+            margin-top: 10px;
+        }
+        
+        .surah-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .surah-card:hover .surah-meta {
+            color: var(--gold-light);
+        }
+        
+        /* تنسيقات الفوتر الجديدة */
+        footer {
+            background: linear-gradient(to right, var(--primary), var(--dark));
+            color: white;
+            padding: 50px 0 30px;
+            margin-top: 70px;
+            position: relative;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--secondary), var(--secondary));
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-text {
+            margin: 15px 0;
+            line-height: 1.8;
+            font-size: 1.3rem;
+            color: #f0f0f0;
+        }
+        
+        .father-name {
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin: 25px 0;
+            color: var(--gold);
+            text-shadow: 
+                0 0 10px rgba(255, 215, 0, 0.8),
+                0 0 20px rgba(255, 215, 0, 0.6),
+                0 0 30px rgba(255, 215, 0, 0.4),
+                0 0 40px rgba(255, 215, 0, 0.2);
+            animation: goldGlow 2s ease-in-out infinite alternate;
+            font-family: 'Tajawal', sans-serif;
+            position: relative;
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 10px;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(193, 157, 12, 0.1));
+            transform: perspective(500px) rotateX(10deg);
+            transition: all 0.5s ease;
+        }
+        
+        .father-name:hover {
+            transform: perspective(500px) rotateX(0) scale(1.05);
+            text-shadow: 
+                0 0 15px rgba(255, 215, 0, 0.9),
+                0 0 30px rgba(255, 215, 0, 0.7),
+                0 0 45px rgba(255, 215, 0, 0.5),
+                0 0 60px rgba(255, 215, 0, 0.3);
+        }
+        
+        @keyframes goldGlow {
+            0% {
+                text-shadow: 
+                    0 0 10px rgba(255, 215, 0, 0.8),
+                    0 0 20px rgba(255, 215, 0, 0.6),
+                    0 0 30px rgba(255, 215, 0, 0.4);
+            }
+            100% {
+                text-shadow: 
+                    0 0 15px rgba(255, 215, 0, 0.9),
+                    0 0 30px rgba(255, 215, 0, 0.7),
+                    0 0 45px rgba(255, 215, 0, 0.5),
+                    0 0 60px rgba(255, 215, 0, 0.3);
+            }
+        }
+        
+        .footer-prayer {
+            margin: 25px 0;
+            line-height: 1.8;
+            font-size: 1.2rem;
+            color: #f0f0f0;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 3px solid var(--gold);
+            border-right: 3px solid var(--gold);
+        }
+        
+        .copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1rem;
+            color: #bbb;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .sura-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            }
+            
+            .section-title {
+                font-size: 1.9rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: row;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary-dark);
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.4s ease;
+            }
+            
+            nav.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .surah-name {
+                font-size: 1.2rem;
+            }
+            
+            .container {
+                margin-top: 140px;
+            }
+            
+            .father-name {
+                font-size: 2.2rem;
+                padding: 8px 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .sura-grid {
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+                gap: 15px;
+            }
+            
+            .surah-name {
+                font-size: 1.1rem;
+            }
+            
+            .surah-meta {
+                font-size: 0.8rem;
+            }
+            
+            .logo h1 {
+                font-size: 1.6rem;
+            }
+            
+            nav ul li a {
+                padding: 8px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .father-name {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-mosque"></i>
+                <h1>نور الهدى</h1>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="quran.html" class="active"><i class="fas fa-book-quran"></i> القرآن الكريم</a></li>
+                    <li><a href="hadith.html"><i class="fas fa-book"></i> الأحاديث النبوية</a></li>
+                    <li><a href="azkar.html"><i class="fas fa-hands-praying"></i> الأذكار والأدعية</a></li>
+                    <li><a href="courses.html"><i class="fas fa-graduation-cap"></i> الدورات الدينية</a></li>
+                    <li><a href="awareness.html"><i class="fas fa-lightbulb"></i> التوعية الدينية</a></li>
+                    <li><a href="daif_hadith.html"><i class="fas fa-exclamation-triangle"></i> أحاديث ضعيفة منتشرة</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> عن الموقع</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2 class="section-title">القرآن الكريم</h2>
+        
+        <div class="quran-intro">
+            <p>القرآن الكريم هو كلام الله المنزل على سيدنا محمد صلى الله عليه وسلم، المتعبد بتلاوته، المنقول إلينا بالتواتر، المبدوء بسورة الفاتحة والمختوم بسورة الناس.</p>
+            <p>يحتوي القرآن على 114 سورة، منها 86 سورة مكية نزلت في مكة المكرمة، و28 سورة مدنية نزلت في المدينة المنورة بعد الهجرة.</p>
+        </div>
+        
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" placeholder="ابحث عن سورة...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+        
+        <div class="sura-grid" id="surah-grid">
+            <!-- سور القرآن سيتم إضافتها بالجافاسكريبت -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-message">
+                <p class="footer-text">هذا الموقع صدقة جارية على روح والدي الحبيب</p>
+                <div class="father-name">سعيد رمضان حنفي</div>
+                <p class="footer-text">أسأل الله أن يتقبله منه، وأن يجعله في ميزان حسناته يوم القيامة، وأن ينفع به المسلمين</p>
+                <p class="footer-prayer">
+                    اللهم اغفر له وارحمه، وعافه واعف عنه، وأكرم نزله، ووسع مدخله، واغسله بالماء والثلج والبرد، ونقه من الذنوب والخطايا كما ينقى الثوب الأبيض من الدنس
+                </p>
+            </div>
+            <div class="copyright">
+                جميع الحقوق محفوظة &copy; 2025 موقع نور الهدى
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // بيانات سور القرآن
+        const surahs = [
+            { number: 1, name: "الفاتحة", ayahs: 7, type: "مكية" },
+            { number: 2, name: "البقرة", ayahs: 286, type: "مدنية" },
+            { number: 3, name: "آل عمران", ayahs: 200, type: "مدنية" },
+            { number: 4, name: "النساء", ayahs: 176, type: "مدنية" },
+            { number: 5, name: "المائدة", ayahs: 120, type: "مدنية" },
+            { number: 6, name: "الأنعام", ayahs: 165, type: "مكية" },
+            { number: 7, name: "الأعراف", ayahs: 206, type: "مكية" },
+            { number: 8, name: "الأنفال", ayahs: 75, type: "مدنية" },
+            { number: 9, name: "التوبة", ayahs: 129, type: "مدنية" },
+            { number: 10, name: "يونس", ayahs: 109, type: "مكية" },
+            { number: 11, name: "هود", ayahs: 123, type: "مكية" },
+            { number: 12, name: "يوسف", ayahs: 111, type: "مكية" },
+            { number: 13, name: "الرعد", ayahs: 43, type: "مدنية" },
+            { number: 14, name: "إبراهيم", ayahs: 52, type: "مكية" },
+            { number: 15, name: "الحجر", ayahs: 99, type: "مكية" },
+            { number: 16, name: "النحل", ayahs: 128, type: "مكية" },
+            { number: 17, name: "الإسراء", ayahs: 111, type: "مكية" },
+            { number: 18, name: "الكهف", ayahs: 110, type: "مكية" },
+            { number: 19, name: "مريم", ayahs: 98, type: "مكية" },
+            { number: 20, name: "طه", ayahs: 135, type: "مكية" },
+            { number: 21, name: "الأنبياء", ayahs: 112, type: "مكية" },
+            { number: 22, name: "الحج", ayahs: 78, type: "مدنية" },
+            { number: 23, name: "المؤمنون", ayahs: 118, type: "مكية" },
+            { number: 24, name: "النور", ayahs: 64, type: "مدنية" },
+            { number: 25, name: "الفرقان", ayahs: 77, type: "مكية" },
+            { number: 26, name: "الشعراء", ayahs: 227, type: "مكية" },
+            { number: 27, name: "النمل", ayahs: 93, type: "مكية" },
+            { number: 28, name: "القصص", ayahs: 88, type: "مكية" },
+            { number: 29, name: "العنكبوت", ayahs: 69, type: "مكية" },
+            { number: 30, name: "الروم", ayahs: 60, type: "مكية" },
+            { number: 31, name: "لقمان", ayahs: 34, type: "مكية" },
+            { number: 32, name: "السجدة", ayahs: 30, type: "مكية" },
+            { number: 33, name: "الأحزاب", ayahs: 73, type: "مدنية" },
+            { number: 34, name: "سبأ", ayahs: 54, type: "مكية" },
+            { number: 35, name: "فاطر", ayahs: 45, type: "مكية" },
+            { number: 36, name: "يس", ayahs: 83, type: "مكية" },
+            { number: 37, name: "الصافات", ayahs: 182, type: "مكية" },
+            { number: 38, name: "ص", ayahs: 88, type: "مكية" },
+            { number: 39, name: "الزمر", ayahs: 75, type: "مكية" },
+            { number: 40, name: "غافر", ayahs: 85, type: "مكية" },
+            { number: 41, name: "فصلت", ayahs: 54, type: "مكية" },
+            { number: 42, name: "الشورى", ayahs: 53, type: "مكية" },
+            { number: 43, name: "الزخرف", ayahs: 89, type: "مكية" },
+            { number: 44, name: "الدخان", ayahs: 59, type: "مكية" },
+            { number: 45, name: "الجاثية", ayahs: 37, type: "مكية" },
+            { number: 46, name: "الأحقاف", ayahs: 35, type: "مكية" },
+            { number: 47, name: "محمد", ayahs: 38, type: "مدنية" },
+            { number: 48, name: "الفتح", ayahs: 29, type: "مدنية" },
+            { number: 49, name: "الحجرات", ayahs: 18, type: "مدنية" },
+            { number: 50, name: "ق", ayahs: 45, type: "مكية" },
+            { number: 51, name: "الذاريات", ayahs: 60, type: "مكية" },
+            { number: 52, name: "الطور", ayahs: 49, type: "مكية" },
+            { number: 53, name: "النجم", ayahs: 62, type: "مكية" },
+            { number: 54, name: "القمر", ayahs: 55, type: "مكية" },
+            { number: 55, name: "الرحمن", ayahs: 78, type: "مدنية" },
+            { number: 56, name: "الواقعة", ayahs: 96, type: "مكية" },
+            { number: 57, name: "الحديد", ayahs: 29, type: "مدنية" },
+            { number: 58, name: "المجادلة", ayahs: 22, type: "مدنية" },
+            { number: 59, name: "الحشر", ayahs: 24, type: "مدنية" },
+            { number: 60, name: "الممتحنة", ayahs: 13, type: "مدنية" },
+            { number: 61, name: "الصف", ayahs: 14, type: "مدنية" },
+            { number: 62, name: "الجمعة", ayahs: 11, type: "مدنية" },
+            { number: 63, name: "المنافقون", ayahs: 11, type: "مدنية" },
+            { number: 64, name: "التغابن", ayahs: 18, type: "مدنية" },
+            { number: 65, name: "الطلاق", ayahs: 12, type: "مدنية" },
+            { number: 66, name: "التحريم", ayahs: 12, type: "مدنية" },
+            { number: 67, name: "الملك", ayahs: 30, type: "مكية" },
+            { number: 68, name: "القلم", ayahs: 52, type: "مكية" },
+            { number: 69, name: "الحاقة", ayahs: 52, type: "مكية" },
+            { number: 70, name: "المعارج", ayahs: 44, type: "مكية" },
+            { number: 71, name: "نوح", ayahs: 28, type: "مكية" },
+            { number: 72, name: "الجن", ayahs: 28, type: "مكية" },
+            { number: 73, name: "المزمل", ayahs: 20, type: "مكية" },
+            { number: 74, name: "المدثر", ayahs: 56, type: "مكية" },
+            { number: 75, name: "القيامة", ayahs: 40, type: "مكية" },
+            { number: 76, name: "الإنسان", ayahs: 31, type: "مدنية" },
+            { number: 77, name: "المرسلات", ayahs: 50, type: "مكية" },
+            { number: 78, name: "النبأ", ayahs: 40, type: "مكية" },
+            { number: 79, name: "النازعات", ayahs: 46, type: "مكية" },
+            { number: 80, name: "عبس", ayahs: 42, type: "مكية" },
+            { number: 81, name: "التكوير", ayahs: 29, type: "مكية" },
+            { number: 82, name: "الإنفطار", ayahs: 19, type: "مكية" },
+            { number: 83, name: "المطففين", ayahs: 36, type: "مكية" },
+            { number: 84, name: "الإنشقاق", ayahs: 25, type: "مكية" },
+            { number: 85, name: "البروج", ayahs: 22, type: "مكية" },
+            { number: 86, name: "الطارق", ayahs: 17, type: "مكية" },
+            { number: 87, name: "الأعلى", ayahs: 19, type: "مكية" },
+            { number: 88, name: "الغاشية", ayahs: 26, type: "مكية" },
+            { number: 89, name: "الفجر", ayahs: 30, type: "مكية" },
+            { number: 90, name: "البلد", ayahs: 20, type: "مكية" },
+            { number: 91, name: "الشمس", ayahs: 15, type: "مكية" },
+            { number: 92, name: "الليل", ayahs: 21, type: "مكية" },
+            { number: 93, name: "الضحى", ayahs: 11, type: "مكية" },
+            { number: 94, name: "الشرح", ayahs: 8, type: "مكية" },
+            { number: 95, name: "التين", ayahs: 8, type: "مكية" },
+            { number: 96, name: "العلق", ayahs: 19, type: "مكية" },
+            { number: 97, name: "القدر", ayahs: 5, type: "مكية" },
+            { number: 98, name: "البينة", ayahs: 8, type: "مدنية" },
+            { number: 99, name: "الزلزلة", ayahs: 8, type: "مدنية" },
+            { number: 100, name: "العاديات", ayahs: 11, type: "مكية" },
+            { number: 101, name: "القارعة", ayahs: 11, type: "مكية" },
+            { number: 102, name: "التكاثر", ayahs: 8, type: "مكية" },
+            { number: 103, name: "العصر", ayahs: 3, type: "مكية" },
+            { number: 104, name: "الهمزة", ayahs: 9, type: "مكية" },
+            { number: 105, name: "الفيل", ayahs: 5, type: "مكية" },
+            { number: 106, name: "قريش", ayahs: 4, type: "مكية" },
+            { number: 107, name: "الماعون", ayahs: 7, type: "مكية" },
+            { number: 108, name: "الكوثر", ayahs: 3, type: "مكية" },
+            { number: 109, name: "الكافرون", ayahs: 6, type: "مكية" },
+            { number: 110, name: "النصر", ayahs: 3, type: "مدنية" },
+            { number: 111, name: "المسد", ayahs: 5, type: "مكية" },
+            { number: 112, name: "الإخلاص", ayahs: 4, type: "مكية" },
+            { number: 113, name: "الفلق", ayahs: 5, type: "مكية" },
+            { number: 114, name: "الناس", ayahs: 6, type: "مكية" }
+        ];
+
+        // عناصر DOM
+        const surahGrid = document.getElementById('surah-grid');
+        const searchInput = document.querySelector('.search-box input');
+        const header = document.getElementById('main-header');
+        
+        // عرض سور القرآن
+        function renderSurahs() {
+            surahGrid.innerHTML = '';
+            
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            surahs.forEach(surah => {
+                if (surah.name.toLowerCase().includes(searchTerm) || 
+                    surah.number.toString().includes(searchTerm)) {
+                    
+                    const card = document.createElement('a');
+                    card.className = 'surah-card';
+                    card.href = `quran/surah${surah.number}.html`;
+                    card.innerHTML = `
+                        <div class="surah-number">${surah.number}</div>
+                        <div class="surah-name">${surah.name}</div>
+                        <div class="surah-meta">${surah.ayahs} آيات | ${surah.type}</div>
+                    `;
+                    surahGrid.appendChild(card);
+                }
+            });
+        }
+
+        // البحث الفوري
+        searchInput.addEventListener('input', renderSurahs);
+        
+        // التهيئة الأولية
+        renderSurahs();
+        
+        // التحكم في ظهور واختفاء الهيدر عند التمرير
+        let lastScrollTop = 0;
+        const scrollThreshold = 50;
+        let isHeaderVisible = true;
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > scrollThreshold && isHeaderVisible) {
+                // التمرير لأسفل - إخفاء الهيدر
+                header.classList.add('hide');
+                isHeaderVisible = false;
+            } else if (scrollTop < lastScrollTop && !isHeaderVisible) {
+                // التمرير لأعلى - إظهار الهيدر
+                header.classList.remove('hide');
+                isHeaderVisible = true;
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+        
+        // Navigation Active State
+        const navLinks = document.querySelectorAll('nav ul li a');
+        const currentPage = window.location.pathname.split('/').pop();
+        
+        navLinks.forEach(link => {
+            const linkPage = link.getAttribute('href');
+            if (linkPage === currentPage || (linkPage === 'index.html' && currentPage === '')) {
+                link.classList.add('active');
+            }
+            
+            link.addEventListener('click', function(e) {
+                navLinks.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Close mobile menu after clicking
+                if (window.innerWidth <= 768) {
+                    document.querySelector('nav').classList.remove('active');
+                }
+            });
+        });
+        
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            nav.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target) && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

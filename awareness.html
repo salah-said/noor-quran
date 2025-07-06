@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التوعية الدينية - موقع نور الهدى</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap">
+    <style>
+        :root {
+            --primary: #1a5d38;
+            --primary-dark: #0f3a24;
+            --secondary: #c19d0c;
+            --light: #f8f9fa;
+            --dark: #2d2d2d;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --gold-light: #f9f3e0;
+            --green-light: #e9f5ee;
+            --purple: #6a1b9a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: var(--dark);
+            line-height: 1.8;
+            background: linear-gradient(135deg, #f9f9f9 0%, #f5f9f7 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%231a5d3822" d="M20,20 Q40,5 50,30 T80,20 Q95,40 80,50 T95,80 Q80,95 50,80 T20,95 Q5,80 20,50 T5,20 Q20,5 50,20 Z"/></svg>');
+            background-size: 300px;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.03);
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            text-shadow: 0 0 10px rgba(193, 157, 12, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #f3e37c, #c19d0c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 15px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        nav ul li a.active {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .section-intro {
+            text-align: center;
+            color: #555;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Tabs Navigation */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .tab-btn {
+            background-color: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab-btn:hover {
+            background-color: rgba(44, 95, 45, 0.1);
+        }
+        
+        .tab-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Sections Grid */
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .section-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-icon {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 25px;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        
+        .card-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-content h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .card-content p {
+            color: #555;
+            margin-bottom: 25px;
+            flex: 1;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #d4af37;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(193, 157, 12, 0.3);
+        }
+        
+        /* Article Modal */
+        .article-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow: auto;
+            padding: 40px 20px;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.8rem;
+            color: #777;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            color: var(--danger-color);
+            transform: scale(1.1);
+        }
+        
+        .article-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .article-title {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .article-meta {
+            color: #777;
+            font-size: 1rem;
+        }
+        
+        .article-body {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #444;
+        }
+        
+        .article-body h3 {
+            color: var(--primary-dark);
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .article-body p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .article-body ul {
+            margin: 20px 0;
+            padding-right: 30px;
+        }
+        
+        .article-body li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .article-body li:before {
+            content: "•";
+            color: var(--secondary);
+            font-size: 1.5rem;
+            position: absolute;
+            right: -20px;
+            top: -4px;
+        }
+        
+        .quote {
+            background-color: #f8f9fa;
+            border-right: 4px solid var(--secondary);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #555;
+        }
+        
+        /* Statistics Section */
+        .stats-section {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            border-radius: 15px;
+            padding: 40px;
+            margin: 50px 0;
+            color: white;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stats-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .stat-text {
+            font-size: 1.2rem;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(to right, #1a252f, #0d161e);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+            text-align: center;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .golden-name {
+            background: linear-gradient(to right, #f9e076, #d4af37, #f9e076);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(249, 224, 118, 0.7);
+            font-weight: bold;
+            padding: 0 5px;
+            animation: goldenGlow 3s infinite alternate;
+            display: inline-block;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1rem;
+            color: #aaa;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes goldenGlow {
+            0% { text-shadow: 0 0 10px rgba(249, 224, 118, 0.5); }
+            100% { text-shadow: 0 0 25px rgba(249, 224, 118, 0.9), 0 0 35px rgba(249, 224, 118, 0.6); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                padding: 25px 20px;
+            }
+            
+            .article-title {
+                font-size: 1.7rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary-dark);
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.4s ease;
+            }
+            
+            nav.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                width: 100%;
+            }
+            
+            .article-body {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Animation for tabs */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <i class="fas fa-mosque"></i>
+            <h1>نور الهدى</h1>
+        </div>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                <li><a href="quran.html"><i class="fas fa-book-quran"></i> القرآن الكريم</a></li>
+                <li><a href="hadith.html"><i class="fas fa-book"></i> الأحاديث النبوية</a></li>
+                <li><a href="azkar.html"><i class="fas fa-hands-praying"></i> الأذكار والأدعية</a></li>
+                <li><a href="awareness.html" class="active"><i class="fas fa-lightbulb"></i> التوعية الدينية</a></li>
+                <li><a href="daif_hadith.html"><i class="fas fa-exclamation-triangle"></i> أحاديث ضعيفة منتشرة</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> عن الموقع</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <h2 class="section-title">التوعية الدينية للشباب</h2>
+    <p class="section-intro">
+        مقالات ونصائح دينية موثوقة لتعزيز القيم والأخلاق في المجتمع من مصادر معتمدة، مع التركيز على أهم التحديات التي تواجه الشباب المسلم
+    </p>
+    
+    <!-- Tabs Navigation -->
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="youth">تحديات الشباب</button>
+        <button class="tab-btn" data-tab="family">الأسرة والمجتمع</button>
+        <button class="tab-btn" data-tab="faith">قضايا الإيمان</button>
+    </div>
+    
+    <!-- Youth Challenges Tab -->
+    <div class="tab-content active" id="youth-tab">
+        <h3 style="text-align: center; color: var(--primary); margin-bottom: 30px;">أهم التحديات الدينية التي تواجه الشباب</h3>
+        
+        <div class="sections-grid">
+            <div class="section-card">
+                <div class="card-icon">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                <div class="card-content">
+                    <h3>الإدمان الرقمي والشبكات</h3>
+                    <p>كيفية التعامل مع التكنولوجيا بشكل متوازن دون إهمال العبادات والواجبات الدينية. طرق لتجنب المحتوى الضار والمحافظة على الوقت.</p>
+                    <button class="btn read-more" data-article="digital-addiction">اقرأ المزيد</button>
+                </div>
+            </div>
+            
+            <div class="section-card">
+                <div class="card-icon">
+                    <i class="fas fa-pray"></i>
+                </div>
+                <div class="card-content">
+                    <h3>التهوين في الصلاة والعبادات</h3>
+                    <p>أسباب التراخي في أداء الصلوات في وقتها وطرق العلاج. أهمية المحافظة على الصلاة كعماد الدين وركن أساسي في حياة المسلم.</p>
+                    <button class="btn read-more" data-article="prayer">اقرأ المزيد</button>
+                </div>
+            </div>
+            
+            <div class="section-card">
+                <div class="card-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="card-content">
+                    <h3>الشبهات الفكرية والعقدية</h3>
+                    <p>كيفية مواجهة الشبهات التي تثار حول الإسلام، وطرق تقوية العقيدة الصحيحة. دور الشباب في الدفاع عن الدين بالحكمة والموعظة الحسنة.</p>
+                    <button class="btn read-more" data-article="doubts">اقرأ المزيد</button>
+                </div>
+            </div>
+            
+            <div class="section-card">
+                <div class="card-icon">
+                    <i class="fas fa-users-slash"></i>
+                </div>
+                <div class="card-content">
+                    <h3>الاختلاط والعلاقات المحرمة</h3>
+                    <p>أضرار العلاقات غير الشرعية وكيفية تجنبها. أهمية الحفاظ على الحدود الشرعية بين الجنسين وبناء علاقات صحية في إطار الزواج الشرعي.</p>
+                    <button class="btn read-more" data-article="relationships">اقرأ المزيد</button>
+                </div>
+            </div>
+            
+            <div class="section-card">
+                <div class="card-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="card-content">
+                    <h3>ضعف الالتزام بالقرآن</h3>
+                    <p>أسباب ابتعاد الشباب عن تلاوة القرآن الكريم وحفظه. طرق عملية لتقوية العلاقة مع كتاب الله وجعله منهج حياة.</p>
+                    <button class="btn read-more" data-article="quran">اقرأ المزيد</button>
+                </div>
+            </div>
+            
+            <div class="section-card">
+                <div class="card-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="card-content">
+                    <h3>ظاهرة الإلحاد والزيغ</h3>
+                    <p>تحليل ظاهرة الإلحاد بين الشباب وأسبابها. كيفية التعامل مع هذه الظاهرة وعلاجها من منظور إسلامي. دور الأسرة والمجتمع في الوقاية.</p>
+                    <button class="btn read-more" data-article="atheism">اقرأ المزيد</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Family Tab -->
+    <div class="tab-content" id="family-tab">
+        <h3 style="text-align: center; color: var(--primary); margin-bottom: 30px;">الأسرة والمجتمع</h3>
+        
+        <div class="sections-grid">
+            <div class="section-card">
+                <div class="card-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="card-content">
+                    <h3>أهمية الأسرة الصالحة</h3>
+                    <p>كيف تساهم الأسرة الملتزمة في تربية الأبناء على القيم الإسلامية وبناء مجتمع قوي ومتدين. دور الوالدين في التربية الدينية.</p>
+                    <button class="btn read-more" data-article="family">اقرأ المزيد</button>
+                </div>
+            </div>
+            
+            <div class="section-card">
+                <div class="card-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <div class="card-content">
+                    <h3>العلاقات الاجتماعية</h3>
+                    <p>كيفية بناء علاقات اجتماعية إيجابية وفق تعاليم الإسلام. أهمية صلة الرحم وبر الوالدين في حياة المسلم.</p>
+                    <button class="btn read-more" data-article="social">اقرأ المزيد</button>
+                </div>
+            </div>
+            
+            <div class="section-card">
+                <div class="card-icon">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <div class="card-content">
+                    <h3>الموازنة بين الدين والدنيا</h3>
+                    <p>طرق تحقيق التوازن بين متطلبات الحياة والعمل والالتزامات الدينية. كيف تكون ناجحاً في الدنيا والآخرة.</p>
+                    <button class="btn read-more" data-article="balance">اقرأ المزيد</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Faith Tab -->
+    <div class="tab-content" id="faith-tab">
+        <h3 style="text-align: center; color: var(--primary); margin-bottom: 30px;">قضايا الإيمان والعقيدة</h3>
+        
+        <div class="sections-grid">
+            <div class="section-card">
+                <div class="card-icon">
+                    <i class="fas fa-star-and-crescent"></i>
+                </div>
+                <div class="card-content">
+                    <h3>تقوية الإيمان</h3>
+                    <p>وسائل عملية لزيادة الإيمان وتقوية العلاقة مع الله. أهمية العبادات القلبية والجوارح في حياة المسلم.</p>
+                    <button class="btn read-more" data-article="faith">اقرأ المزيد</button>
+                </div>
+            </div>
+            
+            <div class="section-card">
+                <div class="card-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="card-content">
+                    <h3>التحصين من الشيطان</h3>
+                    <p>كيفية تحصين النفس من وساوس الشيطان ومكائده. أهمية الأذكار اليومية في حماية المسلم.</p>
+                    <button class="btn read-more" data-article="protection">اقرأ المزيد</button>
+                </div>
+            </div>
+            
+            <div class="section-card">
+                <div class="card-icon">
+                    <i class="fas fa-hands-praying"></i>
+                </div>
+                <div class="card-content">
+                    <h3>الدعاء وأثره</h3>
+                    <p>أهمية الدعاء في حياة المسلم وكيف يكون الدعاء مستجاباً. أدعية مختارة من القرآن والسنة لحل المشكلات.</p>
+                    <button class="btn read-more" data-article="dua">اقرأ المزيد</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Statistics Section -->
+    <div class="stats-section">
+        <h3 class="stats-title">حقائق وأرقام عن الشباب المسلم</h3>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-mobile-alt"></i>
+                <div class="stat-number">7.5 ساعات</div>
+                <div class="stat-text">متوسط استخدام الشباب اليومي للإنترنت</div>
+            </div>
+            
+            <div class="stat-card">
+                <i class="fas fa-book-quran"></i>
+                <div class="stat-number">68%</div>
+                <div class="stat-text">من الشباب يقرأون القرآن بشكل غير منتظم</div>
+            </div>
+            
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <div class="stat-number">42%</div>
+                <div class="stat-text">من الشباب يواجهون شبهات دينية عبر الإنترنت</div>
+            </div>
+            
+            <div class="stat-card">
+                <i class="fas fa-praying-hands"></i>
+                <div class="stat-number">61%</div>
+                <div class="stat-text">من الشباب يحافظون على الصلوات الخمس</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Article Modal -->
+<div id="articleModal" class="article-modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div class="article-header">
+            <h2 class="article-title" id="articleTitle">الإدمان الرقمي والشبكات</h2>
+            <div class="article-meta">مقال توعوي - التحديات الدينية للشباب</div>
+        </div>
+        <div class="article-body" id="articleContent">
+            <!-- Article content will be loaded here -->
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>هذا الموقع صدقة جارية على روح والدي الحبيب</p>
+        <h2 class="golden-name">سعيد رمضان حنفي</h2>
+        <p>أسأل الله أن يتقبله منه، وأن يجعله في ميزان حسناته يوم القيامة، وأن ينفع به المسلمين</p>
+        <p>اللهم اغفر له وارحمه، وعافه واعف عنه، وأكرم نزله، ووسع مدخله، واغسله بالماء والثلج والبرد، ونقه من الذنوب والخطايا كما ينقى الثوب الأبيض من الدنس</p>
+        <div class="copyright">
+            جميع الحقوق محفوظة &copy; 2025 موقع نور الهدى
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Tab Switching Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+        });
+        
+        // Article Modal Functionality
+        const modal = document.getElementById('articleModal');
+        const closeBtn = document.querySelector('.close-btn');
+        const articleTitle = document.getElementById('articleTitle');
+        const articleContent = document.getElementById('articleContent');
+        const readMoreBtns = document.querySelectorAll('.read-more');
+        
+        // Articles content
+        const articles = {
+            'digital-addiction': {
+                title: 'الإدمان الرقمي والشبكات',
+                content: `
+                    <h3>ظاهرة الإدمان الرقمي</h3>
+                    <p>تعتبر ظاهرة الإدمان الرقمي من أخطر التحديات التي تواجه الشباب المسلم في عصرنا الحالي. حيث يقضي الشاب المسلم ساعات طويلة أمام الشاشات متنقلاً بين وسائل التواصل الاجتماعي والألعاب الإلكترونية والمحتوى المتنوع، مما يؤثر سلباً على عباداته وواجباته الدينية.</p>
+                    
+                    <h3>آثار الإدمان الرقمي على الحياة الدينية</h3>
+                    <ul>
+                        <li>التأخر أو التهاون في أداء الصلوات في وقتها</li>
+                        <li>ضعف الاهتمام بتلاوة القرآن الكريم وحفظه</li>
+                        <li>التأثر بالمحتوى غير الأخلاقي الذي ينتشر عبر الإنترنت</li>
+                        <li>ضعف التواصل الاجتماعي الحقيقي مع الأسرة والمجتمع</li>
+                        <li>هدر الوقت الذي كان يمكن استثماره في طلب العلم الشرعي</li>
+                    </ul>
+                    
+                    <h3>نصائح عملية للتعامل المتوازن مع التكنولوجيا</h3>
+                    <p>1. تحديد أوقات محددة لاستخدام الأجهزة الإلكترونية وعدم تجاوزها</p>
+                    <p>2. وضع برنامج يومي يتضمن تلاوة القرآن والصلاة في وقتها</p>
+                    <p>3. استخدام تطبيقات المراقبة الذاتية لتحديد وقت الشاشة</p>
+                    <p>4. الاشتراك في القنوات الدينية المفيدة وتجنب المحتوى الضار</p>
+                    <p>5. استبدال جزء من الوقت الرقمي بأنشطة مفيدة كالرياضة وزيارة الأقارب</p>
+                    
+                    <div class="quote">
+                        قال رسول الله صلى الله عليه وسلم: "نعمتان مغبون فيهما كثير من الناس: الصحة والفراغ" (رواه البخاري)
+                    </div>
+                    
+                    <h3>فوائد الاعتدال في استخدام التكنولوجيا</h3>
+                    <ul>
+                        <li>تحسين العلاقة مع الله عز وجل</li>
+                        <li>زيادة التركيز في العبادات والطاعات</li>
+                        <li>تحقيق التوازن بين متطلبات الحياة والالتزامات الدينية</li>
+                        <li>تحسين الصحة النفسية والجسدية</li>
+                        <li>توفير الوقت لطلب العلم النافع</li>
+                    </ul>
+                `
+            },
+            'prayer': {
+                title: 'التهوين في الصلاة والعبادات',
+                content: `
+                    <h3>مشكلة التهاون في الصلاة</h3>
+                    <p>تشير الإحصائيات إلى أن نسبة كبيرة من الشباب المسلمين يتهاونون في أداء الصلوات في أوقاتها، وخاصة صلاة الفجر. هذه المشكلة تعتبر من أخطر التحديات التي تواجه الجيل المسلم، حيث أن الصلاة هي عماد الدين وأول ما يحاسب عليه العبد يوم القيامة.</p>
+                    
+                    <h3>أسباب التهاون في الصلاة</h3>
+                    <ul>
+                        <li>ضعف الإيمان وفتور الهمة الدينية</li>
+                        <li>السهر لساعات متأخرة من الليل</li>
+                        <li>الانشغال باللهو والترفيه عن العبادات</li>
+                        <li>صحبة رفاق السوء الذين لا يحافظون على الصلاة</li>
+                        <li>عدم إدراك أهمية الصلاة ومكانتها في الإسلام</li>
+                    </ul>
+                    
+                    <h3>علاج مشكلة التهاون في الصلاة</h3>
+                    <p>1. تقوية الإيمان بالله ومراقبته في السر والعلن</p>
+                    <p>2. الالتزام بمواعيد النوم المبكر للاستيقاظ للصلوات</p>
+                    <p>3. مصاحبة الصالحين المحافظين على الصلوات</p>
+                    <p>4. حضور المحاضرات الدينية التي تذكر بأهمية الصلاة</p>
+                    <p>5. استخدام المنبهات وتطبيقات التذكير بالصلوات</p>
+                    
+                    <div class="quote">
+                        قال الله تعالى: "حافظوا على الصلوات والصلاة الوسطى وقوموا لله قانتين" (البقرة:238)
+                    </div>
+                    
+                    <h3>فوائد المحافظة على الصلاة</h3>
+                    <ul>
+                        <li>طمأنينة القلب وسكينة النفس</li>
+                        <li>تنظيم الوقت وضبط الحياة اليومية</li>
+                        <li>قوة الإرادة والعزيمة</li>
+                        <li>نور الوجه وبركة في الرزق</li>
+                        <li>حفظ الله للعبد في دنياه وآخرته</li>
+                    </ul>
+                `
+            },
+            'doubts': {
+                title: 'الشبهات الفكرية والعقدية',
+                content: `
+                    <h3>ظاهرة الشبهات الفكرية</h3>
+                    <p>في عصر العولمة والانفتاح المعلوماتي، يتعرض الشباب المسلم للكثير من الشبهات الفكرية والعقدية التي تهدف إلى زعزعة إيمانه وتشكيكه في عقيدته. هذه الشبهات تأتي عبر وسائل التواصل الاجتماعي والمنصات الإلكترونية المختلفة.</p>
+                    
+                    <h3>أخطر أنواع الشبهات التي تواجه الشباب</h3>
+                    <ul>
+                        <li>شبهات حول وجود الله وصفاته</li>
+                        <li>شبهات حول نبوة محمد صلى الله عليه وسلم</li>
+                        <li>شبهات حول القرآن الكريم وصدقه</li>
+                        <li>شبهات حول مكانة المرأة في الإسلام</li>
+                        <li>شبهات حول الجهاد في الإسلام</li>
+                    </ul>
+                    
+                    <h3>كيفية مواجهة الشبهات الفكرية</h3>
+                    <p>1. تقوية العقيدة الصحيحة بدراسة كتب العقيدة الموثوقة</p>
+                    <p>2. الالتحاق بحلقات العلم الشرعي مع العلماء الثقات</p>
+                    <p>3. تنمية مهارة التفكير النقدي لتحليل الشبهات</p>
+                    <p>4. الاستعانة بالمواقع الإسلامية الموثوقة للرد على الشبهات</p>
+                    <p>5. الصبر وعدم الاستعجال في الحكم قبل التأكد من المعلومة</p>
+                    
+                    <div class="quote">
+                        قال الله تعالى: "فأما الذين في قلوبهم زيغ فيتبعون ما تشابه منه ابتغاء الفتنة وابتغاء تأويله" (آل عمران:7)
+                    </div>
+                    
+                    <h3>فوائد تحصين النفس من الشبهات</h3>
+                    <ul>
+                        <li>ثبات العقيدة وقوة الإيمان</li>
+                        <li>القدرة على الدفاع عن الدين بالحكمة والموعظة الحسنة</li>
+                        <li>التمييز بين الحق والباطل</li>
+                        <li>نشر الوعي الديني بين الأقران</li>
+                        <li>تحقيق الأمن الفكري والاستقرار النفسي</li>
+                    </ul>
+                `
+            },
+            'relationships': {
+                title: 'الاختلاط والعلاقات المحرمة',
+                content: `
+                    <h3>مشكلة العلاقات المحرمة</h3>
+                    <p>تعتبر مشكلة العلاقات المحرمة بين الشباب والفتيات من أخطر التحديات التي تواجه المجتمع المسلم في عصرنا الحالي، حيث تنتشر هذه الظاهرة بشكل كبير خاصة مع انتشار وسائل التواصل الاجتماعي.</p>
+                    
+                    <h3>أضرار العلاقات المحرمة</h3>
+                    <ul>
+                        <li>غضب الله تعالى وعقابه</li>
+                        <li>انتشار الفاحشة في المجتمع</li>
+                        <li>تفكك الأسرة وانهيار القيم</li>
+                        <li>المشاكل النفسية والاجتماعية الناتجة عنها</li>
+                        <li>ضياع الوقت والطاقات في ما لا ينفع</li>
+                    </ul>
+                    
+                    <h3>كيفية تجنب العلاقات المحرمة</h3>
+                    <p>1. تقوى الله ومراقبته في السر والعلن</p>
+                    <p>2. غض البصر عن المحرمات</p>
+                    <p>3. الابتعاد عن أماكن الاختلاط المحرم</p>
+                    <p>4. الزواج المبكر لمن يستطيع</p>
+                    <p>5. مصاحبة الصالحين والصالحات</p>
+                    
+                    <div class="quote">
+                        قال الله تعالى: "قل للمؤمنين يغضوا من أبصارهم ويحفظوا فروجهم ذلك أزكى لهم إن الله خبير بما يصنعون" (النور:30)
+                    </div>
+                    
+                    <h3>فوائد الحفاظ على الحدود الشرعية</h3>
+                    <ul>
+                        <li>رضا الله تعالى والفوز بجنته</li>
+                        <li>سلامة القلب وطهارة النفس</li>
+                        <li>بناء مجتمع قوي متماسك</li>
+                        <li>الحفاظ على الأعراض والشرف</li>
+                        <li>توفير الطاقات للبناء والعمل النافع</li>
+                    </ul>
+                `
+            },
+            'quran': {
+                title: 'ضعف الالتزام بالقرآن',
+                content: `
+                    <h3>مشكلة ابتعاد الشباب عن القرآن</h3>
+                    <p>يعاني الكثير من الشباب المسلم اليوم من ضعف العلاقة مع كتاب الله تعالى، سواء في التلاوة أو الحفظ أو التدبر أو العمل به، رغم أن القرآن هو المنهج الرباني الذي أنزله الله لهداية البشرية.</p>
+                    
+                    <h3>أسباب ضعف الالتزام بالقرآن</h3>
+                    <ul>
+                        <li>الانشغال بالدنيا وزينتها</li>
+                        <li>ضعف الهمة والإرادة</li>
+                        <li>عدم إدراك فضل القرآن وأهميته</li>
+                        <li>قلة القدوات في المحافظة على القرآن</li>
+                        <li>الاستسلام لوساوس الشيطان</li>
+                    </ul>
+                    
+                    <h3>طرق تقوية العلاقة مع القرآن</h3>
+                    <p>1. تحديد ورد يومي من التلاوة ولو آيات قليلة</p>
+                    <p>2. حفظ ما تيسر من القرآن ومراجعته</p>
+                    <p>3. حضور حلقات التحفيظ في المساجد</p>
+                    <p>4. تدبر معاني الآيات وتطبيقها في الحياة</p>
+                    <p>5. الاستماع إلى القرآن في أوقات الفراغ</p>
+                    
+                    <div class="quote">
+                        قال رسول الله صلى الله عليه وسلم: "اقرؤوا القرآن فإنه يأتي يوم القيامة شفيعاً لأصحابه" (رواه مسلم)
+                    </div>
+                    
+                    <h3>فوائد المحافظة على القرآن</h3>
+                    <ul>
+                        <li>الشفاعة يوم القيامة</li>
+                        <li>رفعة الدرجات في الجنة</li>
+                        <li>طمأنينة القلب وسكينة النفس</li>
+                        <li>النجاة من الضلال والانحراف</li>
+                        <li>نور الوجه وحسن الخلق</li>
+                    </ul>
+                `
+            },
+            'atheism': {
+                title: 'ظاهرة الإلحاد والزيغ',
+                content: `
+                    <h3>ظاهرة الإلحاد بين الشباب</h3>
+                    <p>انتشرت في الآونة الأخيرة ظاهرة الإلحاد والزيغ بين بعض الشباب المسلم، بسبب عدة عوامل منها الغزو الفكري والانفتاح الإعلامي غير المنضبط وضعف التربية الدينية.</p>
+                    
+                    <h3>أسباب انتشار الإلحاد</h3>
+                    <ul>
+                        <li>ضعف الإيمان وقلة العلم الشرعي</li>
+                        <li>التأثر بالشبهات الفكرية المنتشرة</li>
+                        <li>البعد عن العلماء والموجهين الصالحين</li>
+                        <li>الانبهار بالحضارة الغربية المادية</li>
+                        <li>بعض المشاكل النفسية والاجتماعية</li>
+                    </ul>
+                    
+                    <h3>كيفية مواجهة الإلحاد</h3>
+                    <p>1. تقوية الإيمان بالله ومعرفته بأسمائه وصفاته</p>
+                    <p>2. دراسة العقيدة الصحيحة من مصادرها الموثوقة</p>
+                    <p>3. الرد على الشبهات بالحكمة والموعظة الحسنة</p>
+                    <p>4. التمسك بالقرآن والسنة النبوية</p>
+                    <p>5. الدعاء واللجوء إلى الله تعالى</p>
+                    
+                    <div class="quote">
+                        قال الله تعالى: "ومن يبتغ غير الإسلام ديناً فلن يقبل منه وهو في الآخرة من الخاسرين" (آل عمران:85)
+                    </div>
+                    
+                    <h3>فوائد الثبات على الدين</h3>
+                    <ul>
+                        <li>الفوز برضا الله وجنته</li>
+                        <li>الطمأنينة والاستقرار النفسي</li>
+                        <li>الحياة الطيبة في الدنيا</li>
+                        <li>النجاة من عذاب الآخرة</li>
+                        <li>القدوة الحسنة للأجيال القادمة</li>
+                    </ul>
+                `
+            },
+            'family': {
+                title: 'أهمية الأسرة الصالحة',
+                content: `
+                    <h3>دور الأسرة في التربية الدينية</h3>
+                    <p>تعتبر الأسرة هي اللبنة الأساسية في بناء المجتمع المسلم، وهي المسؤولة عن تربية الأبناء على القيم الإسلامية والأخلاق الفاضلة منذ الصغر.</p>
+                    
+                    <h3>أهمية الأسرة الصالحة</h3>
+                    <ul>
+                        <li>تربية الأبناء على العقيدة الصحيحة</li>
+                        <li>غرس القيم الإسلامية والأخلاق الحميدة</li>
+                        <li>حماية الأبناء من الانحرافات الفكرية</li>
+                        <li>بناء شخصية متوازنة للأبناء</li>
+                        <li>إعداد جيل صالح لخدمة الأمة</li>
+                    </ul>
+                    
+                    <h3>كيفية بناء أسرة صالحة</h3>
+                    <p>1. اختيار الزوج أو الزوجة الصالحة</p>
+                    <p>2. تربية الأبناء على حب الله ورسوله</p>
+                    <p>3. القدوة الحسنة من الوالدين</p>
+                    <p>4. المتابعة المستمرة للأبناء</p>
+                    <p>5. الدعاء للأبناء بالهداية والصلاح</p>
+                    
+                    <div class="quote">
+                        قال رسول الله صلى الله عليه وسلم: "كل مولود يولد على الفطرة فأبواه يهودانه أو ينصرانه أو يمجسانه" (رواه البخاري)
+                    </div>
+                    
+                    <h3>فوائد الأسرة الصالحة</h3>
+                    <ul>
+                        <li>نشر الخير والصلاح في المجتمع</li>
+                        <li>حماية الأبناء من الانحراف</li>
+                        <li>بناء مجتمع متماسك وقوي</li>
+                        <li>رضا الله تعالى والفوز بالجنة</li>
+                        <li>البركة في الرزق والعمر</li>
+                    </ul>
+                `
+            },
+            'social': {
+                title: 'العلاقات الاجتماعية',
+                content: `
+                    <h3>أهمية العلاقات الاجتماعية في الإسلام</h3>
+                    <p>يحث الإسلام على إقامة العلاقات الاجتماعية الطيبة بين أفراد المجتمع، لما لها من أثر إيجابي على الفرد والمجتمع، ولكن في إطار الضوابط الشرعية.</p>
+                    
+                    <h3>أهمية العلاقات الاجتماعية</h3>
+                    <ul>
+                        <li>تحقيق التكافل الاجتماعي</li>
+                        <li>نشر المحبة والألفة بين الناس</li>
+                        <li>التعاون على البر والتقوى</li>
+                        <li>تقوية الروابط الأسرية والعائلية</li>
+                        <li>دعم المحتاجين والضعفاء</li>
+                    </ul>
+                    
+                    <h3>ضوابط العلاقات الاجتماعية في الإسلام</h3>
+                    <p>1. الالتزام بالحدود الشرعية بين الجنسين</p>
+                    <p>2. البعد عن المجالس المختلطة المحرمة</p>
+                    <p>3. اختيار الصحبة الصالحة</p>
+                    <p>4. عدم الإكثار من الضحك والمزاح</p>
+                    <p>5. الحفاظ على الآداب الإسلامية في التعامل</p>
+                    
+                    <div class="quote">
+                        قال رسول الله صلى الله عليه وسلم: "مثل الجليس الصالح والجليس السوء كحامل المسك ونافخ الكير" (رواه البخاري)
+                    </div>
+                    
+                    <h3>فوائد العلاقات الاجتماعية الصالحة</h3>
+                    <ul>
+                        <li>الأجر والثواب من الله تعالى</li>
+                        <li>نشر الخير والمعروف في المجتمع</li>
+                        <li>الحماية من الانحراف والضلال</li>
+                        <li>تقوية الروابط الاجتماعية</li>
+                        <li>القدوة الحسنة للآخرين</li>
+                    </ul>
+                `
+            },
+            'balance': {
+                title: 'الموازنة بين الدين والدنيا',
+                content: `
+                    <h3>التوازن في حياة المسلم</h3>
+                    <p>يجب على المسلم أن يوازن بين متطلبات دينه ودنياه، فلا يغلب أحدهما على الآخر، بل يجعل الدنيا وسيلة للآخرة، ويعمل لدنياه كما يعمل لآخرته.</p>
+                    
+                    <h3>أهمية التوازن بين الدين والدنيا</h3>
+                    <ul>
+                        <li>تحقيق العبودية الكاملة لله تعالى</li>
+                        <li>إعمار الأرض وفق شرع الله</li>
+                        <li>تحقيق السعادة في الدنيا والآخرة</li>
+                        <li>النجاح في الحياة العملية مع الحفاظ على القيم</li>
+                        <li>القدوة الحسنة للآخرين</li>
+                    </ul>
+                    
+                    <h3>كيفية تحقيق التوازن</h3>
+                    <p>1. تنظيم الوقت بين العبادات والعمل</p>
+                    <p>2. إخلاص النية في جميع الأعمال</p>
+                    <p>3. عدم الغلو في الدين أو الإفراط في الدنيا</p>
+                    <p>4. الاستعانة بالله في جميع الأمور</p>
+                    <p>5. التوسط والاعتدال في كل شيء</p>
+                    
+                    <div class="quote">
+                        قال الله تعالى: "وابتغ فيما آتاك الله الدار الآخرة ولا تنس نصيبك من الدنيا" (القصص:77)
+                    </div>
+                    
+                    <h3>فوائد التوازن بين الدين والدنيا</h3>
+                    <ul>
+                        <li>رضا الله تعالى</li>
+                        <li>النجاح في الدنيا والآخرة</li>
+                        <li>الطمأنينة والسكينة</li>
+                        <li>البركة في الوقت والرزق</li>
+                        <li>حسن الخاتمة</li>
+                    </ul>
+                `
+            },
+            'faith': {
+                title: 'تقوية الإيمان',
+                content: `
+                    <h3>أهمية تقوية الإيمان</h3>
+                    <p>الإيمان يزيد وينقص، يزيد بالطاعة وينقص بالمعصية، لذا يجب على المسلم أن يعمل على تقوية إيمانه وتجديده باستمرار، خاصة في هذا العصر الذي كثرت فيه الفتن والشبهات.</p>
+                    
+                    <h3>أسباب ضعف الإيمان</h3>
+                    <ul>
+                        <li>الغفلة عن ذكر الله تعالى</li>
+                        <li>المعاصي والذنوب</li>
+                        <li>صحبة السوء</li>
+                        <li>الانشغال بالدنيا وزينتها</li>
+                        <li>قلة العلم الشرعي</li>
+                    </ul>
+                    
+                    <h3>وسائل تقوية الإيمان</h3>
+                    <p>1. كثرة قراءة القرآن وتدبره</p>
+                    <p>2. المحافظة على الصلوات في وقتها</p>
+                    <p>3. ذكر الله تعالى في كل وقت</p>
+                    <p>4. مجالسة الصالحين</p>
+                    <p>5. الدعاء واللجوء إلى الله</p>
+                    
+                    <div class="quote">
+                        قال رسول الله صلى الله عليه وسلم: "جددوا إيمانكم"، قيل: يا رسول الله وكيف نجدد إيماننا؟ قال: "أكثروا من قول لا إله إلا الله" (رواه أحمد)
+                    </div>
+                    
+                    <h3>فوائد تقوية الإيمان</h3>
+                    <ul>
+                        <li>محبة الله تعالى</li>
+                        <li>حلاوة الطاعة</li>
+                        <li>الخشوع في العبادة</li>
+                        <li>قوة الشخصية والثبات</li>
+                        <li>النجاة من الفتن</li>
+                    </ul>
+                `
+            },
+            'protection': {
+                title: 'التحصين من الشيطان',
+                content: `
+                    <h3>خطر الشيطان على الإنسان</h3>
+                    <p>الشيطان هو العدو اللدود للإنسان، وقد أقسم على إغواء بني آدم وإضلالهم عن سبيل الله، لذا يجب على المسلم أن يحصن نفسه من كيد الشيطان ووساوسه.</p>
+                    
+                    <h3>وسائل الشيطان في الإغواء</h3>
+                    <ul>
+                        <li>الوسوسة في العقيدة</li>
+                        <li>إغراء المعاصي والذنوب</li>
+                        <li>التثبيط عن الطاعات</li>
+                        <li>إيقاع العداوة والبغضاء بين الناس</li>
+                        <li>الغرور والكبر</li>
+                    </ul>
+                    
+                    <h3>كيفية التحصين من الشيطان</h3>
+                    <p>1. المحافظة على الأذكار اليومية</p>
+                    <p>2. قراءة آية الكرسي وسورة البقرة</p>
+                    <p>3. الاستعاذة بالله من الشيطان</p>
+                    <p>4. عدم الاستجابة لوساوسه</p>
+                    <p>5. الالتزام بالطاعات وترك المعاصي</p>
+                    
+                    <div class="quote">
+                        قال الله تعالى: "إن الشيطان لكم عدو فاتخذوه عدواً إنما يدعو حزبه ليكونوا من أصحاب السعير" (فاطر:6)
+                    </div>
+                    
+                    <h3>فوائد التحصين من الشيطان</h3>
+                    <ul>
+                        <li>الحماية من الوساوس</li>
+                        <li>النجاة من المعاصي</li>
+                        <li>الطمأنينة والسكينة</li>
+                        <li>قوة الإرادة والعزيمة</li>
+                        <li>رضا الله تعالى</li>
+                    </ul>
+                `
+            },
+            'dua': {
+                title: 'الدعاء وأثره',
+                content: `
+                    <h3>أهمية الدعاء في حياة المسلم</h3>
+                    <p>الدعاء هو مخ العبادة، وهو الصلة بين العبد وربه، وهو من أعظم العبادات التي يتقرب بها المسلم إلى الله تعالى، ويجب أن يكون الدعاء حاضراً في جميع أحوال المسلم.</p>
+                    
+                    <h3>آداب الدعاء</h3>
+                    <ul>
+                        <li>الإخلاص لله تعالى</li>
+                        <li>اليقين بالإجابة</li>
+                        <li>الحضور والخشوع</li>
+                        <li>الدعاء بأسماء الله الحسنى</li>
+                        <li>عدم الاستعجال</li>
+                    </ul>
+                    
+                    <h3>أوقات استجابة الدعاء</h3>
+                    <p>1. ثلث الليل الأخير</p>
+                    <p>2. بين الأذان والإقامة</p>
+                    <p>3. يوم عرفة</p>
+                    <p>4. عند نزول المطر</p>
+                    <p>5. عند السجود في الصلاة</p>
+                    
+                    <div class="quote">
+                        قال رسول الله صلى الله عليه وسلم: "الدعاء هو العبادة"، ثم قرأ: "وقال ربكم ادعوني أستجب لكم إن الذين يستكبرون عن عبادتي سيدخلون جهنم داخرين" (غافر:60) (رواه الترمذي)
+                    </div>
+                    
+                    <h3>فوائد الدعاء</h3>
+                    <ul>
+                        <li>قضاء الحاجات</li>
+                        <li>تفريج الهموم</li>
+                        <li>تقوية الصلة بالله</li>
+                        <li>النجاة من المصائب</li>
+                        <li>الفوز برضا الله وجنته</li>
+                    </ul>
+                `
+            }
+        };
+
+        // Open modal when "Read More" is clicked
+        readMoreBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const articleId = this.getAttribute('data-article');
+                const article = articles[articleId];
+                
+                if (article) {
+                    articleTitle.textContent = article.title;
+                    articleContent.innerHTML = article.content;
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                }
+            });
+        });
+
+        // Close modal when X is clicked
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Enable scrolling
+        });
+
+        // Close modal when clicking outside content
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Enable scrolling
+            }
+        });
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            nav.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target) && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

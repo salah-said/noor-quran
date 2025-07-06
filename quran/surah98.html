@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سورة البينة | القرآن الكريم</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #e0f2f7 0%, #b3e5fc 100%); /* Light blue, clean gradient */
+      min-height: 100vh;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
+      color: #333;
+    }
+    
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(100, 200, 150, 0.1) 0%, transparent 8%), /* Light green accent */
+        radial-gradient(circle at 80% 40%, rgba(150, 200, 250, 0.1) 0%, transparent 10%), /* Light blue accent */
+        radial-gradient(circle at 40% 70%, rgba(255, 223, 0, 0.05) 0%, transparent 7%); /* Subtle gold shimmer */
+      z-index: -1;
+      opacity: 0.7;
+    }
+    
+    .flame-icon { /* Changed to lightbulb/star for clear proof/guidance theme */
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, rgba(179, 229, 252, 0.2) 0%, transparent 70%); /* Light blue glow */
+      border-radius: 50%;
+      z-index: -1;
+      animation: pulse 8s ease-in-out infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: rgba(255, 193, 7, 0.8); /* Amber for icon */
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    header {
+      text-align: center;
+      padding: 25px;
+      background: linear-gradient(135deg, rgba(224, 242, 241, 0.8) 0%, rgba(178, 223, 219, 0.8) 100%); /* Light teal-blue header */
+      border-radius: 15px;
+      margin: 20px auto 30px;
+      max-width: 900px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(100, 181, 246, 0.3);
+      backdrop-filter: blur(10px);
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: linear-gradient(45deg, rgba(100, 181, 246, 0.1) 0%, transparent 50%, rgba(144, 202, 249, 0.1) 100%);
+      z-index: 1;
+      border-radius: 20px;
+    }
+    
+    h1 {
+      color: #00796b; /* Dark teal for heading */
+      margin-bottom: 15px;
+      font-size: 2.8rem;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .surah-info {
+      background: rgba(179, 229, 252, 0.25); /* Semi-transparent light blue */
+      border-radius: 12px;
+      padding: 15px;
+      margin: 15px 0;
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(144, 202, 249, 0.3);
+    }
+    
+    .surah-info p {
+      color: #00796b; /* Dark teal for text */
+      margin: 8px 0;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 30px;
+      margin: 15px 0 5px;
+      background: linear-gradient(135deg, #009688 0%, #00796b 100%); /* Teal gradient */
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border: none;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      border: 2px solid rgba(0, 150, 136, 0.4);
+    }
+    
+    .back-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, #26a69a 0%, #009688 100%);
+    }
+    
+    .back-btn::before {
+      content: "←";
+      margin-left: 8px;
+      font-size: 1.3rem;
+    }
+    
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .image-section {
+      flex: 2;
+      min-width: 300px;
+      background: rgba(255, 255, 255, 0.8); /* White semi-transparent */
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(100, 181, 246, 0.3);
+      backdrop-filter: blur(10px);
+    }
+    
+    .image-controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .control-btn {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%); /* Light blue gradient */
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(100, 181, 246, 0.4);
+    }
+    
+    .control-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .control-btn.zoom {
+      background: linear-gradient(135deg, #81d4fa 0%, #4fc3f7 100%); /* Lighter blue */
+    }
+    
+    .image-viewer-container {
+      position: relative;
+      border: 2px solid rgba(100, 181, 246, 0.3);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.05);
+      cursor: zoom-in;
+    }
+    
+    .surah-image {
+      max-width: 100%;
+      max-height: 70vh;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .image-info {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+    
+    .surah-details {
+      flex: 1;
+      min-width: 300px;
+      background: rgba(255, 255, 255, 0.8); /* White semi-transparent */
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(100, 181, 246, 0.3);
+      backdrop-filter: blur(10px);
+    }
+    
+    .surah-details h2 {
+      color: #00796b; /* Dark teal for heading */
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid rgba(100, 181, 246, 0.3);
+      font-size: 1.8rem;
+      text-align: center;
+    }
+    
+    .details-content {
+      line-height: 1.8;
+      color: #444; /* Dark gray for text */
+      font-size: 1.1rem;
+    }
+    
+    .details-content p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+    
+    .details-content .highlight {
+      background: linear-gradient(120deg, rgba(179, 229, 252, 0.4) 0%, rgba(179, 229, 252, 0) 100%);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      color: #009688; /* Teal highlight */
+    }
+    
+    .warning-section {
+      background: linear-gradient(135deg, rgba(255, 152, 0, 0.3) 0%, rgba(255, 87, 34, 0.3) 100%); /* Orange warning */
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      border: 1px solid rgba(255, 87, 34, 0.4);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      animation: pulseWarning 2s infinite;
+    }
+    
+    .warning-section h3 {
+      color: #ff9800; /* Darker orange for warning heading */
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .warning-section p {
+      color: #e65100; /* Dark orange for warning text */
+      line-height: 1.7;
+      text-align: center;
+    }
+    
+    .benefits-section {
+      background: rgba(255, 255, 255, 0.8); /* White semi-transparent */
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(100, 181, 246, 0.3);
+      backdrop-filter: blur(10px);
+    }
+    
+    .benefits-section h2 {
+      color: #00796b; /* Dark teal for heading */
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .benefit-card {
+      background: linear-gradient(135deg, rgba(179, 229, 252, 0.4) 0%, rgba(129, 212, 250, 0.4) 100%); /* Light blue benefit card */
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(144, 202, 249, 0.4);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(5px);
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(135deg, rgba(200, 240, 255, 0.5) 0%, rgba(170, 220, 250, 0.5) 100%);
+    }
+    
+    .benefit-icon {
+      font-size: 2.5rem;
+      color: #009688; /* Teal for icon */
+      margin-bottom: 15px;
+    }
+    
+    .benefit-card h3 {
+      color: #00796b; /* Dark teal for heading */
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+    
+    .benefit-card p {
+      color: #555; /* Darker gray for text */
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #555; /* Darker gray for footer */
+      font-size: 1rem;
+      border-top: 1px solid rgba(144, 202, 249, 0.3);
+    }
+    
+    .loading-image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+    
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(179, 229, 252, 0.2);
+      border-top: 5px solid #009688;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    
+    .audio-section {
+      background: rgba(255, 255, 255, 0.8); /* White semi-transparent */
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 30px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(100, 181, 246, 0.3);
+      backdrop-filter: blur(10px);
+    }
+    
+    .audio-section h2 {
+      color: #00796b; /* Dark teal for heading */
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    
+    .audio-player-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .progress-container {
+      width: 100%;
+      height: 8px;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      margin: 10px 0;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(135deg, #009688 0%, #00796b 100%); /* Teal gradient */
+      width: 0%;
+      border-radius: 4px;
+      transition: width 0.1s linear;
+    }
+    
+    .time-display {
+      display: flex;
+      justify-content: space-between;
+      color: #555; /* Dark gray for time display */
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+    
+    .audio-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin: 15px 0;
+      flex-wrap: wrap;
+    }
+    
+    .audio-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #009688 0%, #00796b 100%); /* Teal gradient */
+      color: white;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(0, 150, 136, 0.4);
+    }
+    
+    .audio-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .audio-btn.large {
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+    }
+    
+    .audio-btn.secondary {
+      background: linear-gradient(135deg, #9E9E9E 0%, #757575 100%); /* Gray for secondary */
+    }
+
+    /* Mute button specific color for "muted" state */
+    .audio-btn.muted-active {
+        background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%) !important; /* Red for muted */
+    }
+    
+    .volume-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 250px;
+      margin: 0 auto;
+    }
+    
+    .volume-slider {
+      flex-grow: 1;
+      height: 6px;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    
+    .volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #009688; /* Teal thumb */
+    }
+    
+    .playback-rate {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .rate-btn {
+      padding: 5px 15px;
+      background: rgba(0, 0, 0, 0.1);
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      color: #555; /* Dark gray for rate button */
+    }
+    
+    .rate-btn.active {
+      background: linear-gradient(135deg, #009688 0%, #00796b 100%); /* Teal gradient for active */
+      color: #fff; /* White text for contrast */
+      font-weight: bold;
+    }
+    
+    .reciter-info {
+      text-align: center;
+      margin-top: 15px;
+      color: #555; /* Dark gray for reciter info */
+      font-size: 1.1rem;
+    }
+    
+    .reciter-name {
+      font-weight: bold;
+      color: #00796b; /* Dark teal for reciter name */
+    }
+    
+    .verses-section {
+      background: linear-gradient(135deg, rgba(179, 229, 252, 0.4) 0%, rgba(129, 212, 250, 0.4) 100%); /* Light blue verses section */
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 30px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(144, 202, 249, 0.4);
+      backdrop-filter: blur(5px);
+    }
+    
+    .verses-section h2 {
+      color: #00796b; /* Dark teal for heading */
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    
+    .verses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .verse-card {
+      background: rgba(255, 255, 255, 0.8); /* White semi-transparent */
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(100, 181, 246, 0.4);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(5px);
+    }
+    
+    .verse-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .verse-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(135deg, #009688 0%, #00796b 100%); /* Teal gradient */
+    }
+    
+    .verse-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #009688; /* Teal for verse number */
+      margin-bottom: 15px;
+    }
+    
+    .verse-text {
+      font-size: 1.3rem;
+      color: #333;
+      margin-bottom: 15px;
+      line-height: 1.8;
+      min-height: 100px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    
+    .verse-translation {
+      color: #555; /* Darker gray for translation */
+      font-size: 1rem;
+      line-height: 1.6;
+      font-style: italic;
+      border-top: 1px dashed rgba(144, 202, 249, 0.6);
+      padding-top: 15px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.3; }
+      50% { transform: scale(1.1); opacity: 0.6; }
+      100% { transform: scale(1); opacity: 0.3; }
+    }
+    
+    @keyframes pulseWarning {
+      0% { box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.7); } /* Orange pulse for warning */
+      70% { box-shadow: 0 0 0 15px rgba(255, 152, 0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 152, 0, 0); }
+    }
+    
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+      }
+      
+      .surah-image {
+        max-height: 50vh;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .audio-controls {
+        gap: 8px;
+      }
+      
+      .audio-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+      }
+      
+      .audio-btn.large {
+        width: 55px;
+        height: 55px;
+      }
+      
+      .verse-text {
+        font-size: 1.1rem;
+      }
+      
+      .flame-icon {
+        width: 70px;
+        height: 70px;
+        top: 15px;
+        left: 15px;
+        font-size: 1.8rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .image-controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .control-btn {
+        width: 100%;
+      }
+      
+      .surah-image {
+        max-height: 40vh;
+      }
+      
+      header {
+        padding: 20px 15px;
+      }
+      
+      h1 {
+        font-size: 1.7rem;
+      }
+      
+      .audio-controls {
+        gap: 6px;
+      }
+      
+      .audio-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+      
+      .audio-btn.large {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .rate-btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+      }
+      
+      .verse-text {
+        font-size: 1rem;
+        min-height: 120px;
+      }
+    }
+    
+    /* Animation for page load */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    header, .image-section, .surah-details, .benefits-section, .audio-section, .verses-section, .warning-section {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    
+    .image-section { animation-delay: 0.1s; }
+    .surah-details { animation-delay: 0.2s; }
+    .warning-section { animation-delay: 0.3s; }
+    .benefits-section { animation-delay: 0.4s; }
+    .audio-section { animation-delay: 0.5s; }
+    .verses-section { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+  <div class="flame-icon">
+    <i class="fas fa-lightbulb"></i> </div>
+  
+  <div class="container">
+    <header>
+      <h1>سورة البينة</h1>
+      
+      <div class="surah-info">
+        <p>مدنية | 8 آيات | السورة الثامنة والتسعون في المصحف</p>
+      </div>
+      
+      <a href="../quran.html" class="back-btn">الرجوع إلى قائمة السور</a>
+    </header>
+    
+    <div class="warning-section">
+      <h3><i class="fas fa-exclamation-circle"></i> دعوة إلى الدين الحق</h3>
+      <p>سورة البينة توضح أن أهل الكتاب وغيرهم لم يكونوا ليتركوا ما هم عليه حتى تأتيهم البينة الواضحة.</p>
+    </div>
+    
+    <div class="main-content">
+      <div class="image-section">
+        <div class="image-controls">
+          <button class="control-btn" id="prevBtn">
+            <i class="fas fa-arrow-right"></i> الصورة السابقة
+          </button>
+          <button class="control-btn" id="nextBtn">
+            الصورة التالية <i class="fas fa-arrow-left"></i>
+          </button>
+          <button class="control-btn zoom" id="zoomInBtn">
+            <i class="fas fa-search-plus"></i> تكبير
+          </button>
+          <button class="control-btn zoom" id="zoomOutBtn">
+            <i class="fas fa-search-minus"></i> تصغير
+          </button>
+        </div>
+        
+        <div class="image-viewer-container" id="imageContainer">
+          <img src="quran-images/surah95-2.png" alt="صفحة سورة البينة" class="surah-image" id="surahImage">
+          <div class="image-info" id="imageInfo">1 / 2</div>
+        </div>
+      </div>
+      
+      <div class="surah-details">
+        <h2>معلومات عن السورة</h2>
+        <div class="details-content">
+          <p><span class="highlight">سورة البينة</span> هي سورة مدنية، عدد آياتها 8 آيات، وهي السورة الثامنة والتسعون في ترتيب المصحف.</p>
+          
+          <p>سُميت السورة بـ <span class="highlight">البينة</span> لأنها تتحدث عن البينة الواضحة التي جاءت من الله برسوله محمد ﷺ.</p>
+          
+          <p>تصف السورة حال <span class="highlight">أهل الكتاب والمشركين</span> قبل مجيء البينة، وكيف انقسموا بعدها.</p>
+          
+          <p>توضح السورة أن الدين الحق هو <span class="highlight">عبادة الله وحده</span> مخلصين له الدين، وإقامة الصلاة وإيتاء الزكاة.</p>
+          
+          <p>تختتم السورة ببيان <span class="highlight">جزاء الكافرين والمؤمنين</span>، وأن جزاء المؤمنين الصالحين هو جنات عدن.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="audio-section">
+      <h2>تلاوة سورة البينة</h2>
+      <div class="audio-player-container">
+        <audio id="quranAudio">
+          <source src="https://server10.mp3quran.net/minsh/098.mp3" type="audio/mpeg">
+          متصفحك لا يدعم مشغل الصوتيات.
+        </audio>
+        
+        <div class="progress-container" id="progressContainer">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        
+        <div class="time-display">
+          <span id="currentTime">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+        
+        <div class="audio-controls">
+          <button class="audio-btn secondary" id="rewindBtn">
+            <i class="fas fa-backward"></i>
+          </button>
+          
+          <button class="audio-btn large" id="playBtn">
+            <i class="fas fa-play"></i>
+          </button>
+          
+          <button class="audio-btn secondary" id="forwardBtn">
+            <i class="fas fa-forward"></i>
+          </button>
+          
+          <button class="audio-btn" id="muteBtn">
+            <i class="fas fa-volume-up"></i>
+          </button>
+        </div>
+        
+        <div class="volume-control">
+          <i class="fas fa-volume-down" style="color: #555;"></i>
+          <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+          <i class="fas fa-volume-up" style="color: #555;"></i>
+        </div>
+        
+        <div class="playback-rate">
+          <button class="rate-btn" data-rate="0.5">0.5x</button>
+          <button class="rate-btn active" data-rate="1">1x</button>
+          <button class="rate-btn" data-rate="1.5">1.5x</button>
+          <button class="rate-btn" data-rate="2">2x</button>
+        </div>
+        
+        <div class="reciter-info">
+          <p>تلاوة: <span class="reciter-name">الشيخ محمد صديق المنشاوي</span> - رحمه الله</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="verses-section">
+      <h2>آيات مضيئة من السورة</h2>
+      <div class="verses-grid">
+        <div class="verse-card">
+          <div class="verse-number">آية 1-3</div>
+          <div class="verse-text">لَمْ يَكُنِ الَّذِينَ كَفَرُوا مِنْ أَهْلِ الْكِتَابِ وَالْمُشْرِكِينَ مُنفَكِّينَ حَتَّىٰ تَأْتِيَهُمُ الْبَيِّنَةُ ﴿1﴾ رَسُولٌ مِّنَ اللَّهِ يَتْلُو صُحُفًا مُّطَهَّرَةً ﴿2﴾ فِيهَا كُتُبٌ قَيِّمَةٌ ﴿3﴾</div>
+          <div class="verse-translation">Those who disbelieved among the People of the Scripture and the polytheists would not have [ceased from disbelief] until there came to them clear evidence - (1) A Messenger from Allah, reciting purified scriptures (2) Within which are correct writings. (3)</div>
+        </div>
+        
+        <div class="verse-card">
+          <div class="verse-number">آية 4</div>
+          <div class="verse-text">وَمَا تَفَرَّقَ الَّذِينَ أُوتُوا الْكِتَابَ إِلَّا مِن بَعْدِ مَا جَاءَتْهُمُ الْبَيِّنَةُ ﴿4﴾</div>
+          <div class="verse-translation">Nor did those who were given the Scripture become divided until after there had come to them the clear evidence. (4)</div>
+        </div>
+        
+        <div class="verse-card">
+          <div class="verse-number">آية 5</div>
+          <div class="verse-text">وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ حُنَفَاءَ وَيُقِيمُوا الصَّلَاةَ وَيُؤْتُوا الزَّكَاةَ ۚ وَذَٰلِكَ دِينُ الْقَيِّمَةِ ﴿5﴾</div>
+          <div class="verse-translation">And they were not commanded except to worship Allah, [being] sincerely obedient to Him, inclining to truth, and to establish prayer and to give zakah. And that is the correct religion. (5)</div>
+        </div>
+        
+        <div class="verse-card">
+          <div class="verse-number">آية 6-8</div>
+          <div class="verse-text">إِنَّ الَّذِينَ كَفَرُوا مِنْ أَهْلِ الْكِتَابِ وَالْمُشْرِكِينَ فِي نَارِ جَهَنَّمَ خَالِدِينَ فِيهَا ۚ أُولَٰئِكَ هُمْ شَرُّ الْبَرِيَّةِ ﴿6﴾ إِنَّ الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ أُولَٰئِكَ هُمْ خَيْرُ الْبَرِيَّةِ ﴿7﴾ جَزَاؤُهُمْ عِندَ رَبِّهِمْ جَنَّاتُ عَدْنٍ تَجْرِي مِن تَحْتِهَا الْأَنْهَارُ خَالِدِينَ فِيهَا أَبَدًا ۖ رَضِيَ اللَّهُ عَنْهُمْ وَرَضُوا عَنْهُ ۚ ذَٰلِكَ لِمَنْ خَشِيَ رَبَّهُ ﴿8﴾</div>
+          <div class="verse-translation">Indeed, those who disbelieved among the People of the Scripture and the polytheists will be in the fire of Hell, abiding eternally therein. Those are the worst of creatures. (6) Indeed, those who believed and did righteous deeds - those are the best of creatures. (7) Their reward with their Lord will be gardens of perpetual residence beneath which rivers flow, wherein they will abide forever. Allah will be pleased with them, and they will be pleased with Him. That is for whoever has feared his Lord. (8)</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="benefits-section">
+      <h2>فوائد من سورة البينة</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>وضوح الحق</h3>
+          <p>تؤكد على وضوح الدليل والحجة التي جاء بها الإسلام.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-balance-scale"></i>
+          </div>
+          <h3>ميزان الحق والباطل</h3>
+          <p>تميز بين مصير أهل الحق والباطل بناءً على استجابتهم للبينة.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-pray"></i>
+          </div>
+          <h3>جوهر العبادة</h3>
+          <p>تحدد الغاية من الخلق وهي عبادة الله بإخلاص وإقامة شعائر الدين.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>جزاء المؤمنين</h3>
+          <p>تبشر المؤمنين الصالحين بجنات عدن والرضا من الله.</p>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <p>© 2025 موقع نور الهدى | سورة البينة</p>
+    </footer>
+  </div>
+
+  <script>
+    // صور سورة البينة
+    const images = [
+      "quran-images/surah95-2.png", // Using the provided image paths
+      "quran-images/surah96-1.png"
+    ];
+    
+    // متغيرات التحكم في الصور
+    let currentImageIndex = 0;
+    let currentZoom = 100;
+    const surahImage = document.getElementById('surahImage');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const zoomInBtn = document.getElementById('zoomInBtn');
+    const zoomOutBtn = document.getElementById('zoomOutBtn');
+    const imageInfo = document.getElementById('imageInfo');
+    
+    // تحميل البيانات عند بدء التشغيل
+    window.addEventListener('load', function() {
+      setupImageGallery();
+      setupAudioPlayer();
+      updateImageInfo();
+    });
+    
+    // دالة لإعداد معرض الصور
+    function setupImageGallery() {
+      // عرض الصورة الأولى
+      surahImage.src = images[currentImageIndex];
+      
+      // أحداث الأزرار
+      prevBtn.addEventListener('click', showPrevImage);
+      nextBtn.addEventListener('click', showNextImage);
+      zoomInBtn.addEventListener('click', zoomIn);
+      zoomOutBtn.addEventListener('click', zoomOut);
+      
+      // اختصارات لوحة المفاتيح
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight') {
+          showPrevImage();
+        } else if (e.key === 'ArrowLeft') {
+          showNextImage();
+        } else if (e.key === '+' || e.key === '=') {
+          zoomIn();
+        } else if (e.key === '-' || e.key === '_') {
+          zoomOut();
+        }
+      });
+      
+      // تكبير/تصغير الصورة بالماوس
+      const imageContainer = document.getElementById('imageContainer');
+      imageContainer.addEventListener('dblclick', function() {
+        if (currentZoom === 100) {
+          zoomIn();
+        } else {
+          resetZoom();
+        }
+      });
+      
+      // Disable prev/next buttons if only one image
+      if (images.length <= 1) {
+          prevBtn.disabled = true;
+          nextBtn.disabled = true;
+          prevBtn.style.opacity = '0.5';
+          nextBtn.style.opacity = '0.5';
+          prevBtn.style.cursor = 'not-allowed';
+          nextBtn.style.cursor = 'not-allowed';
+      }
+    }
+    
+    // دالة لعرض الصورة السابقة
+    function showPrevImage() {
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      surahImage.src = images[currentImageIndex];
+      animateImageChange();
+      updateImageInfo();
+    }
+    
+    // دالة لعرض الصورة التالية
+    function showNextImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      surahImage.src = images[currentImageIndex];
+      animateImageChange();
+      updateImageInfo();
+    }
+    
+    // دالة لتكبير الصورة
+    function zoomIn() {
+      if (currentZoom < 200) {
+        currentZoom += 20;
+        applyZoom();
+      }
+    }
+    
+    // دالة لتصغير الصورة
+    function zoomOut() {
+      if (currentZoom > 60) {
+        currentZoom -= 20;
+        applyZoom();
+      }
+    }
+    
+    // دالة لإعادة ضبط التكبير
+    function resetZoom() {
+      currentZoom = 100;
+      applyZoom();
+    }
+    
+    // تطبيق مستوى التكبير الحالي
+    function applyZoom() {
+      surahImage.style.transform = `scale(${currentZoom/100})`;
+      surahImage.style.transformOrigin = 'center center';
+      imageContainer.style.cursor = currentZoom > 100 ? 'zoom-out' : 'zoom-in';
+    }
+    
+    // دالة لإضافة تأثير عند تغيير الصور
+    function animateImageChange() {
+      surahImage.style.opacity = 0;
+      setTimeout(() => {
+        surahImage.style.opacity = 1;
+        surahImage.style.transition = 'opacity 0.5s ease-in-out';
+      }, 10);
+    }
+    
+    // تحديث معلومات الصورة
+    function updateImageInfo() {
+      imageInfo.textContent = `${currentImageIndex + 1} / ${images.length}`;
+    }
+    
+    // دالة لإعداد مشغل الصوت المحسن
+    function setupAudioPlayer() {
+      const audio = document.getElementById('quranAudio');
+      const playBtn = document.getElementById('playBtn');
+      const rewindBtn = document.getElementById('rewindBtn');
+      const forwardBtn = document.getElementById('forwardBtn');
+      const muteBtn = document.getElementById('muteBtn');
+      const progressBar = document.getElementById('progressBar');
+      const progressContainer = document.getElementById('progressContainer');
+      const currentTimeDisplay = document.getElementById('currentTime');
+      const durationDisplay = document.getElementById('duration');
+      const volumeSlider = document.getElementById('volumeSlider');
+      const rateButtons = document.querySelectorAll('.rate-btn');
+      
+      // تحميل البيانات عند بدء التشغيل
+      audio.addEventListener('loadedmetadata', function() {
+        updateTimeDisplay();
+        audio.volume = volumeSlider.value;
+      });
+      
+      // تحديث شريط التقدم
+      audio.addEventListener('timeupdate', function() {
+        updateProgressBar();
+        updateTimeDisplay();
+      });
+      
+      // عند انتهاء التشغيل
+      audio.addEventListener('ended', function() {
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        audio.currentTime = 0;
+      });
+      
+      // أحداث الأزرار
+      playBtn.addEventListener('click', togglePlay);
+      rewindBtn.addEventListener('click', rewind);
+      forwardBtn.addEventListener('click', forward);
+      muteBtn.addEventListener('click', toggleMute);
+      
+      // حدث شريط التقدم
+      progressContainer.addEventListener('click', setProgress);
+      
+      // حدث التحكم في الصوت
+      volumeSlider.addEventListener('input', function() {
+        audio.volume = this.value;
+        updateVolumeIcon();
+      });
+      
+      // أحداث تغيير سرعة التشغيل
+      rateButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const rate = parseFloat(this.getAttribute('data-rate'));
+          audio.playbackRate = rate;
+          
+          // تحديث الوضع النشط
+          rateButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+      
+      // وظائف المساعدة
+      function togglePlay() {
+        if (audio.paused) {
+          audio.play();
+          playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        } else {
+          audio.pause();
+          playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+      }
+      
+      function rewind() {
+        audio.currentTime = Math.max(0, audio.currentTime - 15);
+      }
+      
+      function forward() {
+        audio.currentTime = Math.min(audio.duration, audio.currentTime + 15);
+      }
+      
+      function toggleMute() {
+        audio.muted = !audio.muted;
+        updateVolumeIcon();
+      }
+      
+      function updateVolumeIcon() {
+        if (audio.muted || audio.volume === 0) {
+          muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+          muteBtn.classList.add('muted-active');
+        } else {
+          muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+          muteBtn.classList.remove('muted-active');
+        }
+      }
+      
+      function updateProgressBar() {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = percent + '%';
+      }
+      
+      function setProgress(e) {
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+      }
+      
+      function updateTimeDisplay() {
+        // الوقت الحالي
+        let minutes = Math.floor(audio.currentTime / 60);
+        let seconds = Math.floor(audio.currentTime % 60);
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        currentTimeDisplay.textContent = minutes + ':' + seconds;
+        
+        // المدة الكلية
+        minutes = Math.floor(audio.duration / 60);
+        seconds = Math.floor(audio.duration % 60);
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        
+        // تجنب عرض NaN
+        if (!isNaN(minutes) && !isNaN(seconds)) {
+          durationDisplay.textContent = minutes + ':' + seconds;
+        }
+      }
+    }
+  </script>
+</body>
+</html>
